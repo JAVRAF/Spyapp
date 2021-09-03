@@ -6,15 +6,32 @@
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .test {border: solid black 1px}
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    My very custom message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/Program files/XAMPP/apps/spyapp/src/Controller/DefaultController.php'|file_link(0) }}">src/Controller/DefaultController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/Program files/XAMPP/apps/spyapp/templates/default/index.html.twig'|file_link(0) }}">templates/default/index.html.twig</a></code></li>
-    </ul>
+    <h1>Missions :</h1>
+    {% if missionsCount > 0  %}
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Codename</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+        {% for mission in missions %}
+        <tr>
+            <td>{{ mission.title }}</td>
+            <td>{{ mission.codename }}</td>
+            <td>{{ mission.type }}</td>
+            <td>{{ mission.status }}</td>
+            <td><a href="{{ path('app_details_display', {'id' : mission.id  }) }}">Détails</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <h2>Aucune mission à afficher</h2>
+    {% endif %}
 </div>
 {% endblock %}
