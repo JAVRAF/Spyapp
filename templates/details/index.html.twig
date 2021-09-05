@@ -18,8 +18,11 @@
         <li>Codename: {{ mission.codename }}</li>
         <li>Type: {{ mission.type }}</li>
         <li>Description: {{ mission.description }}</li>
+{#        <li>Description: {{ mission.country }}</li>#}
+{#        <li>Description: {{ mission.requiredSpecialty }}</li>#}
+{#        <li>Description: {{ mission.beginDate }}</li>#}
+{#        <li>Description: {{ mission.endDate }}</li>#}
         <li class="{{ mission.status }}">Status: {% if mission.status is same as ('In_progress') %} In progress {% else %} {{ mission.status }} {% endif %}</li>
-
     </ul>
 </div>
 {% endblock %}

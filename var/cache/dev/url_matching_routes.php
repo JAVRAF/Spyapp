@@ -42,7 +42,7 @@ return [
                     .')'
                     .'|error/(\\d+)(?:\\.([^/]++))?(*:159)'
                 .')'
-                .'|/details/([^/]++)(*:185)'
+                .'|/details/(\\d+)(*:182)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -53,7 +53,7 @@ return [
         114 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         124 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         159 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
-        185 => [
+        182 => [
             [['_route' => 'app_details_display', '_controller' => 'App\\Controller\\DetailsController::display'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

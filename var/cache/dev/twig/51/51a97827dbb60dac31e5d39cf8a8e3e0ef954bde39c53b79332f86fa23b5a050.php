@@ -115,19 +115,19 @@ class __TwigTemplate_833165c3bfd56736905df438c8efb7c7d55ac06fe209e07136a32617dfa
         // line 20
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["mission"]) || array_key_exists("mission", $context) ? $context["mission"] : (function () { throw new RuntimeError('Variable "mission" does not exist.', 20, $this->source); })()), "description", [], "any", false, false, false, 20), "html", null, true);
         echo "</li>
-        <li class=\"";
-        // line 21
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["mission"]) || array_key_exists("mission", $context) ? $context["mission"] : (function () { throw new RuntimeError('Variable "mission" does not exist.', 21, $this->source); })()), "status", [], "any", false, false, false, 21), "html", null, true);
+";
+        // line 25
+        echo "        <li class=\"";
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["mission"]) || array_key_exists("mission", $context) ? $context["mission"] : (function () { throw new RuntimeError('Variable "mission" does not exist.', 25, $this->source); })()), "status", [], "any", false, false, false, 25), "html", null, true);
         echo "\">Status: ";
-        if ((twig_get_attribute($this->env, $this->source, (isset($context["mission"]) || array_key_exists("mission", $context) ? $context["mission"] : (function () { throw new RuntimeError('Variable "mission" does not exist.', 21, $this->source); })()), "status", [], "any", false, false, false, 21) === "In_progress")) {
+        if ((twig_get_attribute($this->env, $this->source, (isset($context["mission"]) || array_key_exists("mission", $context) ? $context["mission"] : (function () { throw new RuntimeError('Variable "mission" does not exist.', 25, $this->source); })()), "status", [], "any", false, false, false, 25) === "In_progress")) {
             echo " In progress ";
         } else {
             echo " ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["mission"]) || array_key_exists("mission", $context) ? $context["mission"] : (function () { throw new RuntimeError('Variable "mission" does not exist.', 21, $this->source); })()), "status", [], "any", false, false, false, 21), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["mission"]) || array_key_exists("mission", $context) ? $context["mission"] : (function () { throw new RuntimeError('Variable "mission" does not exist.', 25, $this->source); })()), "status", [], "any", false, false, false, 25), "html", null, true);
             echo " ";
         }
         echo "</li>
-
     </ul>
 </div>
 ";
@@ -151,7 +151,7 @@ class __TwigTemplate_833165c3bfd56736905df438c8efb7c7d55ac06fe209e07136a32617dfa
 
     public function getDebugInfo()
     {
-        return array (  120 => 21,  116 => 20,  112 => 19,  108 => 18,  104 => 17,  99 => 15,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  120 => 25,  116 => 20,  112 => 19,  108 => 18,  104 => 17,  99 => 15,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -176,8 +176,11 @@ class __TwigTemplate_833165c3bfd56736905df438c8efb7c7d55ac06fe209e07136a32617dfa
         <li>Codename: {{ mission.codename }}</li>
         <li>Type: {{ mission.type }}</li>
         <li>Description: {{ mission.description }}</li>
+{#        <li>Description: {{ mission.country }}</li>#}
+{#        <li>Description: {{ mission.requiredSpecialty }}</li>#}
+{#        <li>Description: {{ mission.beginDate }}</li>#}
+{#        <li>Description: {{ mission.endDate }}</li>#}
         <li class=\"{{ mission.status }}\">Status: {% if mission.status is same as ('In_progress') %} In progress {% else %} {{ mission.status }} {% endif %}</li>
-
     </ul>
 </div>
 {% endblock %}

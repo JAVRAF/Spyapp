@@ -19,7 +19,7 @@ return [
     'asset' => [[], ['_controller' => 'App\\Controller\\AssetController::index'], [], [['text', '/asset']], [], []],
     'app_country_add' => [[], ['_controller' => 'App\\Controller\\CountryController::add'], [], [['text', '/country']], [], []],
     'app_default_index' => [[], ['_controller' => 'App\\Controller\\DefaultController::index'], [], [['text', '/']], [], []],
-    'app_details_display' => [['id'], ['_controller' => 'App\\Controller\\DetailsController::display'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/details']], [], []],
+    'app_details_display' => [['id'], ['_controller' => 'App\\Controller\\DetailsController::display'], ['id' => '\\d+'], [['variable', '/', '\\d+', 'id', true], ['text', '/details']], [], []],
     'hideout' => [[], ['_controller' => 'App\\Controller\\HideoutController::index'], [], [['text', '/hideout']], [], []],
     'mission' => [[], ['_controller' => 'App\\Controller\\MissionController::index'], [], [['text', '/mission']], [], []],
     'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], []],

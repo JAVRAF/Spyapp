@@ -9,11 +9,18 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DetailsController extends AbstractController
 {
-     #[Route('/details/{id}')]
+    /**
+     * @Route("/details/{id}", requirements={"id"="\d+"})
+     */
     public function display(int $id, MissionRepository $MissionRepository): Response
     {
         $mission = $MissionRepository->find($id);
         $name = $mission->getTitle();
+        dump($mission->getAgent());
+        dump($mission->getRequiredSpecialty());
+        dump($mission->getCountry());
+        dump($mission->getBeginDate());
+
 
         return $this->render('details/index.html.twig', [
             'mission_name' => $name,
