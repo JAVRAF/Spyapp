@@ -269,3 +269,14 @@ b608a7,::1,GET,http://localhost/login,1630599405,,200
 118fad,::1,GET,http://localhost/login,1630599441,,200
 382fbb,::1,GET,http://localhost/logout,1630599444,,302
 73148d,::1,GET,http://localhost/,1630599444,,200
+ab4e9e,::1,GET,http://localhost/,1630670663,,200
+59a0f3,::1,GET,http://localhost/favicon.ico,1630670665,aa6bb0,404
+aa6bb0,::1,GET,http://localhost/favicon.ico,1630670665,,404
+37674c,::1,GET,http://localhost/details/1,1630670671,,200
+a5dc57,::1,GET,http://localhost/details/2,1630670675,,200
+71b135,::1,GET,http://localhost/details/3,1630670678,,200
+ec19fb,::1,GET,http://localhost/,1631005020,,200
+71392b,::1,GET,http://localhost/favicon.ico,1631005021,7811ca,404
+7811ca,::1,GET,http://localhost/favicon.ico,1631005021,,404
+608de8,::1,GET,http://localhost/details/1,1631005026,,200
+2d9567,::1,GET,http://localhost/details/2,1631005029,,200

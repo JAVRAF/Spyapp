@@ -191,6 +191,6 @@ class __TwigTemplate_fe58843a394287506b0e4d4d6cd7fb28f990455cc093e4fcb22d4c4b254
         {% block body %}{% endblock %}
     </body>
 </html>
-", "base.html.twig", "D:\\Program files\\XAMPP\\apps\\spyapp\\templates\\base.html.twig");
+", "base.html.twig", "C:\\xampp\\apps\\Spyapp\\templates\\base.html.twig");
     }
 }

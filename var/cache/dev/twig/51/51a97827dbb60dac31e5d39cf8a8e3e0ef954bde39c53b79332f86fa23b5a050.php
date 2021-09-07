@@ -181,6 +181,6 @@ class __TwigTemplate_833165c3bfd56736905df438c8efb7c7d55ac06fe209e07136a32617dfa
     </ul>
 </div>
 {% endblock %}
-", "details/index.html.twig", "D:\\Program files\\XAMPP\\apps\\spyapp\\templates\\details\\index.html.twig");
+", "details/index.html.twig", "C:\\xampp\\apps\\Spyapp\\templates\\details\\index.html.twig");
     }
 }
