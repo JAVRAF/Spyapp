@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Spyapp{% endblock %}</title>
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
@@ -12,8 +12,51 @@
         {% block javascripts %}
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
+
+        <style>
+            body {
+                margin: 0px;
+                font-family: "Agency FB";
+            }
+            ul.nav {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #333;
+            }
+            li.nav {
+                float: left;
+            }
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+            li a:hover {
+                background-color: #111;
+            }
+            .active {
+                background-color: #04AA6D;
+            }
+            header {
+                width: 100%;
+            }
+        </style>
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <header>
+            <nav>
+                <ul class="nav">
+                    <li class="nav"><a href="/">Missions</a></li>
+                    <li class="nav"><a href="login">Login</a></li>
+                    <li class="nav"><a href="logout">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>{% block body %}{% endblock %}</main>
+        <footer></footer>
     </body>
 </html>

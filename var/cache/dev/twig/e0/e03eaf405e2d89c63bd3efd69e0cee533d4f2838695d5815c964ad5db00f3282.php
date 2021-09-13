@@ -62,13 +62,56 @@ class __TwigTemplate_fe58843a394287506b0e4d4d6cd7fb28f990455cc093e4fcb22d4c4b254
         // line 12
         $this->displayBlock('javascripts', $context, $blocks);
         // line 15
-        echo "    </head>
+        echo "
+        <style>
+            body {
+                margin: 0px;
+                font-family: \"Agency FB\";
+            }
+            ul.nav {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #333;
+            }
+            li.nav {
+                float: left;
+            }
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+            li a:hover {
+                background-color: #111;
+            }
+            .active {
+                background-color: #04AA6D;
+            }
+            header {
+                width: 100%;
+            }
+        </style>
+    </head>
     <body>
-        ";
-        // line 17
+        <header>
+            <nav>
+                <ul class=\"nav\">
+                    <li class=\"nav\"><a href=\"/\">Missions</a></li>
+                    <li class=\"nav\"><a href=\"login\">Login</a></li>
+                    <li class=\"nav\"><a href=\"logout\">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>";
+        // line 59
         $this->displayBlock('body', $context, $blocks);
-        // line 18
-        echo "    </body>
+        echo "</main>
+        <footer></footer>
+    </body>
 </html>
 ";
         
@@ -89,7 +132,7 @@ class __TwigTemplate_fe58843a394287506b0e4d4d6cd7fb28f990455cc093e4fcb22d4c4b254
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Welcome!";
+        echo "Spyapp";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -142,7 +185,7 @@ class __TwigTemplate_fe58843a394287506b0e4d4d6cd7fb28f990455cc093e4fcb22d4c4b254
 
     }
 
-    // line 17
+    // line 59
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -167,7 +210,7 @@ class __TwigTemplate_fe58843a394287506b0e4d4d6cd7fb28f990455cc093e4fcb22d4c4b254
 
     public function getDebugInfo()
     {
-        return array (  146 => 17,  136 => 14,  134 => 13,  124 => 12,  114 => 10,  112 => 9,  102 => 8,  83 => 5,  71 => 18,  69 => 17,  65 => 15,  63 => 12,  60 => 11,  57 => 8,  53 => 5,  47 => 1,);
+        return array (  189 => 59,  179 => 14,  177 => 13,  167 => 12,  157 => 10,  155 => 9,  145 => 8,  126 => 5,  111 => 59,  65 => 15,  63 => 12,  60 => 11,  57 => 8,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -176,7 +219,7 @@ class __TwigTemplate_fe58843a394287506b0e4d4d6cd7fb28f990455cc093e4fcb22d4c4b254
 <html>
     <head>
         <meta charset=\"UTF-8\">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Spyapp{% endblock %}</title>
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
@@ -186,9 +229,52 @@ class __TwigTemplate_fe58843a394287506b0e4d4d6cd7fb28f990455cc093e4fcb22d4c4b254
         {% block javascripts %}
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
+
+        <style>
+            body {
+                margin: 0px;
+                font-family: \"Agency FB\";
+            }
+            ul.nav {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #333;
+            }
+            li.nav {
+                float: left;
+            }
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+            li a:hover {
+                background-color: #111;
+            }
+            .active {
+                background-color: #04AA6D;
+            }
+            header {
+                width: 100%;
+            }
+        </style>
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <header>
+            <nav>
+                <ul class=\"nav\">
+                    <li class=\"nav\"><a href=\"/\">Missions</a></li>
+                    <li class=\"nav\"><a href=\"login\">Login</a></li>
+                    <li class=\"nav\"><a href=\"logout\">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>{% block body %}{% endblock %}</main>
+        <footer></footer>
     </body>
 </html>
 ", "base.html.twig", "C:\\xampp\\apps\\Spyapp\\templates\\base.html.twig");

@@ -38,4 +38,9 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/country, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/agent, roles: ROLE_ADMIN }
+        - { path: ^/asset, roles: ROLE_ADMIN }
+        #- { path: ^/target, roles: ROLE_ADMIN }
+        #- { path: ^/mission, roles: ROLE_ADMIN
+        #- { path: ^/spec, roles: ROLE_ADMIN }
+        #- { path: ^/hideout, roles: ROLE_ADMIN }

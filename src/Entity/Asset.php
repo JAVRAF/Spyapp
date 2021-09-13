@@ -28,9 +28,9 @@ class Asset
     private $surname;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="date")
      */
-    private $date;
+    private $dob;
 
     /**
      * @ORM\Column(type="integer")
@@ -77,14 +77,14 @@ class Asset
         return $this;
     }
 
-    public function getDate(): ?string
+    public function getDob(): ?\DateTimeInterface
     {
-        return $this->date;
+        return $this->dob;
     }
 
-    public function setDate(string $date): self
+    public function setDob(\DateTimeInterface $dob): self
     {
-        $this->date = $date;
+        $this->dob = $dob;
 
         return $this;
     }

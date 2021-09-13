@@ -352,7 +352,16 @@
         <argument type="service" id=".service_locator.W9y3dzm.App\Controller\TargetController"/>
       </call>
     </service>
+    <service id="App\Form\AgentType" class="App\Form\AgentType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\AssetType" class="App\Form\AssetType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\CountryType" class="App\Form\CountryType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\HideoutType" class="App\Form\HideoutType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Repository\AdminRepository" class="App\Repository\AdminRepository" autowire="true" autoconfigure="true">
@@ -390,6 +399,7 @@
     <service id="App\Security\LoginFromAuthenticator" class="App\Security\LoginFromAuthenticator" autowire="true" autoconfigure="true">
       <argument type="service" id="router.default"/>
     </service>
+    <service id="App\Service\CountryManager" class="App\Service\CountryManager" autowire="true" autoconfigure="true"/>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory"/>
     <service id="response_listener" class="Symfony\Component\HttpKernel\EventListener\ResponseListener">
       <tag name="kernel.event_subscriber"/>
@@ -845,7 +855,10 @@
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
       </argument>
       <argument type="collection">
+        <argument>App\Form\AgentType</argument>
+        <argument>App\Form\AssetType</argument>
         <argument>App\Form\CountryType</argument>
+        <argument>App\Form\HideoutType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -1245,7 +1258,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.qNyDEHx"/>
+      <argument type="service" id=".service_locator.l0G9Q2L"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -3470,6 +3483,20 @@
         </argument>
         <argument>null</argument>
       </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.anXMBj."/>
+        <argument type="collection">
+          <argument>ROLE_ADMIN</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.uQSFpcI"/>
+        <argument type="collection">
+          <argument>ROLE_ADMIN</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
     </service>
     <service id="security.context_listener" class="Symfony\Component\Security\Http\Firewall\ContextListener">
       <tag name="monolog.logger" channel="security"/>
@@ -4012,6 +4039,12 @@
     <service id=".security.request_matcher.5fc5YKi" class="Symfony\Component\HttpFoundation\RequestMatcher">
       <argument>^/country</argument>
     </service>
+    <service id=".security.request_matcher.anXMBj." class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/agent</argument>
+    </service>
+    <service id=".security.request_matcher.uQSFpcI" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/asset</argument>
+    </service>
     <service id="security.command.user_password_encoder" class="Symfony\Bundle\SecurityBundle\Command\UserPasswordEncoderCommand">
       <tag name="console.command" command="security:encode-password"/>
       <tag name="container.no_preload"/>
@@ -4133,8 +4166,14 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\TargetController" class="App\Controller\TargetController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\TargetController" class="App\Controller\TargetController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\TargetController" class="App\Controller\TargetController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\AgentType" class="App\Form\AgentType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\AgentType" class="App\Form\AgentType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\AssetType" class="App\Form\AssetType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\AssetType" class="App\Form\AssetType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CountryType" class="App\Form\CountryType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\CountryType" class="App\Form\CountryType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\HideoutType" class="App\Form\HideoutType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\HideoutType" class="App\Form\HideoutType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\AdminRepository" class="App\Repository\AdminRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\AdminRepository" class="App\Repository\AdminRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\AgentRepository" class="App\Repository\AgentRepository" autowire="true" abstract="true"/>
@@ -4466,16 +4505,72 @@
         <argument key="loader" type="service_closure" id=".errored..service_locator.KfbR3DY.Symfony\Component\Config\Loader\LoaderInterface"/>
       </argument>
     </service>
+    <service id=".service_locator.h4TZExZ" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="agentRepository" type="service_closure" id="App\Repository\AgentRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.nWBCTtt" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="countryRepository" type="service_closure" id="App\Repository\AgentRepository"/>
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
+    <service id=".service_locator.Lo5OwJg" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="assetRepository" type="service_closure" id="App\Repository\AssetRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.6Y1UhM." class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="assetRepository" type="service_closure" id="App\Repository\AssetRepository"/>
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
+    <service id=".service_locator.VpwjogD" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="countryRepository" type="service_closure" id="App\Repository\AssetRepository"/>
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
+    <service id=".service_locator.1rC5dQh" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="countryRepository" type="service_closure" id="App\Repository\CountryRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.rKcdG11" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="countryRepository" type="service_closure" id="App\Repository\CountryRepository"/>
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
     <service id=".service_locator.1WMJv05" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="missionRepository" type="service_closure" id="App\Repository\MissionRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.LATupXy" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.6YukcaO" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="MissionRepository" type="service_closure" id="App\Repository\MissionRepository"/>
+        <argument key="agentRepository" type="service_closure" id="App\Repository\AgentRepository"/>
+        <argument key="assetRepository" type="service_closure" id="App\Repository\AssetRepository"/>
+        <argument key="hideoutRepository" type="service_closure" id="App\Repository\HideoutRepository"/>
+        <argument key="missionRepository" type="service_closure" id="App\Repository\MissionRepository"/>
+        <argument key="targetRepository" type="service_closure" id="App\Repository\TargetRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.aSuEoP9" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="hideoutRepository" type="service_closure" id="App\Repository\HideoutRepository"/>
       </argument>
     </service>
     <service id=".service_locator.UDgw6Ol" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -4484,11 +4579,21 @@
         <argument key="authenticationUtils" type="service_closure" id="security.authentication_utils"/>
       </argument>
     </service>
-    <service id=".service_locator.SiQRs25" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.GhcK7Dl" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Controller\AgentController::delete" type="service_closure" id=".service_locator.nWBCTtt"/>
+        <argument key="App\Controller\AgentController::edit" type="service_closure" id=".service_locator.nWBCTtt"/>
+        <argument key="App\Controller\AgentController::list" type="service_closure" id=".service_locator.h4TZExZ"/>
+        <argument key="App\Controller\AssetController::delete" type="service_closure" id=".service_locator.VpwjogD"/>
+        <argument key="App\Controller\AssetController::edit" type="service_closure" id=".service_locator.6Y1UhM."/>
+        <argument key="App\Controller\AssetController::list" type="service_closure" id=".service_locator.Lo5OwJg"/>
+        <argument key="App\Controller\CountryController::delete" type="service_closure" id=".service_locator.rKcdG11"/>
+        <argument key="App\Controller\CountryController::edit" type="service_closure" id=".service_locator.rKcdG11"/>
+        <argument key="App\Controller\CountryController::list" type="service_closure" id=".service_locator.1rC5dQh"/>
         <argument key="App\Controller\DefaultController::index" type="service_closure" id=".service_locator.1WMJv05"/>
-        <argument key="App\Controller\DetailsController::display" type="service_closure" id=".service_locator.LATupXy"/>
+        <argument key="App\Controller\DetailsController::display" type="service_closure" id=".service_locator.6YukcaO"/>
+        <argument key="App\Controller\HideoutController::list" type="service_closure" id=".service_locator.aSuEoP9"/>
         <argument key="App\Controller\SecurityController::login" type="service_closure" id=".service_locator.UDgw6Ol"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
@@ -4496,8 +4601,18 @@
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel::terminate" type="service_closure" id=".service_locator.KfwZsne"/>
+        <argument key="App\Controller\AgentController:delete" type="service_closure" id=".service_locator.nWBCTtt"/>
+        <argument key="App\Controller\AgentController:edit" type="service_closure" id=".service_locator.nWBCTtt"/>
+        <argument key="App\Controller\AgentController:list" type="service_closure" id=".service_locator.h4TZExZ"/>
+        <argument key="App\Controller\AssetController:delete" type="service_closure" id=".service_locator.VpwjogD"/>
+        <argument key="App\Controller\AssetController:edit" type="service_closure" id=".service_locator.6Y1UhM."/>
+        <argument key="App\Controller\AssetController:list" type="service_closure" id=".service_locator.Lo5OwJg"/>
+        <argument key="App\Controller\CountryController:delete" type="service_closure" id=".service_locator.rKcdG11"/>
+        <argument key="App\Controller\CountryController:edit" type="service_closure" id=".service_locator.rKcdG11"/>
+        <argument key="App\Controller\CountryController:list" type="service_closure" id=".service_locator.1rC5dQh"/>
         <argument key="App\Controller\DefaultController:index" type="service_closure" id=".service_locator.1WMJv05"/>
-        <argument key="App\Controller\DetailsController:display" type="service_closure" id=".service_locator.LATupXy"/>
+        <argument key="App\Controller\DetailsController:display" type="service_closure" id=".service_locator.6YukcaO"/>
+        <argument key="App\Controller\HideoutController:list" type="service_closure" id=".service_locator.aSuEoP9"/>
         <argument key="App\Controller\SecurityController:login" type="service_closure" id=".service_locator.UDgw6Ol"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
@@ -4550,10 +4665,13 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.qNyDEHx" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.l0G9Q2L" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Form\AgentType" type="service_closure" id="App\Form\AgentType"/>
+        <argument key="App\Form\AssetType" type="service_closure" id="App\Form\AssetType"/>
         <argument key="App\Form\CountryType" type="service_closure" id="App\Form\CountryType"/>
+        <argument key="App\Form\HideoutType" type="service_closure" id="App\Form\HideoutType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service_closure" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service_closure" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ColorType" type="service_closure" id="form.type.color"/>
@@ -4788,12 +4906,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.SiQRs25"/>
+      <argument type="service" id=".service_locator.GhcK7Dl"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.SiQRs25"/>
+      <argument type="service" id=".service_locator.GhcK7Dl"/>
     </service>
     <service id=".doctrine.orm.default_metadata_driver.inner" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain">
       <call method="addDriver">
@@ -5564,7 +5682,7 @@
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.0GV1BZZ" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.SiQRs25"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.GhcK7Dl"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -5588,8 +5706,16 @@
     <service id="doctrine.orm.default_metadata_driver" alias=".doctrine.orm.default_metadata_driver"/>
     <service id=".service_locator._5g_Wvc" alias=".service_locator.KfwZsne"/>
     <service id=".service_locator.JBAFp66" alias=".service_locator.KfbR3DY"/>
+    <service id=".service_locator.r176jwL" alias=".service_locator.h4TZExZ"/>
+    <service id=".service_locator.WGHxwQL" alias=".service_locator.nWBCTtt"/>
+    <service id=".service_locator.Ua.6kfQ" alias=".service_locator.Lo5OwJg"/>
+    <service id=".service_locator.vCYei.a" alias=".service_locator.6Y1UhM."/>
+    <service id=".service_locator.JgDnri_" alias=".service_locator.VpwjogD"/>
+    <service id=".service_locator.u8ZRHcj" alias=".service_locator.1rC5dQh"/>
+    <service id=".service_locator.DhrLv_b" alias=".service_locator.rKcdG11"/>
     <service id=".service_locator.2Xi1YC9" alias=".service_locator.1WMJv05"/>
-    <service id=".service_locator.H6OT5ce" alias=".service_locator.LATupXy"/>
+    <service id=".service_locator.UriUs_J" alias=".service_locator.6YukcaO"/>
+    <service id=".service_locator.BQFEi.P" alias=".service_locator.aSuEoP9"/>
     <service id=".service_locator.kXCVHeG" alias=".service_locator.UDgw6Ol"/>
     <service id=".service_locator.S3Bk2.h" alias=".service_locator.W9y3dzm"/>
   </services>
