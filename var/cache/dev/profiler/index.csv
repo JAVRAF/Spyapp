@@ -326,3 +326,5 @@ f84fbb,::1,GET,http://localhost/favicon.ico,1631531893,d800bf,404
 d800bf,::1,GET,http://localhost/favicon.ico,1631531893,,404
 5f7353,::1,GET,http://localhost/,1631540028,,200
 d6a8f8,::1,GET,http://localhost/details/1,1631540033,,200
+969a5a,::1,GET,http://localhost/details/2,1631540986,,200
+68b94d,::1,GET,http://localhost/details/3,1631540990,,200
