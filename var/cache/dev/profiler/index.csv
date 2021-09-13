@@ -321,3 +321,8 @@ bca687,::1,GET,http://localhost/details/1,1630685755,31a1a7,500
 ccb1c4,::1,GET,http://localhost/details/1,1630686779,9fe265,500
 9fe265,::1,GET,http://localhost/details/1,1630686779,,500
 bb90b6,::1,GET,http://localhost/details/1,1630686788,,200
+0a508e,::1,GET,http://localhost/,1631531885,,200
+f84fbb,::1,GET,http://localhost/favicon.ico,1631531893,d800bf,404
+d800bf,::1,GET,http://localhost/favicon.ico,1631531893,,404
+5f7353,::1,GET,http://localhost/,1631540028,,200
+d6a8f8,::1,GET,http://localhost/details/1,1631540033,,200
