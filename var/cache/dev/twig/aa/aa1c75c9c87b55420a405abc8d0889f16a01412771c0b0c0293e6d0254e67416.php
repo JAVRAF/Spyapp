@@ -1349,6 +1349,6 @@ class __TwigTemplate_6ff84d1f9e884c0dbc94c2cd4109f2a8c52828c3bce467bb457a09d9892
         <span>{{ route|default(controller) }}</span>
     {%- endif %}
 {% endmacro %}
-", "@WebProfiler/Collector/request.html.twig", "D:\\Program files\\XAMPP\\apps\\spyapp\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\request.html.twig");
+", "@WebProfiler/Collector/request.html.twig", "C:\\xampp\\apps\\Spyapp\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\request.html.twig");
     }
 }

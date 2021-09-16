@@ -471,6 +471,6 @@ class __TwigTemplate_126b817b24b27b59405e7c22896993e8ca69eba9809a800346686f99a09
         </div>
     {% endif %}
 {% endblock %}
-", "@WebProfiler/Collector/twig.html.twig", "D:\\Program files\\XAMPP\\apps\\spyapp\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\twig.html.twig");
+", "@WebProfiler/Collector/twig.html.twig", "C:\\xampp\\apps\\Spyapp\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\twig.html.twig");
     }
 }

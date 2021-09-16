@@ -227,6 +227,6 @@ class __TwigTemplate_2bb9a12f212f06f898c0949e5873136e14c2c76ba3e8ff5c321182a5bb6
         </div>
     </form>
 </div>
-", "@WebProfiler/Profiler/search.html.twig", "D:\\Program files\\XAMPP\\apps\\spyapp\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\search.html.twig");
+", "@WebProfiler/Profiler/search.html.twig", "C:\\xampp\\apps\\Spyapp\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\search.html.twig");
     }
 }

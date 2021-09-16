@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* hideout/index.html.twig */
+/* hideout/add.html.twig */
 class __TwigTemplate_0472d7a3bb13355ab5263002cbb62ea2217a7706a43a80d830f3dcd6517e7be6 extends Template
 {
     private $source;
@@ -40,9 +40,9 @@ class __TwigTemplate_0472d7a3bb13355ab5263002cbb62ea2217a7706a43a80d830f3dcd6517
     {
         $macros = $this->macros;
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "hideout/index.html.twig"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "hideout/add.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "hideout/index.html.twig", 1);
+        $this->parent = $this->loadTemplate("base.html.twig", "hideout/add.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -89,8 +89,8 @@ class __TwigTemplate_0472d7a3bb13355ab5263002cbb62ea2217a7706a43a80d830f3dcd6517
         echo "\">src/Controller/HideoutController.php</a></code></li>
         <li>Your template at <code><a href=\"";
         // line 17
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink("D:/Program files/XAMPP/apps/spyapp/templates/hideout/index.html.twig", 0), "html", null, true);
-        echo "\">templates/hideout/index.html.twig</a></code></li>
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink("D:/Program files/XAMPP/apps/spyapp/templates/hideout/add.html.twig", 0), "html", null, true);
+        echo "\">templates/hideout/add.html.twig</a></code></li>
     </ul>
 </div>
 ";
@@ -101,7 +101,7 @@ class __TwigTemplate_0472d7a3bb13355ab5263002cbb62ea2217a7706a43a80d830f3dcd6517
 
     public function getTemplateName()
     {
-        return "hideout/index.html.twig";
+        return "hideout/add.html.twig";
     }
 
     public function isTraitable()
@@ -132,10 +132,10 @@ class __TwigTemplate_0472d7a3bb13355ab5263002cbb62ea2217a7706a43a80d830f3dcd6517
     This friendly message is coming from:
     <ul>
         <li>Your controller at <code><a href=\"{{ 'D:/Program files/XAMPP/apps/spyapp/src/Controller/HideoutController.php'|file_link(0) }}\">src/Controller/HideoutController.php</a></code></li>
-        <li>Your template at <code><a href=\"{{ 'D:/Program files/XAMPP/apps/spyapp/templates/hideout/index.html.twig'|file_link(0) }}\">templates/hideout/index.html.twig</a></code></li>
+        <li>Your template at <code><a href=\"{{ 'D:/Program files/XAMPP/apps/spyapp/templates/hideout/add.html.twig'|file_link(0) }}\">templates/hideout/add.html.twig</a></code></li>
     </ul>
 </div>
 {% endblock %}
-", "hideout/index.html.twig", "D:\\Program files\\XAMPP\\apps\\spyapp\\templates\\hideout\\index.html.twig");
+", "hideout/add.html.twig", "D:\\Program files\\XAMPP\\apps\\spyapp\\templates\\hideout\\add.html.twig");
     }
 }

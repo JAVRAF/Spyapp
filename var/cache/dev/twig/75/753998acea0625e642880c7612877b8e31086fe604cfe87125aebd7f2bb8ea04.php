@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* agent/index.html.twig */
+/* agent/add.html.twig */
 class __TwigTemplate_e70db655343c8af75f23ccb38a53841a4642713028b58b0f08e18fd596422793 extends Template
 {
     private $source;
@@ -40,12 +40,12 @@ class __TwigTemplate_e70db655343c8af75f23ccb38a53841a4642713028b58b0f08e18fd5964
     {
         $macros = $this->macros;
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "agent/index.html.twig"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "agent/add.html.twig"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "agent/index.html.twig"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "agent/add.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "agent/index.html.twig", 1);
+        $this->parent = $this->loadTemplate("base.html.twig", "agent/add.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -65,7 +65,7 @@ class __TwigTemplate_e70db655343c8af75f23ccb38a53841a4642713028b58b0f08e18fd5964
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Hello AgentController!";
+        echo "Control panel";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -91,22 +91,20 @@ class __TwigTemplate_e70db655343c8af75f23ccb38a53841a4642713028b58b0f08e18fd5964
 </style>
 
 <div class=\"example-wrapper\">
-    <h1>Hello ";
-        // line 12
-        echo twig_escape_filter($this->env, (isset($context["controller_name"]) || array_key_exists("controller_name", $context) ? $context["controller_name"] : (function () { throw new RuntimeError('Variable "controller_name" does not exist.', 12, $this->source); })()), "html", null, true);
-        echo "! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href=\"";
+    <h1>Add a new operative :</h1>
+    ";
+        // line 13
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 13, $this->source); })()), 'form_start');
+        echo "
+    ";
+        // line 14
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 14, $this->source); })()), 'widget');
+        echo "
+    <input type=\"submit\" />
+    ";
         // line 16
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink("D:/Program files/XAMPP/apps/spyapp/src/Controller/AgentController.php", 0), "html", null, true);
-        echo "\">src/Controller/AgentController.php</a></code></li>
-        <li>Your template at <code><a href=\"";
-        // line 17
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink("D:/Program files/XAMPP/apps/spyapp/templates/agent/index.html.twig", 0), "html", null, true);
-        echo "\">templates/agent/index.html.twig</a></code></li>
-    </ul>
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 16, $this->source); })()), 'form_end');
+        echo "
 </div>
 ";
         
@@ -119,7 +117,7 @@ class __TwigTemplate_e70db655343c8af75f23ccb38a53841a4642713028b58b0f08e18fd5964
 
     public function getTemplateName()
     {
-        return "agent/index.html.twig";
+        return "agent/add.html.twig";
     }
 
     public function isTraitable()
@@ -129,14 +127,14 @@ class __TwigTemplate_e70db655343c8af75f23ccb38a53841a4642713028b58b0f08e18fd5964
 
     public function getDebugInfo()
     {
-        return array (  107 => 17,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  106 => 16,  101 => 14,  97 => 13,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Hello AgentController!{% endblock %}
+{% block title %}Control panel{% endblock %}
 
 {% block body %}
 <style>
@@ -145,15 +143,13 @@ class __TwigTemplate_e70db655343c8af75f23ccb38a53841a4642713028b58b0f08e18fd5964
 </style>
 
 <div class=\"example-wrapper\">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href=\"{{ 'D:/Program files/XAMPP/apps/spyapp/src/Controller/AgentController.php'|file_link(0) }}\">src/Controller/AgentController.php</a></code></li>
-        <li>Your template at <code><a href=\"{{ 'D:/Program files/XAMPP/apps/spyapp/templates/agent/index.html.twig'|file_link(0) }}\">templates/agent/index.html.twig</a></code></li>
-    </ul>
+    <h1>Add a new operative :</h1>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <input type=\"submit\" />
+    {{ form_end(form) }}
 </div>
 {% endblock %}
-", "agent/index.html.twig", "D:\\Program files\\XAMPP\\apps\\spyapp\\templates\\agent\\index.html.twig");
+", "agent/add.html.twig", "C:\\xampp\\apps\\Spyapp\\templates\\agent\\add.html.twig");
     }
 }

@@ -102,6 +102,6 @@ class __TwigTemplate_93fc3f831fc18e870dca20b519942139662576e78b9eaf99fd9d6f3417f
     {% if link|default(false) %}</a>{% endif %}
         <div class=\"sf-toolbar-info\">{{ text|default('') }}</div>
 </div>
-", "@WebProfiler/Profiler/toolbar_item.html.twig", "D:\\Program files\\XAMPP\\apps\\spyapp\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\toolbar_item.html.twig");
+", "@WebProfiler/Profiler/toolbar_item.html.twig", "C:\\xampp\\apps\\Spyapp\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\toolbar_item.html.twig");
     }
 }

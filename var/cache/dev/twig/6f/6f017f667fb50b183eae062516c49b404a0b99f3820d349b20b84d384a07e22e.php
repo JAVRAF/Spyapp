@@ -193,6 +193,6 @@ class __TwigTemplate_f43e541149f06d1cc31d2580864a58ce0286bcdcf9a5a2d0d7245f5c7f3
         {% block body '' %}
     </body>
 </html>
-", "@WebProfiler/Profiler/base.html.twig", "D:\\Program files\\XAMPP\\apps\\spyapp\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\base.html.twig");
+", "@WebProfiler/Profiler/base.html.twig", "C:\\xampp\\apps\\Spyapp\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\base.html.twig");
     }
 }

@@ -168,6 +168,6 @@ class __TwigTemplate_8f6a152bcf3a3d951420b998ad6980498e9ac2c848bdb6d38e0afcaa4a1
 
     {{ include('@WebProfiler/Profiler/toolbar_item.html.twig', { link: false }) }}
 {% endblock %}
-", "@WebProfiler/Collector/ajax.html.twig", "D:\\Program files\\XAMPP\\apps\\spyapp\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\ajax.html.twig");
+", "@WebProfiler/Collector/ajax.html.twig", "C:\\xampp\\apps\\Spyapp\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\ajax.html.twig");
     }
 }

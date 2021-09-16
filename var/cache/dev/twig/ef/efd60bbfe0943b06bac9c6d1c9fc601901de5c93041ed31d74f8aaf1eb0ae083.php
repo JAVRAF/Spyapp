@@ -1306,6 +1306,6 @@ $context["voter_detail"], "vote", [], "array", false, false, false, 357) == twig
         </table>
     {% endif %}
 {% endblock %}
-", "@Security/Collector/security.html.twig", "D:\\Program files\\XAMPP\\apps\\spyapp\\vendor\\symfony\\security-bundle\\Resources\\views\\Collector\\security.html.twig");
+", "@Security/Collector/security.html.twig", "C:\\xampp\\apps\\Spyapp\\vendor\\symfony\\security-bundle\\Resources\\views\\Collector\\security.html.twig");
     }
 }

@@ -1734,6 +1734,6 @@ if (typeof Sfjs === 'undefined' || typeof Sfjs.loadToolbar === 'undefined') {
     });
 }
 /*]]>*/</script>
-", "@WebProfiler/Profiler/base_js.html.twig", "D:\\Program files\\XAMPP\\apps\\spyapp\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\base_js.html.twig");
+", "@WebProfiler/Profiler/base_js.html.twig", "C:\\xampp\\apps\\Spyapp\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\base_js.html.twig");
     }
 }

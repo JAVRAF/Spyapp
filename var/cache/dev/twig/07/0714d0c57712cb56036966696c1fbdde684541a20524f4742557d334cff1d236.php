@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* admin/index.html.twig */
+/* admin/add.html.twig */
 class __TwigTemplate_01619a6ee855a0bd93e1b1b67c737a2246757621243977b2d77e8c0f50629fb7 extends Template
 {
     private $source;
@@ -40,12 +40,12 @@ class __TwigTemplate_01619a6ee855a0bd93e1b1b67c737a2246757621243977b2d77e8c0f506
     {
         $macros = $this->macros;
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "admin/index.html.twig"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "admin/add.html.twig"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "admin/index.html.twig"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "admin/add.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "admin/index.html.twig", 1);
+        $this->parent = $this->loadTemplate("base.html.twig", "admin/add.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -104,8 +104,8 @@ class __TwigTemplate_01619a6ee855a0bd93e1b1b67c737a2246757621243977b2d77e8c0f506
         echo "\">src/Controller/AdminController.php</a></code></li>
         <li>Your template at <code><a href=\"";
         // line 17
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink("D:/Program files/XAMPP/apps/spyapp/templates/admin/index.html.twig", 0), "html", null, true);
-        echo "\">templates/admin/index.html.twig</a></code></li>
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink("D:/Program files/XAMPP/apps/spyapp/templates/admin/add.html.twig", 0), "html", null, true);
+        echo "\">templates/admin/add.html.twig</a></code></li>
     </ul>
 </div>
 ";
@@ -119,7 +119,7 @@ class __TwigTemplate_01619a6ee855a0bd93e1b1b67c737a2246757621243977b2d77e8c0f506
 
     public function getTemplateName()
     {
-        return "admin/index.html.twig";
+        return "admin/add.html.twig";
     }
 
     public function isTraitable()
@@ -150,10 +150,10 @@ class __TwigTemplate_01619a6ee855a0bd93e1b1b67c737a2246757621243977b2d77e8c0f506
     This friendly message is coming from:
     <ul>
         <li>Your controller at <code><a href=\"{{ 'D:/Program files/XAMPP/apps/spyapp/src/Controller/AdminController.php'|file_link(0) }}\">src/Controller/AdminController.php</a></code></li>
-        <li>Your template at <code><a href=\"{{ 'D:/Program files/XAMPP/apps/spyapp/templates/admin/index.html.twig'|file_link(0) }}\">templates/admin/index.html.twig</a></code></li>
+        <li>Your template at <code><a href=\"{{ 'D:/Program files/XAMPP/apps/spyapp/templates/admin/add.html.twig'|file_link(0) }}\">templates/admin/add.html.twig</a></code></li>
     </ul>
 </div>
 {% endblock %}
-", "admin/index.html.twig", "D:\\Program files\\XAMPP\\apps\\spyapp\\templates\\admin\\index.html.twig");
+", "admin/add.html.twig", "D:\\Program files\\XAMPP\\apps\\spyapp\\templates\\admin\\add.html.twig");
     }
 }

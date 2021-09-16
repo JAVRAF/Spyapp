@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* mission/index.html.twig */
+/* mission/add.html.twig */
 class __TwigTemplate_8080eac0527f29d0fee67dacf4f459f2b672eb78e49b20021fc0fc4e4542f8e6 extends Template
 {
     private $source;
@@ -40,9 +40,9 @@ class __TwigTemplate_8080eac0527f29d0fee67dacf4f459f2b672eb78e49b20021fc0fc4e454
     {
         $macros = $this->macros;
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "mission/index.html.twig"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "mission/add.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "mission/index.html.twig", 1);
+        $this->parent = $this->loadTemplate("base.html.twig", "mission/add.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -89,8 +89,8 @@ class __TwigTemplate_8080eac0527f29d0fee67dacf4f459f2b672eb78e49b20021fc0fc4e454
         echo "\">src/Controller/MissionController.php</a></code></li>
         <li>Your template at <code><a href=\"";
         // line 17
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink("D:/Program files/XAMPP/apps/spyapp/templates/mission/index.html.twig", 0), "html", null, true);
-        echo "\">templates/mission/index.html.twig</a></code></li>
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink("D:/Program files/XAMPP/apps/spyapp/templates/mission/add.html.twig", 0), "html", null, true);
+        echo "\">templates/mission/add.html.twig</a></code></li>
     </ul>
 </div>
 ";
@@ -101,7 +101,7 @@ class __TwigTemplate_8080eac0527f29d0fee67dacf4f459f2b672eb78e49b20021fc0fc4e454
 
     public function getTemplateName()
     {
-        return "mission/index.html.twig";
+        return "mission/add.html.twig";
     }
 
     public function isTraitable()
@@ -132,10 +132,10 @@ class __TwigTemplate_8080eac0527f29d0fee67dacf4f459f2b672eb78e49b20021fc0fc4e454
     This friendly message is coming from:
     <ul>
         <li>Your controller at <code><a href=\"{{ 'D:/Program files/XAMPP/apps/spyapp/src/Controller/MissionController.php'|file_link(0) }}\">src/Controller/MissionController.php</a></code></li>
-        <li>Your template at <code><a href=\"{{ 'D:/Program files/XAMPP/apps/spyapp/templates/mission/index.html.twig'|file_link(0) }}\">templates/mission/index.html.twig</a></code></li>
+        <li>Your template at <code><a href=\"{{ 'D:/Program files/XAMPP/apps/spyapp/templates/mission/add.html.twig'|file_link(0) }}\">templates/mission/add.html.twig</a></code></li>
     </ul>
 </div>
 {% endblock %}
-", "mission/index.html.twig", "D:\\Program files\\XAMPP\\apps\\spyapp\\templates\\mission\\index.html.twig");
+", "mission/add.html.twig", "D:\\Program files\\XAMPP\\apps\\spyapp\\templates\\mission\\add.html.twig");
     }
 }

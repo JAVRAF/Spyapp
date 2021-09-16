@@ -1671,6 +1671,6 @@ class __TwigTemplate_6969428c24e5a21985326f77e67509c5b880b2f4ac5f0db249e1ac64fc4
         </tbody>
     </table>
 {% endmacro %}
-", "@Doctrine/Collector/db.html.twig", "D:\\Program files\\XAMPP\\apps\\spyapp\\vendor\\doctrine\\doctrine-bundle\\Resources\\views\\Collector\\db.html.twig");
+", "@Doctrine/Collector/db.html.twig", "C:\\xampp\\apps\\Spyapp\\vendor\\doctrine\\doctrine-bundle\\Resources\\views\\Collector\\db.html.twig");
     }
 }

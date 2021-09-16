@@ -1,28 +1,33 @@
 <?php
 
 namespace App\Controller;
-use App\Entity\Mission;
-use App\Repository\AgentRepository;
+
 use App\Repository\MissionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
 
 class DefaultController extends AbstractController
 {
     /**
      * @Route("/")
      */
-    public function index(MissionRepository $missionRepository): Response
+    public function index(Request $request, MissionRepository $missionRepository, PaginatorInterface $paginator): Response
     {
-
         $missions = $missionRepository->findAll();
-        $missionsCount = count($missions);
+
+        $pages = $paginator->paginate(
+            $missions,
+            $request->query->getInt('page', 1), 1
+        );
 
         return $this->render('default/index.html.twig', [
             'controller_name' => 'DefaultController',
             'missions' => $missions,
-            'missionsCount' => $missionsCount,
+            'missionsCount' => count($missions),
+            'pagination' => $pages
         ]);
     }
 }

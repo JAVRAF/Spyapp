@@ -210,6 +210,6 @@ class __TwigTemplate_808d6e01374aade003a6d0a8b7feeaeff93d7abcb91d471a1365608f9ce
     </button>
 </form>
 {% endblock %}
-", "security/login.html.twig", "D:\\Program files\\XAMPP\\apps\\spyapp\\templates\\security\\login.html.twig");
+", "security/login.html.twig", "C:\\xampp\\apps\\Spyapp\\templates\\security\\login.html.twig");
     }
 }

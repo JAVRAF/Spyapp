@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+
+        table, tr, th, td {
+            border: 1px solid black;
+        }
+
+        button {
+        }
+
+    </style>
+
+    <div class="example-wrapper">
+        <h1>Hideouts :</h1>
+        {% if hideoutsCount > 0  %}
+            <table>
+                <tr>
+                    <th>Code</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                {% for hideout in pagination %}
+                    <tr>
+                        <td>{{ hideout.code }}</td>
+                        <td><button onclick="window.location.href = '{{path('app_hideout_edit', {'id': hideout.id})}}'">Edit</button></td>
+                        <td><button onclick="window.location.href = '{{path('app_hideout_delete', {'id': hideout.id})}}'">Delete</button></td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <div>
+                {{ knp_pagination_render(pagination) }}
+            </div>
+        {% else %}
+            <h2>There is no hideouts</h2>
+        {% endif %}
+        <button onclick="window.location.href = '{{ path('app_hideout_add') }}'">Add a new hideout</button>
+    </div>
+{% endblock %}
