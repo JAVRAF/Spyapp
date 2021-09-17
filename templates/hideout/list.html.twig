@@ -23,17 +23,20 @@
                     <th></th>
                     <th></th>
                 </tr>
-                {% for hideout in hideouts %}
+                {% for hideout in pagination %}
                     <tr>
                         <td>{{ hideout.code }}</td>
-                        <td><button onclick="window.location.href = 'http://localhost/hideout/edit/{{ hideout.id }}'">Edit</button></td>
-                        <td><button onclick="window.location.href = 'http://localhost/hideout/delete/{{ hideout.id }}'">Delete</button></td>
+                        <td><button onclick="window.location.href = '{{path('app_hideout_edit', {'id': hideout.id})}}'">Edit</button></td>
+                        <td><button onclick="window.location.href = '{{path('app_hideout_delete', {'id': hideout.id})}}'">Delete</button></td>
                     </tr>
                 {% endfor %}
             </table>
+            <div>
+                {{ knp_pagination_render(pagination) }}
+            </div>
         {% else %}
             <h2>There is no hideouts</h2>
         {% endif %}
-        <button onclick="window.location.href = 'http://localhost/hideout/add'">Add a new hideout</button>
+        <button onclick="window.location.href = '{{ path('app_hideout_add') }}'">Add a new hideout</button>
     </div>
 {% endblock %}

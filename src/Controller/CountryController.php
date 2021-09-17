@@ -6,7 +6,7 @@ use App\Entity\Country;
 use App\Repository\CountryRepository;
 use App\Form\CountryType;
 use Doctrine\ORM\EntityManagerInterface;
-use http\Exception;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,14 +17,18 @@ class CountryController extends AbstractController
     /**
      *@Route("/country")
      */
-    public function list(CountryRepository $countryRepository): Response
+    public function list(CountryRepository $countryRepository, Request $request, PaginatorInterface $paginator): Response
     {
         $countries = $countryRepository->findAll();
-        $countriesCount = count($countries);
 
+        $pages = $paginator->paginate(
+            $countries,
+            $request->query->getInt('page', 1), 3
+        );
         return $this->render('country/list.html.twig', [
             'countries' => $countries,
-            'countriesCount' => $countriesCount
+            'countriesCount' => count($countries),
+            'pagination' => $pages
         ]);
     }
 
@@ -33,7 +37,7 @@ class CountryController extends AbstractController
      */
     public function add(Request $request): Response
     {
-        $isAdded = true;
+        $isAdded = false;
         $country = new Country();
         $form = $this->createForm(CountryType::class, $country);
         $form->handleRequest($request);
@@ -56,10 +60,10 @@ class CountryController extends AbstractController
     /**
      *@Route("/country/edit/{id}", requirements={"id"="\d+"})
      */
-    public function edit(int $id,Request $request, CountryRepository $countryRepository, EntityManagerInterface $entityManager): Response
+    public function edit(int $id,Request $request, CountryRepository $countryRepository): Response
     {
         $isedited = false;
-        $country = $entityManager->getRepository(Country::class)->findOneByid($id);
+        $country = $countryRepository->find($id);
 
         $form = $this->createForm(CountryType::class, $country);
         $form->handleRequest($request);
@@ -82,10 +86,11 @@ class CountryController extends AbstractController
     /**
      *@Route("/country/delete/{id}", requirements={"id"="\d+"})
      */
-    public function delete(int $id,CountryRepository $countryRepository, EntityManagerInterface $entityManager): Response
+    public function delete(int $id, CountryRepository $countryRepository): Response
     {
-        $country = $entityManager->getRepository(Country::class)->findOneByid($id);
+        $country = $countryRepository->find($id);
 
+        $entityManager = $this->getDoctrine()->getManager();
         $entityManager->remove($country);
         $entityManager->flush();
 

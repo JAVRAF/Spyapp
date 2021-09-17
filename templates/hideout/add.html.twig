@@ -12,7 +12,7 @@
     {{ form_start(form) }}
     {{ form_widget(form) }}
     <input type="submit" />
-    <button onclick="window.location.href = 'http://localhost/hideout/'">Back to hideout list</button>
     {{ form_end(form) }}
+    <button onclick="window.location.href = '{{ path('app_hideout_list') }}'">Back to hideout list</button>
 </div>
 {% endblock %}

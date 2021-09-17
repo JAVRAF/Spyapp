@@ -12,9 +12,10 @@
     {{ form_widget(form) }}
     <input type="submit" value="edit country"/>
     {{ form_end(form) }}
+    <button onclick="window.location.href = '{{ path('app_country_list') }}'">Back to country list</button>
     {% else %}
     <h1>The country {{ country.name }} has been edited! ✅</h1>
-        <button onclick="window.location.href = 'http://localhost/country/'">Back to country list</button>
+    <button onclick="window.location.href = '{{ path('app_country_list') }}'">Back to country list</button>
     {% endif %}
 </div>
 {% endblock %}

@@ -12,7 +12,6 @@
         {% block javascripts %}
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
-
         <style>
             body {
                 margin: 0px;
@@ -44,15 +43,25 @@
             header {
                 width: 100%;
             }
+
         </style>
     </head>
     <body>
         <header>
+{#            <img src="D:\Program files\XAMPP\apps\spyapp\src\medias\logo.png" alt="Spyapp">#}
             <nav>
                 <ul class="nav">
-                    <li class="nav"><a href="/">Missions</a></li>
-                    <li class="nav"><a href="login">Login</a></li>
-                    <li class="nav"><a href="logout">Logout</a></li>
+                    <li class="nav"><a href={{ path('app_default_index') }}>Home</a></li>
+                    {% if app.user %}
+                    <li class="nav"><a href={{ path('app_mission_list') }}>Missions</a></li>
+                    <li class="nav"><a href={{ path('app_agent_list') }}>Agents</a></li>
+                    <li class="nav"><a href={{ path('app_asset_list') }}>Assets</a></li>
+                    <li class="nav"><a href={{ path('app_target_list') }}>Targets</a></li>
+                    <li class="nav"><a href={{ path('app_hideout_list') }}>Hideouts</a></li>
+                    <li class="nav"><a href={{ path('app_specialty_list') }}>Specialties</a></li>
+                    <li class="nav"><a href={{ path('app_country_list') }}>Countries</a></li>
+                    {% endif %}
+                    <li class="nav" style="float: right">{% if app.user %}<a href={{ path('app_logout') }}>Logout</a> {% else %} <a href="login">Login</a> {% endif %}</li>
                 </ul>
             </nav>
         </header>

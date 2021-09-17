@@ -24,7 +24,7 @@ class HideoutType extends AbstractType
             ])
             ->add('mission', EntityType::class, [
                 'class' => Mission::class,
-                'choice_label' => 'Title'
+                'choice_label' => 'Title',
             ])
         ;
     }

@@ -62,8 +62,7 @@ class __TwigTemplate_fe58843a394287506b0e4d4d6cd7fb28f990455cc093e4fcb22d4c4b254
         // line 12
         $this->displayBlock('javascripts', $context, $blocks);
         // line 15
-        echo "
-        <style>
+        echo "        <style>
             body {
                 margin: 0px;
                 font-family: \"Agency FB\";
@@ -94,20 +93,42 @@ class __TwigTemplate_fe58843a394287506b0e4d4d6cd7fb28f990455cc093e4fcb22d4c4b254
             header {
                 width: 100%;
             }
+
         </style>
     </head>
     <body>
         <header>
-            <nav>
+";
+        // line 52
+        echo "            <nav>
                 <ul class=\"nav\">
-                    <li class=\"nav\"><a href=\"/\">Missions</a></li>
-                    <li class=\"nav\"><a href=\"login\">Login</a></li>
-                    <li class=\"nav\"><a href=\"logout\">Logout</a></li>
+                    <li class=\"nav\"><a href=\"/\">Home</a></li>
+                    ";
+        // line 55
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 55, $this->source); })()), "user", [], "any", false, false, false, 55)) {
+            // line 56
+            echo "                    <li class=\"nav\"><a href=\"mission\">Missions</a></li>
+                    <li class=\"nav\"><a href=\"agent\">Agents</a></li>
+                    <li class=\"nav\"><a href=\"asset\">Assets</a></li>
+                    <li class=\"nav\"><a href=\"target\">Targets</a></li>
+                    <li class=\"nav\"><a href=\"hideout\">Hideouts</a></li>
+                    <li class=\"nav\"><a href=\"spec\">Specialties</a></li>
+                    <li class=\"nav\"><a href=\"country\">Countries</a></li>
+                    ";
+        }
+        // line 64
+        echo "                    <li class=\"nav\" style=\"float: right\">";
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 64, $this->source); })()), "user", [], "any", false, false, false, 64)) {
+            echo "<a href=\"logout\">Logout</a> ";
+        } else {
+            echo " <a href=\"login\">Login</a> ";
+        }
+        echo "</li>
                 </ul>
             </nav>
         </header>
         <main>";
-        // line 59
+        // line 68
         $this->displayBlock('body', $context, $blocks);
         echo "</main>
         <footer></footer>
@@ -185,7 +206,7 @@ class __TwigTemplate_fe58843a394287506b0e4d4d6cd7fb28f990455cc093e4fcb22d4c4b254
 
     }
 
-    // line 59
+    // line 68
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -208,9 +229,14 @@ class __TwigTemplate_fe58843a394287506b0e4d4d6cd7fb28f990455cc093e4fcb22d4c4b254
         return "base.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  189 => 59,  179 => 14,  177 => 13,  167 => 12,  157 => 10,  155 => 9,  145 => 8,  126 => 5,  111 => 59,  65 => 15,  63 => 12,  60 => 11,  57 => 8,  53 => 5,  47 => 1,);
+        return array (  210 => 68,  200 => 14,  198 => 13,  188 => 12,  178 => 10,  176 => 9,  166 => 8,  147 => 5,  132 => 68,  120 => 64,  110 => 56,  108 => 55,  103 => 52,  65 => 15,  63 => 12,  60 => 11,  57 => 8,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -229,7 +255,6 @@ class __TwigTemplate_fe58843a394287506b0e4d4d6cd7fb28f990455cc093e4fcb22d4c4b254
         {% block javascripts %}
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
-
         <style>
             body {
                 margin: 0px;
@@ -261,15 +286,25 @@ class __TwigTemplate_fe58843a394287506b0e4d4d6cd7fb28f990455cc093e4fcb22d4c4b254
             header {
                 width: 100%;
             }
+
         </style>
     </head>
     <body>
         <header>
+{#            <img src=\"D:\\Program files\\XAMPP\\apps\\spyapp\\src\\medias\\logo.png\" alt=\"Spyapp\">#}
             <nav>
                 <ul class=\"nav\">
-                    <li class=\"nav\"><a href=\"/\">Missions</a></li>
-                    <li class=\"nav\"><a href=\"login\">Login</a></li>
-                    <li class=\"nav\"><a href=\"logout\">Logout</a></li>
+                    <li class=\"nav\"><a href=\"/\">Home</a></li>
+                    {% if app.user %}
+                    <li class=\"nav\"><a href=\"mission\">Missions</a></li>
+                    <li class=\"nav\"><a href=\"agent\">Agents</a></li>
+                    <li class=\"nav\"><a href=\"asset\">Assets</a></li>
+                    <li class=\"nav\"><a href=\"target\">Targets</a></li>
+                    <li class=\"nav\"><a href=\"hideout\">Hideouts</a></li>
+                    <li class=\"nav\"><a href=\"spec\">Specialties</a></li>
+                    <li class=\"nav\"><a href=\"country\">Countries</a></li>
+                    {% endif %}
+                    <li class=\"nav\" style=\"float: right\">{% if app.user %}<a href=\"logout\">Logout</a> {% else %} <a href=\"login\">Login</a> {% endif %}</li>
                 </ul>
             </nav>
         </header>
@@ -277,6 +312,6 @@ class __TwigTemplate_fe58843a394287506b0e4d4d6cd7fb28f990455cc093e4fcb22d4c4b254
         <footer></footer>
     </body>
 </html>
-", "base.html.twig", "C:\\xampp\\apps\\Spyapp\\templates\\base.html.twig");
+", "base.html.twig", "D:\\Program files\\XAMPP\\apps\\spyapp\\templates\\base.html.twig");
     }
 }

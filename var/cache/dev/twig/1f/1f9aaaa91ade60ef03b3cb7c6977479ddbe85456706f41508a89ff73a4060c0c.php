@@ -215,6 +215,6 @@ class __TwigTemplate_007c53c94ebfbaa543832589f956e2628b4870a7a5675aa1d37b20003db
     {% endif %}
 </div>
 {% endblock %}
-", "default/index.html.twig", "C:\\xampp\\apps\\Spyapp\\templates\\default\\index.html.twig");
+", "default/index.html.twig", "D:\\Program files\\XAMPP\\apps\\spyapp\\templates\\default\\index.html.twig");
     }
 }

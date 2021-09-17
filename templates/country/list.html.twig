@@ -22,17 +22,20 @@
                     <th></th>
                     <th></th>
                 </tr>
-                {% for country in countries %}
+                {% for country in pagination %}
                     <tr>
                         <td>{{ country.name }}</td>
-                        <td><button onclick="window.location.href = 'http://localhost/country/edit/{{ country.id }}'">Edit</button></td>
-                        <td><button onclick="window.location.href = 'http://localhost/country/delete/{{ country.id }}'">Delete</button></td>
+                        <td><button onclick="window.location.href = '{{path('app_country_edit', {'id': country.id})}}'">Edit</button></td>
+                        <td><button onclick="window.location.href = '{{path('app_country_delete', {'id': country.id})}}'">Delete</button></td>
                     </tr>
                 {% endfor %}
             </table>
+            <div>
+                {{ knp_pagination_render(pagination) }}
+            </div>
         {% else %}
             <h2>There is no countries</h2>
         {% endif %}
-        <button onclick="window.location.href = 'http://localhost/country/add'">Add a new country</button>
+        <button onclick="window.location.href = '{{ path('app_country_add') }}'">Add a new country</button>
     </div>
 {% endblock %}

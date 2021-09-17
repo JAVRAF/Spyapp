@@ -10,35 +10,33 @@
     table, tr, th, td {
         border: 1px solid black;
     }
-
-    button {
-    }
-
 </style>
-
 <div class="example-wrapper">
     <h1>Missions :</h1>
     {% if missionsCount > 0  %}
-    <table>
-        <tr>
-            <th>Title</th>
-            <th>Codename</th>
-            <th>Type</th>
-            <th>Status</th>
-            <th></th>
-        </tr>
-        {% for mission in missions %}
-        <tr>
-            <td>{{ mission.title }}</td>
-            <td>{{ mission.codename }}</td>
-            <td>{{ mission.type }}</td>
-            <td class="{{ mission.status }}">{% if mission.status is same as ('In_progress') %} In progress {% else %} {{ mission.status }} {% endif %}</td>
-            <td><button onclick="window.location.href = 'http://localhost/details/{{ mission.id }}'">Details</button></td>
-        </tr>
-        {% endfor %}
-    </table>
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Codename</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+            {% for mission in pagination %}
+                <tr {#{% if loop.index is odd %}class="color"{% endif %}#}>
+                    <td>{{ mission.title }}</td>
+                    <td>{{ mission.codename }}</td>
+                    <td>{{ mission.type }}</td>
+                    <td class="{{ mission.status }}">{% if mission.status is same as ('In_progress') %} In progress {% else %} {{ mission.status }} {% endif %}</td>
+                    <td><button onclick="window.location.href = '{{path('app_details_display', {'id': mission.id})}}'">Details</button></td>
+                </tr>
+            {% endfor %}
+        </table>
+        <div>
+            {{ knp_pagination_render(pagination) }}
+        </div>
     {% else %}
-    <h2>Aucune mission à afficher</h2>
+    <h2>There is no missions</h2>
     {% endif %}
 </div>
 {% endblock %}

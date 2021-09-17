@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services https://symfony.com/schema/dic/services/services-1.0.xsd">
   <parameters>
-    <parameter key="kernel.project_dir">C:\xampp\apps\Spyapp</parameter>
+    <parameter key="kernel.project_dir">D:\Program files\XAMPP\apps\spyapp</parameter>
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.runtime_environment">%env(default:kernel.environment:APP_RUNTIME_ENV)%</parameter>
     <parameter key="kernel.debug">true</parameter>
-    <parameter key="kernel.build_dir">C:\xampp\apps\Spyapp\var\cache\dev</parameter>
-    <parameter key="kernel.cache_dir">C:\xampp\apps\Spyapp\var\cache\dev</parameter>
-    <parameter key="kernel.logs_dir">C:\xampp\apps\Spyapp\var\log</parameter>
+    <parameter key="kernel.build_dir">D:\Program files\XAMPP\apps\spyapp\var\cache\dev</parameter>
+    <parameter key="kernel.cache_dir">D:\Program files\XAMPP\apps\spyapp\var\cache\dev</parameter>
+    <parameter key="kernel.logs_dir">D:\Program files\XAMPP\apps\spyapp\var\log</parameter>
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
@@ -18,43 +18,48 @@
       <parameter key="TwigExtraBundle">Twig\Extra\TwigExtraBundle\TwigExtraBundle</parameter>
       <parameter key="SecurityBundle">Symfony\Bundle\SecurityBundle\SecurityBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
+      <parameter key="KnpPaginatorBundle">Knp\Bundle\PaginatorBundle\KnpPaginatorBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
-        <parameter key="path">C:\xampp\apps\Spyapp\vendor\symfony\framework-bundle</parameter>
+        <parameter key="path">D:\Program files\XAMPP\apps\spyapp\vendor\symfony\framework-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\FrameworkBundle</parameter>
       </parameter>
       <parameter key="DoctrineBundle" type="collection">
-        <parameter key="path">C:\xampp\apps\Spyapp\vendor\doctrine\doctrine-bundle</parameter>
+        <parameter key="path">D:\Program files\XAMPP\apps\spyapp\vendor\doctrine\doctrine-bundle</parameter>
         <parameter key="namespace">Doctrine\Bundle\DoctrineBundle</parameter>
       </parameter>
       <parameter key="DoctrineMigrationsBundle" type="collection">
-        <parameter key="path">C:\xampp\apps\Spyapp\vendor\doctrine\doctrine-migrations-bundle</parameter>
+        <parameter key="path">D:\Program files\XAMPP\apps\spyapp\vendor\doctrine\doctrine-migrations-bundle</parameter>
         <parameter key="namespace">Doctrine\Bundle\MigrationsBundle</parameter>
       </parameter>
       <parameter key="MakerBundle" type="collection">
-        <parameter key="path">C:\xampp\apps\Spyapp\vendor\symfony\maker-bundle\src</parameter>
+        <parameter key="path">D:\Program files\XAMPP\apps\spyapp\vendor\symfony\maker-bundle\src</parameter>
         <parameter key="namespace">Symfony\Bundle\MakerBundle</parameter>
       </parameter>
       <parameter key="SensioFrameworkExtraBundle" type="collection">
-        <parameter key="path">C:\xampp\apps\Spyapp\vendor\sensio\framework-extra-bundle\src</parameter>
+        <parameter key="path">D:\Program files\XAMPP\apps\spyapp\vendor\sensio\framework-extra-bundle\src</parameter>
         <parameter key="namespace">Sensio\Bundle\FrameworkExtraBundle</parameter>
       </parameter>
       <parameter key="TwigBundle" type="collection">
-        <parameter key="path">C:\xampp\apps\Spyapp\vendor\symfony\twig-bundle</parameter>
+        <parameter key="path">D:\Program files\XAMPP\apps\spyapp\vendor\symfony\twig-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\TwigBundle</parameter>
       </parameter>
       <parameter key="TwigExtraBundle" type="collection">
-        <parameter key="path">C:\xampp\apps\Spyapp\vendor\twig\extra-bundle</parameter>
+        <parameter key="path">D:\Program files\XAMPP\apps\spyapp\vendor\twig\extra-bundle</parameter>
         <parameter key="namespace">Twig\Extra\TwigExtraBundle</parameter>
       </parameter>
       <parameter key="SecurityBundle" type="collection">
-        <parameter key="path">C:\xampp\apps\Spyapp\vendor\symfony\security-bundle</parameter>
+        <parameter key="path">D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\SecurityBundle</parameter>
       </parameter>
       <parameter key="WebProfilerBundle" type="collection">
-        <parameter key="path">C:\xampp\apps\Spyapp\vendor\symfony\web-profiler-bundle</parameter>
+        <parameter key="path">D:\Program files\XAMPP\apps\spyapp\vendor\symfony\web-profiler-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\WebProfilerBundle</parameter>
+      </parameter>
+      <parameter key="KnpPaginatorBundle" type="collection">
+        <parameter key="path">D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle</parameter>
+        <parameter key="namespace">Knp\Bundle\PaginatorBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -90,7 +95,7 @@
     <parameter key="kernel.default_locale">en</parameter>
     <parameter key="kernel.error_controller">error_controller</parameter>
     <parameter key="debug.file_link_format">null</parameter>
-    <parameter key="cache.prefix.seed">_C:\xampp\apps\Spyapp.App_KernelDevDebugContainer</parameter>
+    <parameter key="cache.prefix.seed">_D:\Program files\XAMPP\apps\spyapp.App_KernelDevDebugContainer</parameter>
     <parameter key="session.metadata.storage_key">_sf2_meta</parameter>
     <parameter key="session.storage.options" type="collection">
       <parameter key="cache_limiter" type="string">0</parameter>
@@ -99,16 +104,18 @@
       <parameter key="cookie_samesite">lax</parameter>
       <parameter key="gc_probability">1</parameter>
     </parameter>
-    <parameter key="session.save_path">C:\xampp\apps\Spyapp\var\cache\dev/sessions</parameter>
+    <parameter key="session.save_path">D:\Program files\XAMPP\apps\spyapp\var\cache\dev/sessions</parameter>
     <parameter key="session.metadata.update_threshold">0</parameter>
     <parameter key="form.type_extension.csrf.enabled">true</parameter>
     <parameter key="form.type_extension.csrf.field_name">_token</parameter>
     <parameter key="validator.translation_domain">validators</parameter>
+    <parameter key="translator.logging">false</parameter>
+    <parameter key="translator.default_path">D:\Program files\XAMPP\apps\spyapp/translations</parameter>
     <parameter key="profiler_listener.only_exceptions">false</parameter>
     <parameter key="profiler_listener.only_main_requests">false</parameter>
-    <parameter key="profiler.storage.dsn">file:C:\xampp\apps\Spyapp\var\cache\dev/profiler</parameter>
+    <parameter key="profiler.storage.dsn">file:D:\Program files\XAMPP\apps\spyapp\var\cache\dev/profiler</parameter>
     <parameter key="debug.error_handler.throw_at">-1</parameter>
-    <parameter key="debug.container.dump">C:\xampp\apps\Spyapp\var\cache\dev/App_KernelDevDebugContainer.xml</parameter>
+    <parameter key="debug.container.dump">D:\Program files\XAMPP\apps\spyapp\var\cache\dev/App_KernelDevDebugContainer.xml</parameter>
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
@@ -181,14 +188,14 @@
     <parameter key="doctrine.orm.second_level_cache.cache_configuration.class">Doctrine\ORM\Cache\CacheConfiguration</parameter>
     <parameter key="doctrine.orm.second_level_cache.regions_configuration.class">Doctrine\ORM\Cache\RegionsConfiguration</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
-    <parameter key="doctrine.orm.proxy_dir">C:\xampp\apps\Spyapp\var\cache\dev/doctrine/orm/Proxies</parameter>
+    <parameter key="doctrine.orm.proxy_dir">D:\Program files\XAMPP\apps\spyapp\var\cache\dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="doctrine.migrations.preferred_em">null</parameter>
     <parameter key="doctrine.migrations.preferred_connection">null</parameter>
     <parameter key="twig.form.resources" type="collection">
       <parameter>form_div_layout.html.twig</parameter>
     </parameter>
-    <parameter key="twig.default_path">C:\xampp\apps\Spyapp/templates</parameter>
+    <parameter key="twig.default_path">D:\Program files\XAMPP\apps\spyapp/templates</parameter>
     <parameter key="security.role_hierarchy.roles" type="collection">
       <parameter key="ROLE_ADMIN" type="collection">
         <parameter>ROLE_USER</parameter>
@@ -205,6 +212,11 @@
     </parameter>
     <parameter key="web_profiler.debug_toolbar.intercept_redirects">false</parameter>
     <parameter key="web_profiler.debug_toolbar.mode">2</parameter>
+    <parameter key="knp_paginator.template.pagination">@KnpPaginator/Pagination/sliding.html.twig</parameter>
+    <parameter key="knp_paginator.template.filtration">@KnpPaginator/Pagination/filtration.html.twig</parameter>
+    <parameter key="knp_paginator.template.sortable">@KnpPaginator/Pagination/sortable_link.html.twig</parameter>
+    <parameter key="knp_paginator.page_range">5</parameter>
+    <parameter key="knp_paginator.page_limit">null</parameter>
     <parameter key="data_collector.templates" type="collection">
       <parameter key="data_collector.request" type="collection">
         <parameter>request</parameter>
@@ -245,6 +257,10 @@
       <parameter key="data_collector.cache" type="collection">
         <parameter>cache</parameter>
         <parameter>@WebProfiler/Collector/cache.html.twig</parameter>
+      </parameter>
+      <parameter key="data_collector.translation" type="collection">
+        <parameter>translation</parameter>
+        <parameter>@WebProfiler/Collector/translation.html.twig</parameter>
       </parameter>
       <parameter key="data_collector.security" type="collection">
         <parameter>security</parameter>
@@ -364,6 +380,15 @@
     <service id="App\Form\HideoutType" class="App\Form\HideoutType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\MissionType" class="App\Form\MissionType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\SpecType" class="App\Form\SpecType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\TargetType" class="App\Form\TargetType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Repository\AdminRepository" class="App\Repository\AdminRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -465,7 +490,7 @@
       </argument>
     </service>
     <service id="http_cache.store" class="Symfony\Component\HttpKernel\HttpCache\Store">
-      <argument>C:\xampp\apps\Spyapp\var\cache\dev/http_cache</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp\var\cache\dev/http_cache</argument>
     </service>
     <service id="url_helper" class="Symfony\Component\HttpFoundation\UrlHelper">
       <argument type="service" id="request_stack"/>
@@ -475,7 +500,7 @@
       <tag name="container.no_preload"/>
       <argument type="tagged_iterator" tag="kernel.cache_warmer"/>
       <argument>true</argument>
-      <argument>C:\xampp\apps\Spyapp\var\cache\dev/App_KernelDevDebugContainerDeprecations.log</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp\var\cache\dev/App_KernelDevDebugContainerDeprecations.log</argument>
     </service>
     <service id="cache_clearer" class="Symfony\Component\HttpKernel\CacheClearer\ChainCacheClearer" public="true">
       <tag name="container.private" package="symfony/framework-bundle" version="5.2"/>
@@ -573,6 +598,7 @@
       <tag name="container.hot_path"/>
       <argument type="iterator">
         <argument type="service" id="slugger"/>
+        <argument type="service" id="translator.default"/>
       </argument>
       <argument type="service" id="request_stack"/>
     </service>
@@ -630,7 +656,7 @@
       </argument>
       <argument>UTF-8</argument>
       <argument type="service" id="debug.file_link_formatter" on-invalid="null"/>
-      <argument>C:\xampp\apps\Spyapp</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp</argument>
       <argument type="service">
         <service>
           <argument type="service" id="request_stack"/>
@@ -663,7 +689,7 @@
       <tag name="console.command"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="filesystem"/>
-      <argument>C:\xampp\apps\Spyapp</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp</argument>
       <call method="setName">
         <argument>assets:install</argument>
       </call>
@@ -835,6 +861,91 @@
         <argument>Help debug routes by simulating a path info match</argument>
       </call>
     </service>
+    <service id="console.command.translation_debug" class="Symfony\Bundle\FrameworkBundle\Command\TranslationDebugCommand">
+      <tag name="console.command"/>
+      <tag name="container.no_preload"/>
+      <argument type="service" id="translator.data_collector"/>
+      <argument type="service" id="translation.reader"/>
+      <argument type="service" id="translation.extractor"/>
+      <argument>D:\Program files\XAMPP\apps\spyapp/translations</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp/templates</argument>
+      <argument type="collection">
+        <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations</argument>
+        <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations</argument>
+      </argument>
+      <argument type="collection">
+        <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\twig-bridge/Resources/views/Form</argument>
+      </argument>
+      <call method="setName">
+        <argument>debug:translation</argument>
+      </call>
+      <call method="setDescription">
+        <argument>Display translation messages information</argument>
+      </call>
+    </service>
+    <service id="console.command.translation_update" class="Symfony\Bundle\FrameworkBundle\Command\TranslationUpdateCommand">
+      <tag name="console.command"/>
+      <tag name="container.no_preload"/>
+      <argument type="service" id="translation.writer"/>
+      <argument type="service" id="translation.reader"/>
+      <argument type="service" id="translation.extractor"/>
+      <argument>en</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp/translations</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp/templates</argument>
+      <argument type="collection">
+        <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations</argument>
+        <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations</argument>
+      </argument>
+      <argument type="collection">
+        <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\twig-bridge/Resources/views/Form</argument>
+      </argument>
+      <call method="setName">
+        <argument>translation:update</argument>
+      </call>
+      <call method="setDescription">
+        <argument>Update the translation file</argument>
+      </call>
+    </service>
+    <service id="console.command.translation_pull" class="Symfony\Component\Translation\Command\TranslationPullCommand">
+      <tag name="console.command" command="translation:pull"/>
+      <tag name="container.no_preload"/>
+      <argument type="service" id="translation.provider_collection"/>
+      <argument type="service" id="translation.writer"/>
+      <argument type="service" id="translation.reader"/>
+      <argument>en</argument>
+      <argument type="collection"/>
+      <argument type="collection"/>
+      <call method="setName">
+        <argument>translation:pull</argument>
+      </call>
+      <call method="setDescription">
+        <argument>Pull translations from a given provider.</argument>
+      </call>
+    </service>
+    <service id="console.command.translation_push" class="Symfony\Component\Translation\Command\TranslationPushCommand">
+      <tag name="console.command" command="translation:push"/>
+      <tag name="container.no_preload"/>
+      <argument type="service" id="translation.provider_collection"/>
+      <argument type="service" id="translation.reader"/>
+      <argument type="collection"/>
+      <argument type="collection"/>
+      <call method="setName">
+        <argument>translation:push</argument>
+      </call>
+      <call method="setDescription">
+        <argument>Push translations to a given provider.</argument>
+      </call>
+    </service>
+    <service id="console.command.xliff_lint" class="Symfony\Component\Translation\Command\XliffLintCommand">
+      <tag name="console.command"/>
+      <tag name="container.no_preload"/>
+      <call method="setName">
+        <argument>lint:xliff</argument>
+      </call>
+      <call method="setDescription">
+        <argument>Lint an XLIFF file and outputs encountered errors</argument>
+      </call>
+    </service>
     <service id="console.command.yaml_lint" class="Symfony\Bundle\FrameworkBundle\Command\YamlLintCommand">
       <tag name="console.command"/>
       <tag name="container.no_preload"/>
@@ -859,6 +970,9 @@
         <argument>App\Form\AssetType</argument>
         <argument>App\Form\CountryType</argument>
         <argument>App\Form\HideoutType</argument>
+        <argument>App\Form\MissionType</argument>
+        <argument>App\Form\SpecType</argument>
+        <argument>App\Form\TargetType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -870,6 +984,7 @@
         <argument>Symfony\Component\Form\Extension\HttpFoundation\Type\FormTypeHttpFoundationExtension</argument>
         <argument>Symfony\Component\Form\Extension\Validator\Type\RepeatedTypeValidatorExtension</argument>
         <argument>Symfony\Component\Form\Extension\Validator\Type\SubmitTypeValidatorExtension</argument>
+        <argument>Symfony\Component\Form\Extension\Validator\Type\UploadValidatorExtension</argument>
         <argument>Symfony\Component\Form\Extension\Csrf\Type\FormTypeCsrfExtension</argument>
         <argument>Symfony\Component\Form\Extension\DataCollector\Type\DataCollectorTypeExtension</argument>
       </argument>
@@ -995,7 +1110,7 @@
       <argument></argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\xampp\apps\Spyapp\var\cache\dev/pools</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -1024,7 +1139,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>C:\xampp\apps\Spyapp\var\cache\dev/pools</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp\var\cache\dev/pools</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="logger" on-invalid="ignore"/>
@@ -1124,6 +1239,7 @@
         <argument key="cache.security_expression_language" type="service" id="cache.security_expression_language" on-invalid="ignore_uninitialized"/>
       </argument>
     </service>
+    <service id="identity_translator" class="Symfony\Component\Translation\IdentityTranslator"/>
     <service id=".cache_connection.GD_MSZC" class="Symfony\Component\Cache\Adapter\AbstractAdapter">
       <argument>redis://localhost</argument>
       <argument type="collection">
@@ -1175,7 +1291,7 @@
       <argument>true</argument>
     </service>
     <service id="session.storage.factory.mock_file" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorageFactory">
-      <argument>C:\xampp\apps\Spyapp\var\cache\dev/sessions</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp\var\cache\dev/sessions</argument>
       <argument>MOCKSESSID</argument>
       <argument type="service">
         <service class="Symfony\Component\HttpFoundation\Session\Storage\MetadataBag">
@@ -1207,7 +1323,7 @@
     <service id="session.handler.native_file" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\StrictSessionHandler">
       <argument type="service">
         <service class="Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler">
-          <argument>C:\xampp\apps\Spyapp\var\cache\dev/sessions</argument>
+          <argument>D:\Program files\XAMPP\apps\spyapp\var\cache\dev/sessions</argument>
         </service>
       </argument>
     </service>
@@ -1258,11 +1374,12 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.l0G9Q2L"/>
+      <argument type="service" id=".service_locator.LI05EN0"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
           <argument type="service" id="form.type_extension.form.http_foundation"/>
+          <argument type="service" id="form.type_extension.upload.validator"/>
           <argument type="service" id="form.type_extension.csrf"/>
           <argument type="service" id="form.type_extension.form.data_collector"/>
         </argument>
@@ -1293,20 +1410,20 @@
     <service id="form.type.choice" class="Symfony\Component\Form\Extension\Core\Type\ChoiceType">
       <tag name="form.type"/>
       <argument type="service" id="form.choice_list_factory.cached"/>
-      <argument>null</argument>
+      <argument type="service" id="translator.data_collector" on-invalid="ignore"/>
     </service>
     <service id="form.type.file" class="Symfony\Component\Form\Extension\Core\Type\FileType" public="true">
       <tag name="form.type"/>
       <tag name="container.private" package="symfony/framework-bundle" version="5.2"/>
-      <argument>null</argument>
+      <argument type="service" id="translator.data_collector" on-invalid="ignore"/>
     </service>
     <service id="form.type.color" class="Symfony\Component\Form\Extension\Core\Type\ColorType">
       <tag name="form.type"/>
-      <argument>null</argument>
+      <argument type="service" id="translator.data_collector" on-invalid="ignore"/>
     </service>
     <service id="form.type_extension.form.transformation_failure_handling" class="Symfony\Component\Form\Extension\Core\Type\TransformationFailureExtension">
       <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\FormType"/>
-      <argument>null</argument>
+      <argument type="service" id="translator.data_collector" on-invalid="ignore"/>
     </service>
     <service id="form.type_extension.form.http_foundation" class="Symfony\Component\Form\Extension\HttpFoundation\Type\FormTypeHttpFoundationExtension">
       <tag name="form.type_extension"/>
@@ -1324,14 +1441,554 @@
     <service id="form.type_extension.submit.validator" class="Symfony\Component\Form\Extension\Validator\Type\SubmitTypeValidatorExtension">
       <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\SubmitType"/>
     </service>
+    <service id="form.type_extension.upload.validator" class="Symfony\Component\Form\Extension\Validator\Type\UploadValidatorExtension">
+      <tag name="form.type_extension"/>
+      <argument type="service" id="translator.data_collector"/>
+      <argument>validators</argument>
+    </service>
     <service id="form.type_extension.csrf" class="Symfony\Component\Form\Extension\Csrf\Type\FormTypeCsrfExtension">
       <tag name="form.type_extension"/>
       <argument type="service" id="security.csrf.token_manager"/>
       <argument>true</argument>
       <argument>_token</argument>
-      <argument>null</argument>
+      <argument type="service" id="translator.data_collector" on-invalid="null"/>
       <argument>validators</argument>
       <argument type="service" id="form.server_params"/>
+    </service>
+    <service id="translator.default" class="Symfony\Bundle\FrameworkBundle\Translation\Translator">
+      <tag name="kernel.locale_aware"/>
+      <argument type="service" id=".service_locator.O24_MAy"/>
+      <argument type="service" id="translator.formatter.default"/>
+      <argument>en</argument>
+      <argument type="collection">
+        <argument key="translation.loader.php" type="collection">
+          <argument>php</argument>
+        </argument>
+        <argument key="translation.loader.yml" type="collection">
+          <argument>yaml</argument>
+          <argument>yml</argument>
+        </argument>
+        <argument key="translation.loader.xliff" type="collection">
+          <argument>xlf</argument>
+          <argument>xliff</argument>
+        </argument>
+        <argument key="translation.loader.po" type="collection">
+          <argument>po</argument>
+        </argument>
+        <argument key="translation.loader.mo" type="collection">
+          <argument>mo</argument>
+        </argument>
+        <argument key="translation.loader.qt" type="collection">
+          <argument>ts</argument>
+        </argument>
+        <argument key="translation.loader.csv" type="collection">
+          <argument>csv</argument>
+        </argument>
+        <argument key="translation.loader.res" type="collection">
+          <argument>res</argument>
+        </argument>
+        <argument key="translation.loader.dat" type="collection">
+          <argument>dat</argument>
+        </argument>
+        <argument key="translation.loader.ini" type="collection">
+          <argument>ini</argument>
+        </argument>
+        <argument key="translation.loader.json" type="collection">
+          <argument>json</argument>
+        </argument>
+      </argument>
+      <argument type="collection">
+        <argument key="cache_dir">D:\Program files\XAMPP\apps\spyapp\var\cache\dev/translations</argument>
+        <argument key="debug">true</argument>
+        <argument key="resource_files" type="collection">
+          <argument key="af" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.af.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.af.xlf</argument>
+          </argument>
+          <argument key="ar" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.ar.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.ar.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ar.xliff</argument>
+          </argument>
+          <argument key="az" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.az.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.az.xlf</argument>
+          </argument>
+          <argument key="be" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.be.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.be.xlf</argument>
+          </argument>
+          <argument key="bg" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.bg.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.bg.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.bg.xliff</argument>
+          </argument>
+          <argument key="bs" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.bs.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.bs.xlf</argument>
+          </argument>
+          <argument key="ca" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.ca.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.ca.xlf</argument>
+          </argument>
+          <argument key="cs" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.cs.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.cs.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.cs.xliff</argument>
+          </argument>
+          <argument key="da" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.da.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.da.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.da.xliff</argument>
+          </argument>
+          <argument key="de" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.de.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.de.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.de.xliff</argument>
+          </argument>
+          <argument key="el" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.el.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.el.xlf</argument>
+          </argument>
+          <argument key="en" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.en.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.en.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.en.xliff</argument>
+          </argument>
+          <argument key="es" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.es.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.es.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.es.xliff</argument>
+          </argument>
+          <argument key="et" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.et.xlf</argument>
+          </argument>
+          <argument key="eu" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.eu.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.eu.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.eu.xliff</argument>
+          </argument>
+          <argument key="fa" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.fa.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.fa.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.fa.xliff</argument>
+          </argument>
+          <argument key="fi" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.fi.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.fi.xlf</argument>
+          </argument>
+          <argument key="fr" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.fr.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.fr.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.fr.xliff</argument>
+          </argument>
+          <argument key="gl" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.gl.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.gl.xlf</argument>
+          </argument>
+          <argument key="he" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.he.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.he.xlf</argument>
+          </argument>
+          <argument key="hr" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.hr.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.hr.xlf</argument>
+          </argument>
+          <argument key="hu" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.hu.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.hu.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.hu.xliff</argument>
+          </argument>
+          <argument key="hy" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.hy.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.hy.xlf</argument>
+          </argument>
+          <argument key="id" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.id.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.id.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.id.xliff</argument>
+          </argument>
+          <argument key="it" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.it.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.it.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.it.xliff</argument>
+          </argument>
+          <argument key="ja" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.ja.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.ja.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ja.xliff</argument>
+          </argument>
+          <argument key="lb" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.lb.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.lb.xlf</argument>
+          </argument>
+          <argument key="lt" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.lt.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.lt.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.lt.xliff</argument>
+          </argument>
+          <argument key="lv" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.lv.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.lv.xlf</argument>
+          </argument>
+          <argument key="mn" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.mn.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.mn.xlf</argument>
+          </argument>
+          <argument key="nb" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.nb.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.nb.xlf</argument>
+          </argument>
+          <argument key="nl" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.nl.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.nl.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.nl.xliff</argument>
+          </argument>
+          <argument key="nn" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.nn.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.nn.xlf</argument>
+          </argument>
+          <argument key="no" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.no.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.no.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.no.xliff</argument>
+          </argument>
+          <argument key="pl" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.pl.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.pl.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.pl.xliff</argument>
+          </argument>
+          <argument key="pt" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.pt.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.pt.xlf</argument>
+          </argument>
+          <argument key="pt_BR" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.pt_BR.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.pt_BR.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.pt_BR.xliff</argument>
+          </argument>
+          <argument key="ro" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.ro.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.ro.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ro.xliff</argument>
+          </argument>
+          <argument key="ru" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.ru.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.ru.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ru.xliff</argument>
+          </argument>
+          <argument key="sk" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.sk.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.sk.xlf</argument>
+          </argument>
+          <argument key="sl" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.sl.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.sl.xlf</argument>
+          </argument>
+          <argument key="sq" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.sq.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.sq.xlf</argument>
+          </argument>
+          <argument key="sr_Cyrl" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.sr_Cyrl.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.sr_Cyrl.xlf</argument>
+          </argument>
+          <argument key="sr_Latn" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.sr_Latn.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.sr_Latn.xlf</argument>
+          </argument>
+          <argument key="sv" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.sv.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.sv.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.sv.xliff</argument>
+          </argument>
+          <argument key="th" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.th.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.th.xlf</argument>
+          </argument>
+          <argument key="tl" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.tl.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.tl.xlf</argument>
+          </argument>
+          <argument key="tr" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.tr.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.tr.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.tr.xliff</argument>
+          </argument>
+          <argument key="uk" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.uk.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.uk.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.uk.xliff</argument>
+          </argument>
+          <argument key="uz" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.uz.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.uz.xlf</argument>
+          </argument>
+          <argument key="vi" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.vi.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.vi.xlf</argument>
+          </argument>
+          <argument key="zh_CN" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.zh_CN.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.zh_CN.xlf</argument>
+          </argument>
+          <argument key="zh_TW" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations\validators.zh_TW.xlf</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations\security.zh_TW.xlf</argument>
+          </argument>
+          <argument key="ky" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ky.xliff</argument>
+          </argument>
+          <argument key="sw" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.sw.xliff</argument>
+          </argument>
+        </argument>
+        <argument key="scanned_directories" type="collection">
+          <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations</argument>
+          <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations</argument>
+          <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/translations</argument>
+          <argument>D:\Program files\XAMPP\apps\spyapp/translations</argument>
+          <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\framework-bundle/translations</argument>
+          <argument>D:\Program files\XAMPP\apps\spyapp\vendor\doctrine\doctrine-bundle/translations</argument>
+          <argument>D:\Program files\XAMPP\apps\spyapp\vendor\doctrine\doctrine-migrations-bundle/translations</argument>
+          <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\maker-bundle\src/translations</argument>
+          <argument>D:\Program files\XAMPP\apps\spyapp\vendor\sensio\framework-extra-bundle\src/translations</argument>
+          <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\twig-bundle/translations</argument>
+          <argument>D:\Program files\XAMPP\apps\spyapp\vendor\twig\extra-bundle/translations</argument>
+          <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-bundle/translations</argument>
+          <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\web-profiler-bundle/translations</argument>
+        </argument>
+        <argument key="cache_vary" type="collection">
+          <argument key="scanned_directories" type="collection">
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\form/Resources/translations</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-core/Resources/translations</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/translations</argument>
+            <argument>translations</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\framework-bundle/translations</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\doctrine\doctrine-bundle/translations</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\doctrine\doctrine-migrations-bundle/translations</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\maker-bundle\src/translations</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\sensio\framework-extra-bundle\src/translations</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\twig-bundle/translations</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\twig\extra-bundle/translations</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-bundle/translations</argument>
+            <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\web-profiler-bundle/translations</argument>
+          </argument>
+        </argument>
+      </argument>
+      <argument type="collection"/>
+      <call method="setConfigCacheFactory">
+        <argument type="service" id="config_cache_factory"/>
+      </call>
+      <call method="setFallbackLocales">
+        <argument type="collection">
+          <argument>en</argument>
+        </argument>
+      </call>
+    </service>
+    <service id="translator.logging" class="Symfony\Component\Translation\LoggingTranslator">
+      <tag name="monolog.logger" channel="translation"/>
+      <argument type="service" id="translator.logging.inner"/>
+      <argument type="service" id="logger"/>
+    </service>
+    <service id="translator.formatter.default" class="Symfony\Component\Translation\Formatter\MessageFormatter">
+      <argument type="service" id="identity_translator"/>
+    </service>
+    <service id="translation.loader.php" class="Symfony\Component\Translation\Loader\PhpFileLoader">
+      <tag name="translation.loader" alias="php"/>
+    </service>
+    <service id="translation.loader.yml" class="Symfony\Component\Translation\Loader\YamlFileLoader">
+      <tag name="translation.loader" alias="yaml" legacy-alias="yml"/>
+    </service>
+    <service id="translation.loader.xliff" class="Symfony\Component\Translation\Loader\XliffFileLoader">
+      <tag name="translation.loader" alias="xlf" legacy-alias="xliff"/>
+    </service>
+    <service id="translation.loader.po" class="Symfony\Component\Translation\Loader\PoFileLoader">
+      <tag name="translation.loader" alias="po"/>
+    </service>
+    <service id="translation.loader.mo" class="Symfony\Component\Translation\Loader\MoFileLoader">
+      <tag name="translation.loader" alias="mo"/>
+    </service>
+    <service id="translation.loader.qt" class="Symfony\Component\Translation\Loader\QtFileLoader">
+      <tag name="translation.loader" alias="ts"/>
+    </service>
+    <service id="translation.loader.csv" class="Symfony\Component\Translation\Loader\CsvFileLoader">
+      <tag name="translation.loader" alias="csv"/>
+    </service>
+    <service id="translation.loader.res" class="Symfony\Component\Translation\Loader\IcuResFileLoader">
+      <tag name="translation.loader" alias="res"/>
+    </service>
+    <service id="translation.loader.dat" class="Symfony\Component\Translation\Loader\IcuDatFileLoader">
+      <tag name="translation.loader" alias="dat"/>
+    </service>
+    <service id="translation.loader.ini" class="Symfony\Component\Translation\Loader\IniFileLoader">
+      <tag name="translation.loader" alias="ini"/>
+    </service>
+    <service id="translation.loader.json" class="Symfony\Component\Translation\Loader\JsonFileLoader">
+      <tag name="translation.loader" alias="json"/>
+    </service>
+    <service id="translation.dumper.php" class="Symfony\Component\Translation\Dumper\PhpFileDumper">
+      <tag name="translation.dumper" alias="php"/>
+    </service>
+    <service id="translation.dumper.xliff" class="Symfony\Component\Translation\Dumper\XliffFileDumper">
+      <tag name="translation.dumper" alias="xlf"/>
+    </service>
+    <service id="translation.dumper.po" class="Symfony\Component\Translation\Dumper\PoFileDumper">
+      <tag name="translation.dumper" alias="po"/>
+    </service>
+    <service id="translation.dumper.mo" class="Symfony\Component\Translation\Dumper\MoFileDumper">
+      <tag name="translation.dumper" alias="mo"/>
+    </service>
+    <service id="translation.dumper.yml" class="Symfony\Component\Translation\Dumper\YamlFileDumper">
+      <tag name="translation.dumper" alias="yml"/>
+    </service>
+    <service id="translation.dumper.yaml" class="Symfony\Component\Translation\Dumper\YamlFileDumper">
+      <tag name="translation.dumper" alias="yaml"/>
+      <argument>yaml</argument>
+    </service>
+    <service id="translation.dumper.qt" class="Symfony\Component\Translation\Dumper\QtFileDumper">
+      <tag name="translation.dumper" alias="ts"/>
+    </service>
+    <service id="translation.dumper.csv" class="Symfony\Component\Translation\Dumper\CsvFileDumper">
+      <tag name="translation.dumper" alias="csv"/>
+    </service>
+    <service id="translation.dumper.ini" class="Symfony\Component\Translation\Dumper\IniFileDumper">
+      <tag name="translation.dumper" alias="ini"/>
+    </service>
+    <service id="translation.dumper.json" class="Symfony\Component\Translation\Dumper\JsonFileDumper">
+      <tag name="translation.dumper" alias="json"/>
+    </service>
+    <service id="translation.dumper.res" class="Symfony\Component\Translation\Dumper\IcuResFileDumper">
+      <tag name="translation.dumper" alias="res"/>
+    </service>
+    <service id="translation.extractor.php" class="Symfony\Component\Translation\Extractor\PhpExtractor">
+      <tag name="translation.extractor" alias="php"/>
+    </service>
+    <service id="translation.reader" class="Symfony\Component\Translation\Reader\TranslationReader">
+      <call method="addLoader">
+        <argument>php</argument>
+        <argument type="service" id="translation.loader.php"/>
+      </call>
+      <call method="addLoader">
+        <argument>yaml</argument>
+        <argument type="service" id="translation.loader.yml"/>
+      </call>
+      <call method="addLoader">
+        <argument>yml</argument>
+        <argument type="service" id="translation.loader.yml"/>
+      </call>
+      <call method="addLoader">
+        <argument>xlf</argument>
+        <argument type="service" id="translation.loader.xliff"/>
+      </call>
+      <call method="addLoader">
+        <argument>xliff</argument>
+        <argument type="service" id="translation.loader.xliff"/>
+      </call>
+      <call method="addLoader">
+        <argument>po</argument>
+        <argument type="service" id="translation.loader.po"/>
+      </call>
+      <call method="addLoader">
+        <argument>mo</argument>
+        <argument type="service" id="translation.loader.mo"/>
+      </call>
+      <call method="addLoader">
+        <argument>ts</argument>
+        <argument type="service" id="translation.loader.qt"/>
+      </call>
+      <call method="addLoader">
+        <argument>csv</argument>
+        <argument type="service" id="translation.loader.csv"/>
+      </call>
+      <call method="addLoader">
+        <argument>res</argument>
+        <argument type="service" id="translation.loader.res"/>
+      </call>
+      <call method="addLoader">
+        <argument>dat</argument>
+        <argument type="service" id="translation.loader.dat"/>
+      </call>
+      <call method="addLoader">
+        <argument>ini</argument>
+        <argument type="service" id="translation.loader.ini"/>
+      </call>
+      <call method="addLoader">
+        <argument>json</argument>
+        <argument type="service" id="translation.loader.json"/>
+      </call>
+    </service>
+    <service id="translation.extractor" class="Symfony\Component\Translation\Extractor\ChainExtractor">
+      <call method="addExtractor">
+        <argument>php</argument>
+        <argument type="service" id="translation.extractor.php"/>
+      </call>
+      <call method="addExtractor">
+        <argument>twig</argument>
+        <argument type="service" id="twig.translation.extractor"/>
+      </call>
+    </service>
+    <service id="translation.writer" class="Symfony\Component\Translation\Writer\TranslationWriter">
+      <call method="addDumper">
+        <argument>php</argument>
+        <argument type="service" id="translation.dumper.php"/>
+      </call>
+      <call method="addDumper">
+        <argument>xlf</argument>
+        <argument type="service" id="translation.dumper.xliff"/>
+      </call>
+      <call method="addDumper">
+        <argument>po</argument>
+        <argument type="service" id="translation.dumper.po"/>
+      </call>
+      <call method="addDumper">
+        <argument>mo</argument>
+        <argument type="service" id="translation.dumper.mo"/>
+      </call>
+      <call method="addDumper">
+        <argument>yml</argument>
+        <argument type="service" id="translation.dumper.yml"/>
+      </call>
+      <call method="addDumper">
+        <argument>yaml</argument>
+        <argument type="service" id="translation.dumper.yaml"/>
+      </call>
+      <call method="addDumper">
+        <argument>ts</argument>
+        <argument type="service" id="translation.dumper.qt"/>
+      </call>
+      <call method="addDumper">
+        <argument>csv</argument>
+        <argument type="service" id="translation.dumper.csv"/>
+      </call>
+      <call method="addDumper">
+        <argument>ini</argument>
+        <argument type="service" id="translation.dumper.ini"/>
+      </call>
+      <call method="addDumper">
+        <argument>json</argument>
+        <argument type="service" id="translation.dumper.json"/>
+      </call>
+      <call method="addDumper">
+        <argument>res</argument>
+        <argument type="service" id="translation.dumper.res"/>
+      </call>
+    </service>
+    <service id="translation.warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TranslationsCacheWarmer">
+      <tag name="container.service_subscriber" id="translator"/>
+      <tag name="kernel.cache_warmer"/>
+      <argument type="service" id=".service_locator.J4b.DPX.translation.warmer"/>
+    </service>
+    <service id="translation.provider_collection" class="Symfony\Component\Translation\Provider\TranslationProviderCollection">
+      <argument type="collection"/>
+      <factory service="translation.provider_collection_factory" method="fromConfig"/>
+    </service>
+    <service id="translation.provider_collection_factory" class="Symfony\Component\Translation\Provider\TranslationProviderCollectionFactory">
+      <argument type="tagged_iterator" tag="translation.provider_factory"/>
+      <argument type="collection"/>
+    </service>
+    <service id="translation.provider_factory.null" class="Symfony\Component\Translation\Provider\NullProviderFactory">
+      <tag name="translation.provider_factory"/>
     </service>
     <service id="profiler" class="Symfony\Component\HttpKernel\Profiler\Profiler" public="true">
       <tag name="monolog.logger" channel="profiler"/>
@@ -1370,6 +2027,9 @@
         <argument type="service" id="data_collector.cache"/>
       </call>
       <call method="add">
+        <argument type="service" id="data_collector.translation"/>
+      </call>
+      <call method="add">
         <argument type="service" id="data_collector.security"/>
       </call>
       <call method="add">
@@ -1386,7 +2046,7 @@
       </call>
     </service>
     <service id="profiler.storage" class="Symfony\Component\HttpKernel\Profiler\FileProfilerStorage">
-      <argument>file:C:\xampp\apps\Spyapp\var\cache\dev/profiler</argument>
+      <argument>file:D:\Program files\XAMPP\apps\spyapp\var\cache\dev/profiler</argument>
     </service>
     <service id="profiler_listener" class="Symfony\Component\HttpKernel\EventListener\ProfilerListener">
       <tag name="kernel.event_subscriber"/>
@@ -1432,7 +2092,7 @@
       <tag name="monolog.logger" channel="profiler"/>
       <tag name="data_collector" template="@WebProfiler/Collector/logger.html.twig" id="logger" priority="300"/>
       <argument type="service" id="logger" on-invalid="ignore"/>
-      <argument>C:\xampp\apps\Spyapp\var\cache\dev/App_KernelDevDebugContainer</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp\var\cache\dev/App_KernelDevDebugContainer</argument>
       <argument type="service" id="request_stack" on-invalid="ignore"/>
     </service>
     <service id="data_collector.time" class="Symfony\Component\HttpKernel\DataCollector\TimeDataCollector">
@@ -1504,6 +2164,13 @@
       <tag name="data_collector" template="@WebProfiler/Collector/form.html.twig" id="form" priority="310"/>
       <argument type="service" id="data_collector.form.extractor"/>
     </service>
+    <service id="translator.data_collector" class="Symfony\Component\Translation\DataCollectorTranslator">
+      <argument type="service" id="translator.default"/>
+    </service>
+    <service id="data_collector.translation" class="Symfony\Component\Translation\DataCollector\TranslationDataCollector">
+      <tag name="data_collector" template="@WebProfiler/Collector/translation.html.twig" id="translation" priority="275"/>
+      <argument type="service" id="translator.data_collector"/>
+    </service>
     <service id="debug.debug_handlers_listener" class="Symfony\Component\HttpKernel\EventListener\DebugHandlersListener">
       <tag name="kernel.event_subscriber"/>
       <tag name="monolog.logger" channel="php"/>
@@ -1520,7 +2187,7 @@
     <service id="debug.file_link_formatter" class="Symfony\Component\HttpKernel\Debug\FileLinkFormatter">
       <argument>null</argument>
       <argument type="service" id="request_stack" on-invalid="ignore"/>
-      <argument>C:\xampp\apps\Spyapp</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp</argument>
       <argument type="service_closure" id="debug.file_link_formatter.url_format"/>
     </service>
     <service id="debug.stopwatch" class="Symfony\Component\Stopwatch\Stopwatch">
@@ -1557,6 +2224,14 @@
         <argument type="collection">
           <argument type="service_closure" id="security.context_listener.0"/>
           <argument>onKernelResponse</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="knp_paginator.subscriber.sliding_pagination"/>
+          <argument>onKernelRequest</argument>
         </argument>
         <argument>0</argument>
       </call>
@@ -1937,6 +2612,46 @@
         <argument>-128</argument>
       </call>
       <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="knp_paginator.subscriber.paginate"/>
+          <argument>before</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.pagination</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="knp_paginator.subscriber.paginate"/>
+          <argument>pagination</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="knp_paginator.subscriber.sortable"/>
+          <argument>before</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="knp_paginator.subscriber.filtration"/>
+          <argument>before</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.pagination</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="knp_paginator.subscriber.sliding_pagination"/>
+          <argument>pagination</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
+      <call method="addListener">
         <argument>Symfony\Component\Security\Http\Event\CheckPassportEvent</argument>
         <argument type="collection">
           <argument type="service_closure" id="security.listener.csrf_protection"/>
@@ -2034,7 +2749,7 @@
       <argument type="service" id=".service_locator.WOytlHA.router.default"/>
       <argument>kernel::loadRoutes</argument>
       <argument type="collection">
-        <argument key="cache_dir">C:\xampp\apps\Spyapp\var\cache\dev</argument>
+        <argument key="cache_dir">D:\Program files\XAMPP\apps\spyapp\var\cache\dev</argument>
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\CompiledUrlGenerator</argument>
         <argument key="generator_dumper_class">Symfony\Component\Routing\Generator\Dumper\CompiledUrlGeneratorDumper</argument>
@@ -2073,7 +2788,7 @@
       <argument type="service" id="request_stack"/>
       <argument type="service" id="router.request_context" on-invalid="ignore"/>
       <argument type="service" id="logger" on-invalid="ignore"/>
-      <argument>C:\xampp\apps\Spyapp</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp</argument>
       <argument>true</argument>
     </service>
     <service id="Symfony\Bundle\FrameworkBundle\Controller\RedirectController" class="Symfony\Bundle\FrameworkBundle\Controller\RedirectController" public="true">
@@ -2129,13 +2844,13 @@
     <service id="annotations.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\AnnotationsCacheWarmer">
       <tag name="kernel.cache_warmer"/>
       <argument type="service" id="annotations.reader"/>
-      <argument>C:\xampp\apps\Spyapp\var\cache\dev/annotations.php</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp\var\cache\dev/annotations.php</argument>
       <argument>#^Symfony\\(?:Component\\HttpKernel\\|Bundle\\FrameworkBundle\\Controller\\(?!.*Controller$))#</argument>
       <argument>true</argument>
     </service>
     <service id="annotations.cache_adapter" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter">
       <tag name="container.hot_path"/>
-      <argument>C:\xampp\apps\Spyapp\var\cache\dev/annotations.php</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp\var\cache\dev/annotations.php</argument>
       <argument type="service" id="cache.annotations"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
@@ -2161,7 +2876,7 @@
     </service>
     <service id="secrets.vault" class="Symfony\Bundle\FrameworkBundle\Secrets\SodiumVault">
       <tag name="container.env_var_loader"/>
-      <argument>C:\xampp\apps\Spyapp/config/secrets/%env(default:kernel.environment:APP_RUNTIME_ENV)%</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp/config/secrets/%env(default:kernel.environment:APP_RUNTIME_ENV)%</argument>
       <argument type="service" id="secrets.decryption_key" on-invalid="ignore"/>
     </service>
     <service id="secrets.decryption_key" class="Symfony\Component\String\LazyString">
@@ -2170,7 +2885,7 @@
       <factory class="Symfony\Component\String\LazyString" method="fromCallable"/>
     </service>
     <service id="secrets.local_vault" class="Symfony\Bundle\FrameworkBundle\Secrets\DotenvVault">
-      <argument>C:\xampp\apps\Spyapp/.env.dev.local</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp/.env.dev.local</argument>
     </service>
     <service id="property_info" class="Symfony\Component\PropertyInfo\PropertyInfoExtractor">
       <argument type="iterator">
@@ -2335,7 +3050,7 @@
         </service>
       </argument>
     </service>
-    <service id=".1_ServiceLocator~Yi4Ct6n" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".1_ServiceLocator~HuloAlc" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <argument type="collection"/>
     </service>
     <service id="doctrine.orm.proxy_cache_warmer" class="Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer">
@@ -2525,7 +3240,7 @@
         <argument type="service" id=".doctrine.orm.default_metadata_driver"/>
       </call>
       <call method="setProxyDir">
-        <argument>C:\xampp\apps\Spyapp\var\cache\dev/doctrine/orm/Proxies</argument>
+        <argument>D:\Program files\XAMPP\apps\spyapp\var\cache\dev/doctrine/orm/Proxies</argument>
       </call>
       <call method="setProxyNamespace">
         <argument>Proxies</argument>
@@ -2555,7 +3270,7 @@
     <service id="doctrine.orm.default_annotation_metadata_driver" class="Doctrine\ORM\Mapping\Driver\AnnotationDriver">
       <argument type="service" id="annotations.cached_reader"/>
       <argument type="collection">
-        <argument>C:\xampp\apps\Spyapp\src\Entity</argument>
+        <argument>D:\Program files\XAMPP\apps\spyapp\src\Entity</argument>
       </argument>
     </service>
     <service id="cache.doctrine.orm.default.metadata" class="Symfony\Component\Cache\Adapter\ArrayAdapter"/>
@@ -2620,7 +3335,7 @@
     <service id="doctrine.migrations.configuration" class="Doctrine\Migrations\Configuration\Configuration">
       <call method="addMigrationsDirectory">
         <argument>DoctrineMigrations</argument>
-        <argument>C:\xampp\apps\Spyapp/migrations</argument>
+        <argument>D:\Program files\XAMPP\apps\spyapp/migrations</argument>
       </call>
       <call method="setAllOrNothing">
         <argument>false</argument>
@@ -2764,8 +3479,8 @@
       <argument type="service" id="filesystem"/>
       <argument type="service" id="maker.autoloader_util"/>
       <argument type="service" id="maker.file_link_formatter"/>
-      <argument>C:\xampp\apps\Spyapp</argument>
-      <argument>C:\xampp\apps\Spyapp/templates</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp/templates</argument>
     </service>
     <service id="maker.autoloader_finder" class="Symfony\Bundle\MakerBundle\Util\ComposerAutoloaderFinder">
       <argument>App</argument>
@@ -2847,7 +3562,7 @@
       <tag name="maker.command"/>
       <argument type="service" id="maker.file_manager"/>
       <argument type="service" id="maker.doctrine_helper"/>
-      <argument>C:\xampp\apps\Spyapp</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp</argument>
       <argument type="service" id="maker.generator"/>
       <argument type="service" id="maker.entity_class_generator"/>
     </service>
@@ -2918,7 +3633,7 @@
     </service>
     <service id="maker.maker.make_migration" class="Symfony\Bundle\MakerBundle\Maker\MakeMigration">
       <tag name="maker.command"/>
-      <argument>C:\xampp\apps\Spyapp</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp</argument>
     </service>
     <service id="sensio_framework_extra.controller.listener" class="Sensio\Bundle\FrameworkExtraBundle\EventListener\ControllerListener">
       <tag name="kernel.event_subscriber"/>
@@ -3001,7 +3716,7 @@
       <argument type="service" id="twig.loader.native_filesystem"/>
       <argument type="collection">
         <argument key="autoescape">name</argument>
-        <argument key="cache">C:\xampp\apps\Spyapp\var\cache\dev/twig</argument>
+        <argument key="cache">D:\Program files\XAMPP\apps\spyapp\var\cache\dev/twig</argument>
         <argument key="charset">UTF-8</argument>
         <argument key="debug">true</argument>
         <argument key="strict_variables">true</argument>
@@ -3051,6 +3766,9 @@
       <call method="addExtension">
         <argument type="service" id="twig.extension.webprofiler"/>
       </call>
+      <call method="addExtension">
+        <argument type="service" id="knp_paginator.twig.extension.pagination"/>
+      </call>
       <call method="addGlobal">
         <argument>app</argument>
         <argument type="service" id="twig.app_variable"/>
@@ -3095,9 +3813,9 @@
     <service id="twig.template_iterator" class="Symfony\Bundle\TwigBundle\TemplateIterator">
       <argument type="service" id="kernel"/>
       <argument type="collection">
-        <argument key="C:\xampp\apps\Spyapp\vendor\symfony\twig-bridge/Resources/views/Form">null</argument>
+        <argument key="D:\Program files\XAMPP\apps\spyapp\vendor\symfony\twig-bridge/Resources/views/Form">null</argument>
       </argument>
-      <argument>C:\xampp\apps\Spyapp/templates</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp/templates</argument>
     </service>
     <service id="twig.template_cache_warmer" class="Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheWarmer">
       <tag name="kernel.cache_warmer"/>
@@ -3108,44 +3826,52 @@
     <service id="twig.loader.native_filesystem" class="Twig\Loader\FilesystemLoader">
       <tag name="twig.loader"/>
       <argument type="collection"/>
-      <argument>C:\xampp\apps\Spyapp</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp</argument>
       <call method="addPath">
-        <argument>C:\xampp\apps\Spyapp\vendor\doctrine\doctrine-bundle/Resources/views</argument>
+        <argument>D:\Program files\XAMPP\apps\spyapp\vendor\doctrine\doctrine-bundle/Resources/views</argument>
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>C:\xampp\apps\Spyapp\vendor\doctrine\doctrine-bundle/Resources/views</argument>
+        <argument>D:\Program files\XAMPP\apps\spyapp\vendor\doctrine\doctrine-bundle/Resources/views</argument>
         <argument>!Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>C:\xampp\apps\Spyapp\vendor\doctrine\doctrine-migrations-bundle/Resources/views</argument>
+        <argument>D:\Program files\XAMPP\apps\spyapp\vendor\doctrine\doctrine-migrations-bundle/Resources/views</argument>
         <argument>DoctrineMigrations</argument>
       </call>
       <call method="addPath">
-        <argument>C:\xampp\apps\Spyapp\vendor\doctrine\doctrine-migrations-bundle/Resources/views</argument>
+        <argument>D:\Program files\XAMPP\apps\spyapp\vendor\doctrine\doctrine-migrations-bundle/Resources/views</argument>
         <argument>!DoctrineMigrations</argument>
       </call>
       <call method="addPath">
-        <argument>C:\xampp\apps\Spyapp\vendor\symfony\security-bundle/Resources/views</argument>
+        <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-bundle/Resources/views</argument>
         <argument>Security</argument>
       </call>
       <call method="addPath">
-        <argument>C:\xampp\apps\Spyapp\vendor\symfony\security-bundle/Resources/views</argument>
+        <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\security-bundle/Resources/views</argument>
         <argument>!Security</argument>
       </call>
       <call method="addPath">
-        <argument>C:\xampp\apps\Spyapp\vendor\symfony\web-profiler-bundle/Resources/views</argument>
+        <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\web-profiler-bundle/Resources/views</argument>
         <argument>WebProfiler</argument>
       </call>
       <call method="addPath">
-        <argument>C:\xampp\apps\Spyapp\vendor\symfony\web-profiler-bundle/Resources/views</argument>
+        <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\web-profiler-bundle/Resources/views</argument>
         <argument>!WebProfiler</argument>
       </call>
       <call method="addPath">
-        <argument>C:\xampp\apps\Spyapp/templates</argument>
+        <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/templates</argument>
+        <argument>KnpPaginator</argument>
       </call>
       <call method="addPath">
-        <argument>C:\xampp\apps\Spyapp\vendor\symfony\twig-bridge/Resources/views/Form</argument>
+        <argument>D:\Program files\XAMPP\apps\spyapp\vendor\knplabs\knp-paginator-bundle/templates</argument>
+        <argument>!KnpPaginator</argument>
+      </call>
+      <call method="addPath">
+        <argument>D:\Program files\XAMPP\apps\spyapp/templates</argument>
+      </call>
+      <call method="addPath">
+        <argument>D:\Program files\XAMPP\apps\spyapp\vendor\symfony\twig-bridge/Resources/views/Form</argument>
       </call>
     </service>
     <service id="twig.loader.chain" class="Twig\Loader\ChainLoader"/>
@@ -3162,12 +3888,12 @@
     </service>
     <service id="twig.extension.trans" class="Symfony\Bridge\Twig\Extension\TranslationExtension">
       <tag name="twig.extension"/>
-      <argument>null</argument>
+      <argument type="service" id="translator.data_collector" on-invalid="null"/>
     </service>
     <service id="twig.extension.code" class="Symfony\Bridge\Twig\Extension\CodeExtension">
       <tag name="twig.extension"/>
       <argument type="service" id="debug.file_link_formatter" on-invalid="ignore"/>
-      <argument>C:\xampp\apps\Spyapp</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp</argument>
       <argument>UTF-8</argument>
     </service>
     <service id="twig.extension.routing" class="Symfony\Bridge\Twig\Extension\RoutingExtension">
@@ -3200,6 +3926,10 @@
     <service id="twig.extension.weblink" class="Symfony\Bridge\Twig\Extension\WebLinkExtension">
       <argument type="service" id="request_stack"/>
     </service>
+    <service id="twig.translation.extractor" class="Symfony\Bridge\Twig\Translation\TwigExtractor">
+      <tag name="translation.extractor" alias="twig"/>
+      <argument type="service" id="twig"/>
+    </service>
     <service id="twig.configurator.environment" class="Symfony\Bundle\TwigBundle\DependencyInjection\Configurator\EnvironmentConfigurator">
       <argument>F j, Y H:i</argument>
       <argument>%d days</argument>
@@ -3228,7 +3958,7 @@
     <service id="twig.extension.serializer" class="Symfony\Bridge\Twig\Extension\SerializerExtension"/>
     <service id="twig.extension.form" class="Symfony\Bridge\Twig\Extension\FormExtension">
       <tag name="twig.extension"/>
-      <argument>null</argument>
+      <argument type="service" id="translator.data_collector" on-invalid="null"/>
     </service>
     <service id="twig.form.engine" class="Symfony\Bridge\Twig\Form\TwigRendererEngine">
       <argument>%twig.form.resources%</argument>
@@ -3243,9 +3973,9 @@
       <tag name="console.command"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="twig"/>
-      <argument>C:\xampp\apps\Spyapp</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp</argument>
       <argument>%kernel.bundles_metadata%</argument>
-      <argument>C:\xampp\apps\Spyapp/templates</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp/templates</argument>
       <argument type="service" id="debug.file_link_formatter" on-invalid="null"/>
       <call method="setName">
         <argument>debug:twig</argument>
@@ -3497,6 +4227,34 @@
         </argument>
         <argument>null</argument>
       </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.xs6V1dM"/>
+        <argument type="collection">
+          <argument>ROLE_ADMIN</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.dRyQq6."/>
+        <argument type="collection">
+          <argument>ROLE_ADMIN</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.bi2pehH"/>
+        <argument type="collection">
+          <argument>ROLE_ADMIN</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.G9t2fAh"/>
+        <argument type="collection">
+          <argument>ROLE_ADMIN</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
     </service>
     <service id="security.context_listener" class="Symfony\Component\Security\Http\Firewall\ContextListener">
       <tag name="monolog.logger" channel="security"/>
@@ -3707,7 +4465,7 @@
       <argument type="abstract">options</argument>
       <argument type="service" id="property_accessor" on-invalid="null"/>
       <call method="setTranslator">
-        <argument type="service" id="translator" on-invalid="ignore"/>
+        <argument type="service" id="translator.data_collector" on-invalid="ignore"/>
       </call>
     </service>
     <service id="security.authenticator.x509" class="Symfony\Component\Security\Http\Authenticator\X509Authenticator" abstract="true">
@@ -4045,6 +4803,18 @@
     <service id=".security.request_matcher.uQSFpcI" class="Symfony\Component\HttpFoundation\RequestMatcher">
       <argument>^/asset</argument>
     </service>
+    <service id=".security.request_matcher.xs6V1dM" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/target</argument>
+    </service>
+    <service id=".security.request_matcher.dRyQq6." class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/mission</argument>
+    </service>
+    <service id=".security.request_matcher.bi2pehH" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/spec</argument>
+    </service>
+    <service id=".security.request_matcher.G9t2fAh" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/hideout</argument>
+    </service>
     <service id="security.command.user_password_encoder" class="Symfony\Bundle\SecurityBundle\Command\UserPasswordEncoderCommand">
       <tag name="console.command" command="security:encode-password"/>
       <tag name="container.no_preload"/>
@@ -4082,7 +4852,7 @@
       <argument type="service" id="twig"/>
       <argument>%data_collector.templates%</argument>
       <argument type="service" id="web_profiler.csp.handler"/>
-      <argument>C:\xampp\apps\Spyapp</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp</argument>
     </service>
     <service id="web_profiler.controller.router" class="Symfony\Bundle\WebProfilerBundle\Controller\RouterController" public="true">
       <argument type="service" id="profiler" on-invalid="null"/>
@@ -4133,6 +4903,52 @@
       <argument type="service" id="web_profiler.csp.handler"/>
       <argument>null</argument>
     </service>
+    <service id="knp_paginator" class="Knp\Component\Pager\Paginator" public="true" lazy="true">
+      <tag name="proxy" interface="Knp\Component\Pager\PaginatorInterface"/>
+      <argument type="service" id="debug.event_dispatcher"/>
+      <argument type="service" id="request_stack"/>
+      <call method="setDefaultPaginatorOptions">
+        <argument type="collection">
+          <argument key="pageParameterName">page</argument>
+          <argument key="sortFieldParameterName">sort</argument>
+          <argument key="sortDirectionParameterName">direction</argument>
+          <argument key="filterFieldParameterName">filterField</argument>
+          <argument key="filterValueParameterName">filterValue</argument>
+          <argument key="distinct">true</argument>
+          <argument key="pageOutOfRange">ignore</argument>
+          <argument key="defaultLimit">10</argument>
+        </argument>
+      </call>
+    </service>
+    <service id="knp_paginator.subscriber.paginate" class="Knp\Component\Pager\Event\Subscriber\Paginate\PaginationSubscriber">
+      <tag name="kernel.event_subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.sortable" class="Knp\Component\Pager\Event\Subscriber\Sortable\SortableSubscriber">
+      <tag name="kernel.event_subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.filtration" class="Knp\Component\Pager\Event\Subscriber\Filtration\FiltrationSubscriber">
+      <tag name="kernel.event_subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.sliding_pagination" class="Knp\Bundle\PaginatorBundle\Subscriber\SlidingPaginationSubscriber">
+      <tag name="kernel.event_subscriber"/>
+      <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"/>
+      <tag name="container.hot_path"/>
+      <argument type="collection">
+        <argument key="defaultPaginationTemplate">@KnpPaginator/Pagination/sliding.html.twig</argument>
+        <argument key="defaultSortableTemplate">@KnpPaginator/Pagination/sortable_link.html.twig</argument>
+        <argument key="defaultFiltrationTemplate">@KnpPaginator/Pagination/filtration.html.twig</argument>
+        <argument key="defaultPageRange">5</argument>
+        <argument key="defaultPageLimit">null</argument>
+      </argument>
+    </service>
+    <service id="knp_paginator.helper.processor" class="Knp\Bundle\PaginatorBundle\Helper\Processor">
+      <argument type="service" id="router.default"/>
+      <argument type="service" id="translator.data_collector"/>
+    </service>
+    <service id="knp_paginator.twig.extension.pagination" class="Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension">
+      <tag name="twig.extension"/>
+      <argument type="service" id="knp_paginator.helper.processor"/>
+    </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -4174,6 +4990,12 @@
     <service id=".abstract.instanceof.App\Form\CountryType" class="App\Form\CountryType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\HideoutType" class="App\Form\HideoutType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\HideoutType" class="App\Form\HideoutType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\MissionType" class="App\Form\MissionType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\MissionType" class="App\Form\MissionType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SpecType" class="App\Form\SpecType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\SpecType" class="App\Form\SpecType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\TargetType" class="App\Form\TargetType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\TargetType" class="App\Form\TargetType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\AdminRepository" class="App\Repository\AdminRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\AdminRepository" class="App\Repository\AdminRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\AgentRepository" class="App\Repository\AgentRepository" autowire="true" abstract="true"/>
@@ -4505,17 +5327,24 @@
         <argument key="loader" type="service_closure" id=".errored..service_locator.KfbR3DY.Symfony\Component\Config\Loader\LoaderInterface"/>
       </argument>
     </service>
+    <service id=".service_locator.ioncQ9L" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="agentRepository" type="service_closure" id="App\Repository\AgentRepository"/>
+        <argument key="paginator" type="service_closure" id="knp_paginator"/>
+      </argument>
+    </service>
     <service id=".service_locator.h4TZExZ" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="agentRepository" type="service_closure" id="App\Repository\AgentRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.nWBCTtt" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.D5aMVlF" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="countryRepository" type="service_closure" id="App\Repository\AgentRepository"/>
-        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="assetRepository" type="service_closure" id="App\Repository\AssetRepository"/>
+        <argument key="paginator" type="service_closure" id="knp_paginator"/>
       </argument>
     </service>
     <service id=".service_locator.Lo5OwJg" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -4524,18 +5353,11 @@
         <argument key="assetRepository" type="service_closure" id="App\Repository\AssetRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.6Y1UhM." class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.tpmLUEw" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="assetRepository" type="service_closure" id="App\Repository\AssetRepository"/>
-        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
-      </argument>
-    </service>
-    <service id=".service_locator.VpwjogD" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="countryRepository" type="service_closure" id="App\Repository\AssetRepository"/>
-        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="countryRepository" type="service_closure" id="App\Repository\CountryRepository"/>
+        <argument key="paginator" type="service_closure" id="knp_paginator"/>
       </argument>
     </service>
     <service id=".service_locator.1rC5dQh" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -4544,17 +5366,11 @@
         <argument key="countryRepository" type="service_closure" id="App\Repository\CountryRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.rKcdG11" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="countryRepository" type="service_closure" id="App\Repository\CountryRepository"/>
-        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
-      </argument>
-    </service>
-    <service id=".service_locator.1WMJv05" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.DsoaNx3" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="missionRepository" type="service_closure" id="App\Repository\MissionRepository"/>
+        <argument key="paginator" type="service_closure" id="knp_paginator"/>
       </argument>
     </service>
     <service id=".service_locator.6YukcaO" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -4567,10 +5383,23 @@
         <argument key="targetRepository" type="service_closure" id="App\Repository\TargetRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.jITUWTL" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="hideoutRepository" type="service_closure" id="App\Repository\HideoutRepository"/>
+        <argument key="paginator" type="service_closure" id="knp_paginator"/>
+      </argument>
+    </service>
     <service id=".service_locator.aSuEoP9" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="hideoutRepository" type="service_closure" id="App\Repository\HideoutRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.1WMJv05" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="missionRepository" type="service_closure" id="App\Repository\MissionRepository"/>
       </argument>
     </service>
     <service id=".service_locator.UDgw6Ol" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -4579,41 +5408,89 @@
         <argument key="authenticationUtils" type="service_closure" id="security.authentication_utils"/>
       </argument>
     </service>
-    <service id=".service_locator.GhcK7Dl" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.wAudteR" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Controller\AgentController::delete" type="service_closure" id=".service_locator.nWBCTtt"/>
-        <argument key="App\Controller\AgentController::edit" type="service_closure" id=".service_locator.nWBCTtt"/>
-        <argument key="App\Controller\AgentController::list" type="service_closure" id=".service_locator.h4TZExZ"/>
-        <argument key="App\Controller\AssetController::delete" type="service_closure" id=".service_locator.VpwjogD"/>
-        <argument key="App\Controller\AssetController::edit" type="service_closure" id=".service_locator.6Y1UhM."/>
-        <argument key="App\Controller\AssetController::list" type="service_closure" id=".service_locator.Lo5OwJg"/>
-        <argument key="App\Controller\CountryController::delete" type="service_closure" id=".service_locator.rKcdG11"/>
-        <argument key="App\Controller\CountryController::edit" type="service_closure" id=".service_locator.rKcdG11"/>
-        <argument key="App\Controller\CountryController::list" type="service_closure" id=".service_locator.1rC5dQh"/>
-        <argument key="App\Controller\DefaultController::index" type="service_closure" id=".service_locator.1WMJv05"/>
+        <argument key="paginator" type="service_closure" id="knp_paginator"/>
+        <argument key="specialtyRepository" type="service_closure" id="App\Repository\SpecialtyRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.j21eJRj" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="specialtyRepository" type="service_closure" id="App\Repository\SpecialtyRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.aKr4sE1" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="paginator" type="service_closure" id="knp_paginator"/>
+        <argument key="targetRepository" type="service_closure" id="App\Repository\TargetRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.RVr_iz6" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="targetRepository" type="service_closure" id="App\Repository\TargetRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.48VjloX" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="App\Controller\AgentController::delete" type="service_closure" id=".service_locator.h4TZExZ"/>
+        <argument key="App\Controller\AgentController::edit" type="service_closure" id=".service_locator.h4TZExZ"/>
+        <argument key="App\Controller\AgentController::list" type="service_closure" id=".service_locator.ioncQ9L"/>
+        <argument key="App\Controller\AssetController::delete" type="service_closure" id=".service_locator.Lo5OwJg"/>
+        <argument key="App\Controller\AssetController::edit" type="service_closure" id=".service_locator.Lo5OwJg"/>
+        <argument key="App\Controller\AssetController::list" type="service_closure" id=".service_locator.D5aMVlF"/>
+        <argument key="App\Controller\CountryController::delete" type="service_closure" id=".service_locator.1rC5dQh"/>
+        <argument key="App\Controller\CountryController::edit" type="service_closure" id=".service_locator.1rC5dQh"/>
+        <argument key="App\Controller\CountryController::list" type="service_closure" id=".service_locator.tpmLUEw"/>
+        <argument key="App\Controller\DefaultController::index" type="service_closure" id=".service_locator.DsoaNx3"/>
         <argument key="App\Controller\DetailsController::display" type="service_closure" id=".service_locator.6YukcaO"/>
-        <argument key="App\Controller\HideoutController::list" type="service_closure" id=".service_locator.aSuEoP9"/>
+        <argument key="App\Controller\HideoutController::delete" type="service_closure" id=".service_locator.aSuEoP9"/>
+        <argument key="App\Controller\HideoutController::edit" type="service_closure" id=".service_locator.aSuEoP9"/>
+        <argument key="App\Controller\HideoutController::list" type="service_closure" id=".service_locator.jITUWTL"/>
+        <argument key="App\Controller\MissionController::delete" type="service_closure" id=".service_locator.1WMJv05"/>
+        <argument key="App\Controller\MissionController::edit" type="service_closure" id=".service_locator.1WMJv05"/>
+        <argument key="App\Controller\MissionController::list" type="service_closure" id=".service_locator.DsoaNx3"/>
         <argument key="App\Controller\SecurityController::login" type="service_closure" id=".service_locator.UDgw6Ol"/>
+        <argument key="App\Controller\SpecialtyController::delete" type="service_closure" id=".service_locator.j21eJRj"/>
+        <argument key="App\Controller\SpecialtyController::edit" type="service_closure" id=".service_locator.j21eJRj"/>
+        <argument key="App\Controller\SpecialtyController::list" type="service_closure" id=".service_locator.wAudteR"/>
+        <argument key="App\Controller\TargetController::delete" type="service_closure" id=".service_locator.RVr_iz6"/>
+        <argument key="App\Controller\TargetController::edit" type="service_closure" id=".service_locator.RVr_iz6"/>
+        <argument key="App\Controller\TargetController::list" type="service_closure" id=".service_locator.aKr4sE1"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="App\Kernel::terminate" type="service_closure" id=".service_locator.KfwZsne"/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel::terminate" type="service_closure" id=".service_locator.KfwZsne"/>
-        <argument key="App\Controller\AgentController:delete" type="service_closure" id=".service_locator.nWBCTtt"/>
-        <argument key="App\Controller\AgentController:edit" type="service_closure" id=".service_locator.nWBCTtt"/>
-        <argument key="App\Controller\AgentController:list" type="service_closure" id=".service_locator.h4TZExZ"/>
-        <argument key="App\Controller\AssetController:delete" type="service_closure" id=".service_locator.VpwjogD"/>
-        <argument key="App\Controller\AssetController:edit" type="service_closure" id=".service_locator.6Y1UhM."/>
-        <argument key="App\Controller\AssetController:list" type="service_closure" id=".service_locator.Lo5OwJg"/>
-        <argument key="App\Controller\CountryController:delete" type="service_closure" id=".service_locator.rKcdG11"/>
-        <argument key="App\Controller\CountryController:edit" type="service_closure" id=".service_locator.rKcdG11"/>
-        <argument key="App\Controller\CountryController:list" type="service_closure" id=".service_locator.1rC5dQh"/>
-        <argument key="App\Controller\DefaultController:index" type="service_closure" id=".service_locator.1WMJv05"/>
+        <argument key="App\Controller\AgentController:delete" type="service_closure" id=".service_locator.h4TZExZ"/>
+        <argument key="App\Controller\AgentController:edit" type="service_closure" id=".service_locator.h4TZExZ"/>
+        <argument key="App\Controller\AgentController:list" type="service_closure" id=".service_locator.ioncQ9L"/>
+        <argument key="App\Controller\AssetController:delete" type="service_closure" id=".service_locator.Lo5OwJg"/>
+        <argument key="App\Controller\AssetController:edit" type="service_closure" id=".service_locator.Lo5OwJg"/>
+        <argument key="App\Controller\AssetController:list" type="service_closure" id=".service_locator.D5aMVlF"/>
+        <argument key="App\Controller\CountryController:delete" type="service_closure" id=".service_locator.1rC5dQh"/>
+        <argument key="App\Controller\CountryController:edit" type="service_closure" id=".service_locator.1rC5dQh"/>
+        <argument key="App\Controller\CountryController:list" type="service_closure" id=".service_locator.tpmLUEw"/>
+        <argument key="App\Controller\DefaultController:index" type="service_closure" id=".service_locator.DsoaNx3"/>
         <argument key="App\Controller\DetailsController:display" type="service_closure" id=".service_locator.6YukcaO"/>
-        <argument key="App\Controller\HideoutController:list" type="service_closure" id=".service_locator.aSuEoP9"/>
+        <argument key="App\Controller\HideoutController:delete" type="service_closure" id=".service_locator.aSuEoP9"/>
+        <argument key="App\Controller\HideoutController:edit" type="service_closure" id=".service_locator.aSuEoP9"/>
+        <argument key="App\Controller\HideoutController:list" type="service_closure" id=".service_locator.jITUWTL"/>
+        <argument key="App\Controller\MissionController:delete" type="service_closure" id=".service_locator.1WMJv05"/>
+        <argument key="App\Controller\MissionController:edit" type="service_closure" id=".service_locator.1WMJv05"/>
+        <argument key="App\Controller\MissionController:list" type="service_closure" id=".service_locator.DsoaNx3"/>
         <argument key="App\Controller\SecurityController:login" type="service_closure" id=".service_locator.UDgw6Ol"/>
+        <argument key="App\Controller\SpecialtyController:delete" type="service_closure" id=".service_locator.j21eJRj"/>
+        <argument key="App\Controller\SpecialtyController:edit" type="service_closure" id=".service_locator.j21eJRj"/>
+        <argument key="App\Controller\SpecialtyController:list" type="service_closure" id=".service_locator.wAudteR"/>
+        <argument key="App\Controller\TargetController:delete" type="service_closure" id=".service_locator.RVr_iz6"/>
+        <argument key="App\Controller\TargetController:edit" type="service_closure" id=".service_locator.RVr_iz6"/>
+        <argument key="App\Controller\TargetController:list" type="service_closure" id=".service_locator.aKr4sE1"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel:terminate" type="service_closure" id=".service_locator.KfwZsne"/>
@@ -4665,13 +5542,16 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.l0G9Q2L" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.LI05EN0" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\AgentType" type="service_closure" id="App\Form\AgentType"/>
         <argument key="App\Form\AssetType" type="service_closure" id="App\Form\AssetType"/>
         <argument key="App\Form\CountryType" type="service_closure" id="App\Form\CountryType"/>
         <argument key="App\Form\HideoutType" type="service_closure" id="App\Form\HideoutType"/>
+        <argument key="App\Form\MissionType" type="service_closure" id="App\Form\MissionType"/>
+        <argument key="App\Form\SpecType" type="service_closure" id="App\Form\SpecType"/>
+        <argument key="App\Form\TargetType" type="service_closure" id="App\Form\TargetType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service_closure" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service_closure" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ColorType" type="service_closure" id="form.type.color"/>
@@ -4739,6 +5619,22 @@
       <argument type="collection"/>
     </service>
     <service id="logger" class="Symfony\Component\HttpKernel\Log\Logger"/>
+    <service id=".service_locator.O24_MAy" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="translation.loader.csv" type="service_closure" id="translation.loader.csv"/>
+        <argument key="translation.loader.dat" type="service_closure" id="translation.loader.dat"/>
+        <argument key="translation.loader.ini" type="service_closure" id="translation.loader.ini"/>
+        <argument key="translation.loader.json" type="service_closure" id="translation.loader.json"/>
+        <argument key="translation.loader.mo" type="service_closure" id="translation.loader.mo"/>
+        <argument key="translation.loader.php" type="service_closure" id="translation.loader.php"/>
+        <argument key="translation.loader.po" type="service_closure" id="translation.loader.po"/>
+        <argument key="translation.loader.qt" type="service_closure" id="translation.loader.qt"/>
+        <argument key="translation.loader.res" type="service_closure" id="translation.loader.res"/>
+        <argument key="translation.loader.xliff" type="service_closure" id="translation.loader.xliff"/>
+        <argument key="translation.loader.yml" type="service_closure" id="translation.loader.yml"/>
+      </argument>
+    </service>
     <service id=".service_locator.W9y3dzm" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -4820,6 +5716,18 @@
       <argument>App\Controller\TargetController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.W9y3dzm" method="withContext"/>
+    </service>
+    <service id=".service_locator.J4b.DPX" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="translator" type="service_closure" id="translator.data_collector"/>
+      </argument>
+    </service>
+    <service id=".service_locator.J4b.DPX.translation.warmer" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="translation.warmer"/>
+      <argument>translation.warmer</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.J4b.DPX" method="withContext"/>
     </service>
     <service id=".service_locator.WOytlHA" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
@@ -4906,12 +5814,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.GhcK7Dl"/>
+      <argument type="service" id=".service_locator.48VjloX"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.GhcK7Dl"/>
+      <argument type="service" id=".service_locator.48VjloX"/>
     </service>
     <service id=".doctrine.orm.default_metadata_driver.inner" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain">
       <call method="addDriver">
@@ -5073,6 +5981,41 @@
       <argument>Help debug routes by simulating a path info match</argument>
       <argument>false</argument>
       <argument type="service_closure" id="console.command.router_match"/>
+    </service>
+    <service id=".console.command.translation_debug.lazy" class="Symfony\Component\Console\Command\LazyCommand">
+      <argument>debug:translation</argument>
+      <argument type="collection"/>
+      <argument>Display translation messages information</argument>
+      <argument>false</argument>
+      <argument type="service_closure" id="console.command.translation_debug"/>
+    </service>
+    <service id=".console.command.translation_update.lazy" class="Symfony\Component\Console\Command\LazyCommand">
+      <argument>translation:update</argument>
+      <argument type="collection"/>
+      <argument>Update the translation file</argument>
+      <argument>false</argument>
+      <argument type="service_closure" id="console.command.translation_update"/>
+    </service>
+    <service id=".console.command.translation_pull.lazy" class="Symfony\Component\Console\Command\LazyCommand">
+      <argument>translation:pull</argument>
+      <argument type="collection"/>
+      <argument>Pull translations from a given provider.</argument>
+      <argument>false</argument>
+      <argument type="service_closure" id="console.command.translation_pull"/>
+    </service>
+    <service id=".console.command.translation_push.lazy" class="Symfony\Component\Console\Command\LazyCommand">
+      <argument>translation:push</argument>
+      <argument type="collection"/>
+      <argument>Push translations to a given provider.</argument>
+      <argument>false</argument>
+      <argument type="service_closure" id="console.command.translation_push"/>
+    </service>
+    <service id=".console.command.xliff_lint.lazy" class="Symfony\Component\Console\Command\LazyCommand">
+      <argument>lint:xliff</argument>
+      <argument type="collection"/>
+      <argument>Lint an XLIFF file and outputs encountered errors</argument>
+      <argument>false</argument>
+      <argument type="service_closure" id="console.command.xliff_lint"/>
     </service>
     <service id=".console.command.yaml_lint.lazy" class="Symfony\Component\Console\Command\LazyCommand">
       <argument>lint:yaml</argument>
@@ -5317,7 +6260,7 @@
     </service>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <tag name="container.no_preload"/>
-      <argument type="service" id=".service_locator.hyahhBM"/>
+      <argument type="service" id=".service_locator.G55q5Aa"/>
       <argument type="collection">
         <argument key="about">console.command.about</argument>
         <argument key="assets:install">console.command.assets_install</argument>
@@ -5335,6 +6278,11 @@
         <argument key="debug:event-dispatcher">console.command.event_dispatcher_debug</argument>
         <argument key="debug:router">console.command.router_debug</argument>
         <argument key="router:match">console.command.router_match</argument>
+        <argument key="debug:translation">console.command.translation_debug</argument>
+        <argument key="translation:update">console.command.translation_update</argument>
+        <argument key="translation:pull">console.command.translation_pull</argument>
+        <argument key="translation:push">console.command.translation_push</argument>
+        <argument key="lint:xliff">console.command.xliff_lint</argument>
         <argument key="lint:yaml">console.command.yaml_lint</argument>
         <argument key="debug:form">console.command.form_debug</argument>
         <argument key="secrets:set">console.command.secrets_set</argument>
@@ -5406,7 +6354,7 @@
         <argument key="make:migration">maker.auto_command.make_migration</argument>
       </argument>
     </service>
-    <service id=".service_locator.hyahhBM" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.G55q5Aa" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="Doctrine\DBAL\Tools\Console\Command\RunSqlCommand" type="service_closure" id="Doctrine\DBAL\Tools\Console\Command\RunSqlCommand"/>
@@ -5433,6 +6381,11 @@
         <argument key="console.command.secrets_list" type="service_closure" id=".console.command.secrets_list.lazy"/>
         <argument key="console.command.secrets_remove" type="service_closure" id=".console.command.secrets_remove.lazy"/>
         <argument key="console.command.secrets_set" type="service_closure" id=".console.command.secrets_set.lazy"/>
+        <argument key="console.command.translation_debug" type="service_closure" id=".console.command.translation_debug.lazy"/>
+        <argument key="console.command.translation_pull" type="service_closure" id=".console.command.translation_pull.lazy"/>
+        <argument key="console.command.translation_push" type="service_closure" id=".console.command.translation_push.lazy"/>
+        <argument key="console.command.translation_update" type="service_closure" id=".console.command.translation_update.lazy"/>
+        <argument key="console.command.xliff_lint" type="service_closure" id=".console.command.xliff_lint.lazy"/>
         <argument key="console.command.yaml_lint" type="service_closure" id=".console.command.yaml_lint.lazy"/>
         <argument key="doctrine.cache_clear_metadata_command" type="service_closure" id="doctrine.cache_clear_metadata_command"/>
         <argument key="doctrine.cache_clear_query_cache_command" type="service_closure" id="doctrine.cache_clear_query_cache_command"/>
@@ -5495,61 +6448,61 @@
       </argument>
     </service>
     <service id="cache.app.recorder_inner" class="Symfony\Component\Cache\Adapter\FilesystemAdapter">
-      <argument>YDZbjrfIm3</argument>
+      <argument>0l-JuUxyqV</argument>
       <argument>0</argument>
-      <argument>C:\xampp\apps\Spyapp\var\cache\dev/pools</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp\var\cache\dev/pools</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="logger" on-invalid="ignore"/>
       </call>
     </service>
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface">
-      <argument>7VKjF4CYC6</argument>
+      <argument>tVNNFyfJhU</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\xampp\apps\Spyapp\var\cache\dev/pools</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface">
-      <argument>WofiOFiQFZ</argument>
+      <argument>lMgn4wpJKe</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\xampp\apps\Spyapp\var\cache\dev/pools</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface">
-      <argument>soiqS62A4p</argument>
+      <argument>Af4jgvwaT4</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\xampp\apps\Spyapp\var\cache\dev/pools</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface">
-      <argument>3UEGR9ZNgH</argument>
+      <argument>p5u1Ww6uXv</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\xampp\apps\Spyapp\var\cache\dev/pools</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.property_info.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface">
-      <argument>urMOM1bOI4</argument>
+      <argument>oqX50t-Nrh</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\xampp\apps\Spyapp\var\cache\dev/pools</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.doctrine.orm.default.result.recorder_inner" class="Symfony\Component\Cache\Adapter\ArrayAdapter"/>
     <service id="cache.doctrine.orm.default.query.recorder_inner" class="Symfony\Component\Cache\Adapter\ArrayAdapter"/>
     <service id="cache.security_expression_language.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface">
-      <argument>dCHw0PtUIb</argument>
+      <argument>CKHSwrmjQW</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\xampp\apps\Spyapp\var\cache\dev/pools</argument>
+      <argument>D:\Program files\XAMPP\apps\spyapp\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -5591,6 +6544,7 @@
     <service id="Symfony\Component\Cache\Adapter\AdapterInterface" alias="cache.app"/>
     <service id="Symfony\Contracts\Cache\CacheInterface" alias="cache.app"/>
     <service id="Symfony\Contracts\Cache\TagAwareCacheInterface" alias="cache.app.taggable"/>
+    <service id="Symfony\Contracts\Translation\TranslatorInterface" alias="translator.data_collector"/>
     <service id="cache.default_redis_provider" alias=".cache_connection.GD_MSZC"/>
     <service id="cache.default_memcached_provider" alias=".cache_connection.JKE6keX"/>
     <service id="cache.default_pdo_provider" alias="doctrine.dbal.default_connection"/>
@@ -5609,6 +6563,11 @@
     <service id="Symfony\Component\Form\FormFactoryInterface" alias="form.factory"/>
     <service id="form.property_accessor" alias="property_accessor"/>
     <service id="form.choice_list_factory" alias="form.choice_list_factory.cached"/>
+    <service id="Symfony\Component\Translation\Reader\TranslationReaderInterface" alias="translation.reader"/>
+    <service id="Symfony\Component\Translation\Extractor\ExtractorInterface" alias="translation.extractor"/>
+    <service id="Symfony\Component\Translation\Writer\TranslationWriterInterface" alias="translation.writer"/>
+    <service id="translator" alias="translator.data_collector" public="true"/>
+    <service id="translator.formatter" alias="translator.formatter.default"/>
     <service id="Symfony\Component\HttpKernel\Debug\FileLinkFormatter" alias="debug.file_link_formatter"/>
     <service id="Symfony\Component\Stopwatch\Stopwatch" alias="debug.stopwatch"/>
     <service id="router" alias="router.default" public="true"/>
@@ -5680,15 +6639,17 @@
     <service id="security.user_checker.main" alias="security.user_checker"/>
     <service id="security.firewall.context_locator" alias=".service_locator.zJyh7qS"/>
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker"/>
+    <service id="Knp\Component\Pager\PaginatorInterface" alias="knp_paginator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.0GV1BZZ" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.GhcK7Dl"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.48VjloX"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface" alias="logger"/>
+    <service id="translator.data_collector.inner" alias="translator.default"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher" public="true"/>
     <service id="controller_resolver" alias="debug.controller_resolver"/>
     <service id="argument_resolver" alias="debug.argument_resolver"/>
@@ -5706,17 +6667,22 @@
     <service id="doctrine.orm.default_metadata_driver" alias=".doctrine.orm.default_metadata_driver"/>
     <service id=".service_locator._5g_Wvc" alias=".service_locator.KfwZsne"/>
     <service id=".service_locator.JBAFp66" alias=".service_locator.KfbR3DY"/>
+    <service id=".service_locator.z8q4iBH" alias=".service_locator.ioncQ9L"/>
     <service id=".service_locator.r176jwL" alias=".service_locator.h4TZExZ"/>
-    <service id=".service_locator.WGHxwQL" alias=".service_locator.nWBCTtt"/>
+    <service id=".service_locator.C1HqWH3" alias=".service_locator.D5aMVlF"/>
     <service id=".service_locator.Ua.6kfQ" alias=".service_locator.Lo5OwJg"/>
-    <service id=".service_locator.vCYei.a" alias=".service_locator.6Y1UhM."/>
-    <service id=".service_locator.JgDnri_" alias=".service_locator.VpwjogD"/>
+    <service id=".service_locator.81QIjgA" alias=".service_locator.tpmLUEw"/>
     <service id=".service_locator.u8ZRHcj" alias=".service_locator.1rC5dQh"/>
-    <service id=".service_locator.DhrLv_b" alias=".service_locator.rKcdG11"/>
-    <service id=".service_locator.2Xi1YC9" alias=".service_locator.1WMJv05"/>
+    <service id=".service_locator.Cnpf7fn" alias=".service_locator.DsoaNx3"/>
     <service id=".service_locator.UriUs_J" alias=".service_locator.6YukcaO"/>
+    <service id=".service_locator.Re0bT8N" alias=".service_locator.jITUWTL"/>
     <service id=".service_locator.BQFEi.P" alias=".service_locator.aSuEoP9"/>
+    <service id=".service_locator.2Xi1YC9" alias=".service_locator.1WMJv05"/>
     <service id=".service_locator.kXCVHeG" alias=".service_locator.UDgw6Ol"/>
+    <service id=".service_locator.CDaC6NE" alias=".service_locator.wAudteR"/>
+    <service id=".service_locator.1BFX0PL" alias=".service_locator.j21eJRj"/>
+    <service id=".service_locator.hGbAeDd" alias=".service_locator.aKr4sE1"/>
+    <service id=".service_locator.cotJpp8" alias=".service_locator.RVr_iz6"/>
     <service id=".service_locator.S3Bk2.h" alias=".service_locator.W9y3dzm"/>
   </services>
 </container>

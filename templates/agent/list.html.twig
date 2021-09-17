@@ -8,32 +8,30 @@
         table, tr, th, td {
             border: 1px solid black;
         }
-
-        button {
-        }
-
     </style>
-
     <div class="example-wrapper">
         <h1>Agents :</h1>
-        {% if agentsCount > 0  %}
+        {% if agentsCount > 0 %}
             <table>
                 <tr>
-                    <th>name</th>
+                    <th>Name</th>
                     <th></th>
                     <th></th>
                 </tr>
-                {% for agent in agents %}
+                {% for agent in pagination %}
                     <tr>
                         <td>{% if agent.name is same as ('47') %} Agent 47 {% else %} {{ agent.name }}, {{ agent.surname }} {% endif %}</td>
-                        <td><button onclick="window.location.href = 'http://localhost/agent/edit/{{ agent.id }}'">Edit</button></td>
-                        <td><button onclick="window.location.href = 'http://localhost/agent/delete/{{ agent.id }}'">Delete</button></td>
+                        <td><button onclick="window.location.href = '{{path('app_agent_edit', {'id': agent.id})}}'">Edit</button></td>
+                        <td><button onclick="window.location.href = '{{path('app_agent_delete', {'id': agent.id})}}'">Delete</button></td>
                     </tr>
                 {% endfor %}
             </table>
+            <div>
+                {{ knp_pagination_render(pagination) }}
+            </div>
         {% else %}
             <h2>There is no agents</h2>
         {% endif %}
-        <button onclick="window.location.href = 'http://localhost/agent/add'">Add a new agent</button>
+        <button onclick="window.location.href = '{{ path('app_agent_add') }}'">Add a new agent</button>
     </div>
 {% endblock %}

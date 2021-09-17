@@ -12,7 +12,7 @@
     {{ form_start(form) }}
     {{ form_widget(form) }}
     <input type="submit" />
-    <button onclick="window.location.href = 'http://localhost/agent/'">Back to agent list</button>
     {{ form_end(form) }}
+    <button onclick="window.location.href = '{{ path('app_agent_list') }}'">Back to agent list</button>
 </div>
 {% endblock %}

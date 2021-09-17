@@ -10,12 +10,12 @@
     {% if isedited == false %}
     {{ form_start(form) }}
     {{ form_widget(form) }}
-    <input type="submit" value="edit agent"/>
-    <button onclick="window.location.href = 'http://localhost/hideout/'">Back to hideout list</button>
+    <input type="submit" value="edit hideout"/>
     {{ form_end(form) }}
+    <button onclick="window.location.href = '{{ path('app_hideout_list') }}'">Back to hideout list</button>
     {% else %}
-    <h1>The hideout  {{ agent.name }}, {{ agent.surname }} {% endif %} has been edited! ✅</h1>
-        <button onclick="window.location.href = 'http://localhost/agent/'">Back to agent list</button>
+    <h1>The hideout  {{ hideout.code }} has been edited! ✅</h1>
+    <button onclick="window.location.href = '{{ path('app_hideout_list') }}'">Back to hideout list</button>
     {% endif %}
 </div>
 {% endblock %}

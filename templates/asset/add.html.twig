@@ -11,12 +11,12 @@
     {{ form_start(form) }}
     {{ form_widget(form) }}
     <input type="submit" value="Add asset"/>
-    <button onclick="window.location.href = 'http://localhost/asset/'">Back to asset list</button>
+    <button onclick="window.location.href = '{{ path('app_asset_list') }}'">Back to asset list</button>
     {{ form_end(form) }}
     {% else %}
     <h1>The asset {{ asset.name }}, {{ asset.surname }} has been added! ✅</h1>
-        <button onclick="window.location.href = 'http://localhost/asset/add'">Add another asset</button>
-        <button onclick="window.location.href = 'http://localhost/asset/'">Back to asset list</button>
+        <button onclick="window.location.href = '{{ path('app_asset_add') }}'">Add another asset</button>
+        <button onclick="window.location.href = '{{ path('app_asset_list') }}'">Back to asset list</button>
     {% endif %}
 </div>
 {% endblock %}

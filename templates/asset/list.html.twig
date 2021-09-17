@@ -23,17 +23,20 @@
                     <th></th>
                     <th></th>
                 </tr>
-                {% for asset in assets %}
+                {% for asset in pagination %}
                     <tr>
                         <td>{{ asset.name }}, {{ asset.surname }} </td>
-                        <td><button onclick="window.location.href = 'http://localhost/asset/edit/{{ asset.id }}'">Edit</button></td>
-                        <td><button onclick="window.location.href = 'http://localhost/asset/delete/{{ asset.id }}'">Delete</button></td>
+                        <td><button onclick="window.location.href = '{{path('app_asset_edit', {'id': asset.id})}}'">Edit</button></td>
+                        <td><button onclick="window.location.href = '{{path('app_asset_delete', {'id': asset.id})}}'">Delete</button></td>
                     </tr>
                 {% endfor %}
             </table>
+            <div>
+                {{ knp_pagination_render(pagination) }}
+            </div>
         {% else %}
             <h2>There is no assets</h2>
         {% endif %}
-        <button onclick="window.location.href = 'http://localhost/asset/add'">Add a new asset</button>
+        <button onclick="window.location.href = '{{path('app_asset_add')}}'">Add a new asset</button>
     </div>
 {% endblock %}

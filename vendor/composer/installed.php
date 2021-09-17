@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '9ab15a468cf3035f6829cce0c09716552e97ce7d',
+    'reference' => '14069b651c0fc9ae597ee1455a1c36e3b07606b9',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '9ab15a468cf3035f6829cce0c09716552e97ce7d',
+      'reference' => '14069b651c0fc9ae597ee1455a1c36e3b07606b9',
     ),
     'composer/package-versions-deprecated' => 
     array (
@@ -181,6 +181,24 @@
       array (
       ),
       'reference' => '006aa5d32f887a4db4353b13b5b5095613e0611f',
+    ),
+    'knplabs/knp-components' => 
+    array (
+      'pretty_version' => 'v3.1.0',
+      'version' => '3.1.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'f06a6ebea71a91c8cd34213f9417004062133627',
+    ),
+    'knplabs/knp-paginator-bundle' => 
+    array (
+      'pretty_version' => 'v5.6.0',
+      'version' => '5.6.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'a11cd180826e9475e1079b3b64c27a1c33c48917',
     ),
     'laminas/laminas-code' => 
     array (
@@ -714,6 +732,15 @@
       ),
       'reference' => 'bd53358e3eccec6a670b5f33ab680d8dbe1d4ae1',
     ),
+    'symfony/translation' => 
+    array (
+      'pretty_version' => 'v5.3.7',
+      'version' => '5.3.7.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '4d595a6d15fd3a2c67f6f31d14d15d3b7356d7a6',
+    ),
     'symfony/translation-contracts' => 
     array (
       'pretty_version' => 'v2.4.0',
@@ -722,6 +749,13 @@
       array (
       ),
       'reference' => '95c812666f3e91db75385749fe219c5e494c7f95',
+    ),
+    'symfony/translation-implementation' => 
+    array (
+      'provided' => 
+      array (
+        0 => '2.3',
+      ),
     ),
     'symfony/twig-bridge' => 
     array (
