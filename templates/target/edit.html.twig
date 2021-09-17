@@ -10,12 +10,12 @@
     {% if isedited == false %}
     {{ form_start(form) }}
     {{ form_widget(form) }}
-    <input type="submit" value="edit agent"/>
-    <button onclick="window.location.href = '{{ Path('app_target_list') }}'">Back to agent list</button>
+    <input type="submit" value="edit target"/>
+    <button onclick="window.location.href = '{{ path('app_target_list') }}'">Back to target list</button>
     {{ form_end(form) }}
     {% else %}
-    <h1>The agent {% if agent.name is same as ('47') %} Agent 47 {% else %} {{ agent.name }}, {{ agent.surname }} {% endif %} has been edited! ✅</h1>
-    <button onclick="window.location.href = '{{ Path('app_target_list') }}'">Back to agent list</button>
+    <h1>The agent {{ target.name }}, {{ target.surname }} has been edited! ✅</h1>
+    <button onclick="window.location.href = '{{ path('app_target_list') }}'">Back to target list</button>
     {% endif %}
 </div>
 {% endblock %}

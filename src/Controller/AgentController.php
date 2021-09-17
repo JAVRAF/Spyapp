@@ -7,6 +7,7 @@ use App\Form\AgentType;
 use App\Repository\AgentRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -28,7 +29,6 @@ class AgentController extends AbstractController
             'agents' => $agents,
             'agentsCount' => count($agents),
             'pagination' => $pages,
-            'id' => 1
         ]);
     }
 
@@ -59,21 +59,28 @@ class AgentController extends AbstractController
     {
         $isedited = false;
         $agent = $agentRepository->find($id);
-
-        $form = $this->createForm(AgentType::class, $agent);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid())
-        {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($agent);
-            $entityManager->flush();
-            $isedited = true;
+        try {
+            if (!$agent) {
+                throw new Exception('<h2>This agent does not exist</h2>');
+            }
+            $form = $this->createForm(AgentType::class, $agent);
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid())
+            {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($agent);
+                $entityManager->flush();
+                $isedited = true;
+            }
+            return $this->render('Agent/edit.html.twig', [
+                'agent' => $agent,
+                'form' => $form->createView(),
+                'isedited' => $isedited
+            ]);
+        } catch (Exception $e) {
+            return new Response ($e->getMessage());
         }
-        return $this->render('Agent/edit.html.twig', [
-            'agent' => $agent,
-            'form' => $form->createView(),
-            'isedited' => $isedited
-        ]);
+
     }
 
     /**
@@ -81,12 +88,18 @@ class AgentController extends AbstractController
      */
     public function delete(int $id, AgentRepository $agentRepository): Response
     {
-        $agent = $agentRepository->find($id);;
+        $agent = $agentRepository->find($id);
+        try {
+            if (!$agent) {
+                throw new Exception('<h2>This agent does not exist</h2>');
+            }
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($agent);
+            $entityManager->flush();
 
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->remove($agent);
-        $entityManager->flush();
-
-        return new Response('Agent deleted');
+            return new Response('Agent deleted');
+        } catch (Exception $e) {
+            return new Response ($e->getMessage());
+        }
     }
 }

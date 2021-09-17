@@ -46,6 +46,6 @@ return [
     'app_target_list' => [[], ['_controller' => 'App\\Controller\\TargetController::list'], [], [['text', '/target']], [], []],
     'app_target_add' => [[], ['_controller' => 'App\\Controller\\TargetController::add'], [], [['text', '/target/add']], [], []],
     'app_target_edit' => [['id'], ['_controller' => 'App\\Controller\\TargetController::edit'], ['id' => '\\d+'], [['variable', '/', '\\d+', 'id', true], ['text', '/target/edit']], [], []],
-    'app_target_delete' => [['id'], ['_controller' => 'App\\Controller\\TargetController::delete'], ['id' => '\\d+'], [['variable', '/', '\\d+', 'id', true], ['text', '/target/delete']], [], []],
+    'app_target_delete' => [['id'], ['_controller' => 'App\\Controller\\TargetController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/target/delete']], [], []],
     '_preview_error' => [['code', '_format'], ['_controller' => 'error_controller::preview', '_format' => 'html'], ['code' => '\\d+'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', '\\d+', 'code', true], ['text', '/_error']], [], []],
 ];

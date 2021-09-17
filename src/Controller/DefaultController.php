@@ -20,7 +20,7 @@ class DefaultController extends AbstractController
 
         $pages = $paginator->paginate(
             $missions,
-            $request->query->getInt('page', 1), 1
+            $request->query->getInt('page', 1), 3
         );
 
         return $this->render('default/index.html.twig', [

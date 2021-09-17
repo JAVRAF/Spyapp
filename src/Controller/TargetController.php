@@ -5,12 +5,13 @@ namespace App\Controller;
 use App\Entity\Target;
 use App\Form\TargetType;
 use App\Repository\TargetRepository;
-use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 
 class TargetController extends AbstractController
 {
@@ -60,36 +61,48 @@ class TargetController extends AbstractController
     {
         $isedited = false;
         $target = $targetRepository->find($id);
+        try {
+            if (!$target) {
+                throw new Exception('<h2>This target does not exist</h2>');
+            }
+            $form = $this->createForm(TargetType::class, $target);
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid())
+            {
 
-        $form = $this->createForm(TargetType::class, $target);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid())
-        {
+                $entityManager = $this->getDoctrine()->getManager();
 
-            $entityManager = $this->getDoctrine()->getManager();
-
-            $entityManager->persist($target);
-            $entityManager->flush();
-            $isedited = true;
+                $entityManager->persist($target);
+                $entityManager->flush();
+                $isedited = true;
+            }
+            return $this->render('target/edit.html.twig', [
+                'target' => $target,
+                'form' => $form->createView(),
+                'isedited' => $isedited
+            ]);
+        } catch (Exception $e) {
+            return new Response($e->getMessage());
         }
-        return $this->render('target/edit.html.twig', [
-            'target' => $target,
-            'form' => $form->createView(),
-            'isedited' => $isedited
-        ]);
     }
 
     /**
-     *@Route("/target/delete/{id}", requirements={"id"="\d+"})
+     *@Route("/target/delete/{id}")
      */
     public function delete(int $id, TargetRepository $targetRepository): Response
     {
         $target = $targetRepository->find($id);
-
+        try {
+            if (!$target) {
+                throw new Exception('<h2>This target does not exist</h2>');
+            }
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->remove($target);
         $entityManager->flush();
 
         return new Response('Target deleted');
+        } catch (Exception $e) {
+            return new Response($e->getMessage());
+        }
     }
 }

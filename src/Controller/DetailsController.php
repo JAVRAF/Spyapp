@@ -8,9 +8,9 @@ use App\Repository\HideoutRepository;
 use App\Repository\MissionRepository;
 use App\Repository\TargetRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Twig\Error\RuntimeError;
 
 class DetailsController extends AbstractController
 {
@@ -24,12 +24,17 @@ class DetailsController extends AbstractController
                             TargetRepository  $targetRepository,
                             HideoutRepository $hideoutRepository): Response
     {
-        return $this->render('details/index.html.twig', [
-            'mission' => $missionRepository->find($id),
-            'hideouts' => $hideoutRepository->findby(['mission' => $id]),
-            'agents' => $agentRepository->findby(['current_mission' => $id]),
-            'assets' => $assetRepository->findby(['current_mission' => $id]),
-            'targets' => $targetRepository->findby(['mission' => $id]),
-        ]);
+        try {
+            return $this->render('details/index.html.twig', [
+                'mission' => $missionRepository->find($id),
+                'hideouts' => $hideoutRepository->findby(['mission' => $id]),
+                'agents' => $agentRepository->findby(['current_mission' => $id]),
+                'assets' => $assetRepository->findby(['current_mission' => $id]),
+                'targets' => $targetRepository->findby(['mission' => $id]),
+            ]);
+        } catch(RuntimeError $e) {
+            return new Response('<h2>Mission '.$id.' doesn\'t exist</h2>');
+        }
+
     }
 }

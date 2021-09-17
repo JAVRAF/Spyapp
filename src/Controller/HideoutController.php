@@ -8,6 +8,7 @@ use App\Repository\HideoutRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -58,22 +59,28 @@ class HideoutController extends AbstractController
     {
         $isedited = false;
         $hideout = $hideoutRepository->find($id);
+        try {
+            if (!$hideout) {
+                throw new Exception('<h2>This hideout does not exist</h2>');
+            }
+            $form = $this->createForm(HideoutType::class, $hideout);
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid())
+            {
 
-        $form = $this->createForm(HideoutType::class, $hideout);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid())
-        {
-
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($hideout);
-            $entityManager->flush();
-            $isedited = true;
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($hideout);
+                $entityManager->flush();
+                $isedited = true;
+            }
+            return $this->render('Hideout/edit.html.twig', [
+                'hideout' => $hideout,
+                'form' => $form->createView(),
+                'isedited' => $isedited
+            ]);
+        } catch (Exception $e) {
+            return new Response($e->getMessage());
         }
-        return $this->render('Hideout/edit.html.twig', [
-            'hideout' => $hideout,
-            'form' => $form->createView(),
-            'isedited' => $isedited
-        ]);
     }
 
     /**
@@ -82,11 +89,17 @@ class HideoutController extends AbstractController
     public function delete(int $id, HideoutRepository $hideoutRepository): Response
     {
         $hideout = $hideoutRepository->find($id);
-
+        try {
+            if (!$hideout) {
+                throw new Exception('<h2>This hideout does not exist</h2>');
+            }
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->remove($hideout);
         $entityManager->flush();
 
         return new Response('Hideout deleted');
+        } catch (Exception $e) {
+            return new Response($e->getMessage());
+        }
     }
 }

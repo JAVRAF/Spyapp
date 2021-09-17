@@ -78,7 +78,7 @@ return [
                 .')'
                 .'|/target/(?'
                     .'|edit/(\\d+)(*:512)'
-                    .'|delete/(\\d+)(*:532)'
+                    .'|delete/([^/]++)(*:535)'
                 .')'
             .')/?$}sDu',
     ],
@@ -104,7 +104,7 @@ return [
         462 => [[['_route' => 'app_specialty_edit', '_controller' => 'App\\Controller\\SpecialtyController::edit'], ['id'], null, null, false, true, null]],
         482 => [[['_route' => 'app_specialty_delete', '_controller' => 'App\\Controller\\SpecialtyController::delete'], ['id'], null, null, false, true, null]],
         512 => [[['_route' => 'app_target_edit', '_controller' => 'App\\Controller\\TargetController::edit'], ['id'], null, null, false, true, null]],
-        532 => [
+        535 => [
             [['_route' => 'app_target_delete', '_controller' => 'App\\Controller\\TargetController::delete'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

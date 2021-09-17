@@ -8,6 +8,7 @@ use App\Form\CountryType;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -43,7 +44,6 @@ class CountryController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid())
         {
-
             $entityManager = $this->getDoctrine()->getManager();
 
             $entityManager->persist($country);
@@ -64,23 +64,28 @@ class CountryController extends AbstractController
     {
         $isedited = false;
         $country = $countryRepository->find($id);
+        try{
+            if (!$country) {
+                throw new Exception('<h2>This country does not exist</h2>');
+            }
+            $form = $this->createForm(CountryType::class, $country);
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid())
+            {
+                $entityManager = $this->getDoctrine()->getManager();
 
-        $form = $this->createForm(CountryType::class, $country);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid())
-        {
-
-            $entityManager = $this->getDoctrine()->getManager();
-
-            $entityManager->persist($country);
-            $entityManager->flush();
-            $isedited = true;
+                $entityManager->persist($country);
+                $entityManager->flush();
+                $isedited = true;
+            }
+            return $this->render('country/edit.html.twig', [
+                'country' => $country,
+                'form' => $form->createView(),
+                'isedited' => $isedited
+            ]);
+        } catch (Exception $e) {
+            return new Response($e->getMessage());
         }
-        return $this->render('country/edit.html.twig', [
-            'country' => $country,
-            'form' => $form->createView(),
-            'isedited' => $isedited
-        ]);
     }
 
     /**
@@ -89,11 +94,16 @@ class CountryController extends AbstractController
     public function delete(int $id, CountryRepository $countryRepository): Response
     {
         $country = $countryRepository->find($id);
-
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->remove($country);
-        $entityManager->flush();
-
-        return new Response('Country deleted');
+        try {
+            if (!$country) {
+                throw new Exception('<h2>This country does not exist</h2>');
+                }
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($country);
+            $entityManager->flush();
+            return new Response('Country deleted');
+        } catch (Exception $e) {
+            return new Response($e->getMessage());
+        }
     }
 }

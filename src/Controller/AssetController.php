@@ -8,6 +8,7 @@ use App\Repository\AssetRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -62,21 +63,27 @@ class AssetController extends AbstractController
     {
         $isedited = false;
         $asset = $assetRepository->find($id);
-
-        $form = $this->createForm(AssetType::class, $asset);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid())
-        {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($asset);
-            $entityManager->flush();
-            $isedited = true;
+        try{
+            if (!$asset) {
+                throw new Exception('<h2>This asset does not exist</h2>');
+            }
+            $form = $this->createForm(AssetType::class, $asset);
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid())
+            {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($asset);
+                $entityManager->flush();
+                $isedited = true;
+            }
+            return $this->render('asset/edit.html.twig', [
+                'asset' => $asset,
+                'form' => $form->createView(),
+                'isedited' => $isedited
+            ]);
+        } catch (Exception $e) {
+            return new Response($e->getMessage());
         }
-        return $this->render('asset/edit.html.twig', [
-            'asset' => $asset,
-            'form' => $form->createView(),
-            'isedited' => $isedited
-        ]);
     }
 
     /**
@@ -85,11 +92,17 @@ class AssetController extends AbstractController
     public function delete(int $id, AssetRepository $assetRepository): Response
     {
         $asset = $assetRepository->find($id);
+        try{
+            if (!$asset) {
+                throw new Exception('<h2>This asset does not exist</h2>');
+            }
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($asset);
+            $entityManager->flush();
 
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->remove($asset);
-        $entityManager->flush();
-
-        return new Response('Asset deleted');
+            return new Response('Asset deleted');
+        } catch (Exception $e) {
+            return new Response($e->getMessage());
+        }
     }
 }
