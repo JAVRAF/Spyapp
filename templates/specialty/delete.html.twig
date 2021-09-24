@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="example-wrapper">
+        <h1>The specialty {{ specialty.type }} has been deleted! ✅</h1>
+        <button onclick="window.location.href = '{{ path('app_specialty_list') }}'">Back to specialty list</button>
+    </div>
+{% endblock %}

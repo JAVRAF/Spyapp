@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Mission;
 use App\Form\MissionType;
+use App\Repository\HideoutRepository;
 use App\Repository\MissionRepository;
 use Doctrine\DBAL\Exception\ForeignKeyConstraintViolationException;
 use Knp\Component\Pager\PaginatorInterface;
@@ -16,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class MissionController extends AbstractController
 {
     /**
-     *@Route("/mission")
+     * @Route("/mission")
      **/
     public function list(MissionRepository $missionRepository, Request $request, PaginatorInterface $paginator): Response
     {
@@ -34,30 +35,32 @@ class MissionController extends AbstractController
     }
 
     /**
-     *@Route("/mission/add")
+     * @Route("/mission/add")
      **/
-    public function add(Request $request): Response
+    public function add(Request $request, HideoutRepository $hideoutRepository): Response
     {
+        $isadded = false;
         $mission = new Mission();
         $form = $this->createForm(MissionType::class, $mission);
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid())
-        {
-            if($mission->getCountry() !== $mission->getHideout())
+        if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
 
             $entityManager->persist($mission);
             $entityManager->flush();
+            $isadded = true;
         }
         return $this->render('mission/add.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'mission' => $mission,
+            'isadded' => $isadded
         ]);
     }
 
     /**
-     *@Route("/mission/edit/{id}", requirements={"id"="\d+"})
+     * @Route("/mission/edit/{id}", requirements={"id"="\d+"})
      */
-    public function edit(int $id,Request $request, MissionRepository $missionRepository): Response
+    public function edit(int $id, Request $request, MissionRepository $missionRepository): Response
     {
         $isedited = false;
         $mission = $missionRepository->find($id);
@@ -68,8 +71,7 @@ class MissionController extends AbstractController
             }
             $form = $this->createForm(MissionType::class, $mission);
             $form->handleRequest($request);
-            if ($form->isSubmitted() && $form->isValid())
-            {
+            if ($form->isSubmitted() && $form->isValid()) {
                 $entityManager = $this->getDoctrine()->getManager();
 
                 $entityManager->persist($mission);
@@ -87,7 +89,7 @@ class MissionController extends AbstractController
     }
 
     /**
-     *@Route("/mission/delete/{id}", requirements={"id"="\d+"})
+     * @Route("/mission/delete/{id}", requirements={"id"="\d+"})
      */
     public function delete(int $id, MissionRepository $missionRepository): Response
     {
@@ -99,9 +101,11 @@ class MissionController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($mission);
             $entityManager->flush();
-            return new Response('Mission deleted');
+            return $this->render('mission/delete.html.twig', [
+                'mission' => $mission
+            ]);
         } catch (ForeignKeyConstraintViolationException $e) {
-            return new Response('<h2>Deletion is impossible</h2>');
+            return new Response('<h2>Deletion is impossible.</h2><p>Be sure no agents, assets, targets or hideouts are linked to the mission</p>');
         } catch (Exception $e) {
             return new Response($e->getMessage());
         }

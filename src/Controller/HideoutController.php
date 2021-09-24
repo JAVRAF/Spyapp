@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Hideout;
 use App\Form\HideoutType;
 use App\Repository\HideoutRepository;
+use App\Repository\MissionRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class HideoutController extends AbstractController
 {
     /**
-     *@Route("/hideout")
+     * @Route("/hideout")
      */
     public function list(HideoutRepository $hideoutRepository, Request $request, PaginatorInterface $paginator): Response
     {
@@ -34,28 +35,36 @@ class HideoutController extends AbstractController
     }
 
     /**
-     *@Route("/hideout/add")
+     * @Route("/hideout/add")
      **/
-    public function add(Request $request): Response
+    public function add(Request $request, MissionRepository $missionrepository): Response
     {
+        $isAdded = false;
         $hideout = new Hideout();
         $form = $this->createForm(HideoutType::class, $hideout);
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid())
-        {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($hideout);
-            $entityManager->flush();
+        if ($form->isSubmitted() && $form->isValid()) {
+            $mission = $missionrepository->find($hideout->getMission());
+            if ($hideout->getCountry() === $mission->getCountry()) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($hideout);
+                $entityManager->flush();
+                $isAdded = true;
+            } else {
+                echo('<script>alert("Hideout must be in mission\'s country")</script>');
+            }
         }
         return $this->render('hideout/add.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'isAdded' => $isAdded,
+            'hideout' => $hideout
         ]);
     }
 
     /**
-     *@Route("/hideout/edit/{id}", requirements={"id"="\d+"})
+     * @Route("/hideout/edit/{id}", requirements={"id"="\d+"})
      */
-    public function edit(int $id, Request $request, HideoutRepository $hideoutRepository): Response
+    public function edit(int $id, Request $request, HideoutRepository $hideoutRepository, MissionRepository $missionrepository): Response
     {
         $isedited = false;
         $hideout = $hideoutRepository->find($id);
@@ -65,15 +74,18 @@ class HideoutController extends AbstractController
             }
             $form = $this->createForm(HideoutType::class, $hideout);
             $form->handleRequest($request);
-            if ($form->isSubmitted() && $form->isValid())
-            {
-
-                $entityManager = $this->getDoctrine()->getManager();
-                $entityManager->persist($hideout);
-                $entityManager->flush();
-                $isedited = true;
+            if ($form->isSubmitted() && $form->isValid()) {
+                $mission = $missionrepository->find($hideout->getMission());
+                if ($hideout->getCountry() === $mission->getCountry()) {
+                    $entityManager = $this->getDoctrine()->getManager();
+                    $entityManager->persist($hideout);
+                    $entityManager->flush();
+                    $isedited = true;
+                } else {
+                    echo('<script>alert("Hideout must be in mission\'s country")</script>');
+                }
             }
-            return $this->render('Hideout/edit.html.twig', [
+            return $this->render('hideout/edit.html.twig', [
                 'hideout' => $hideout,
                 'form' => $form->createView(),
                 'isedited' => $isedited
@@ -84,7 +96,7 @@ class HideoutController extends AbstractController
     }
 
     /**
-     *@Route("/hideout/delete/{id}", requirements={"id"="\d+"})
+     * @Route("/hideout/delete/{id}", requirements={"id"="\d+"})
      */
     public function delete(int $id, HideoutRepository $hideoutRepository): Response
     {
@@ -93,11 +105,13 @@ class HideoutController extends AbstractController
             if (!$hideout) {
                 throw new Exception('<h2>This hideout does not exist</h2>');
             }
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->remove($hideout);
-        $entityManager->flush();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($hideout);
+            $entityManager->flush();
 
-        return new Response('Hideout deleted');
+            return $this->render('hideout/delete.html.twig', [
+                'hideout' => $hideout
+            ]);
         } catch (Exception $e) {
             return new Response($e->getMessage());
         }

@@ -17,7 +17,7 @@ class DetailsController extends AbstractController
     /**
      * @Route("/details/{id}", requirements={"id"="\d+"})
      */
-    public function display(int $id,
+    public function display(int               $id,
                             MissionRepository $missionRepository,
                             AgentRepository   $agentRepository,
                             AssetRepository   $assetRepository,
@@ -32,8 +32,8 @@ class DetailsController extends AbstractController
                 'assets' => $assetRepository->findby(['current_mission' => $id]),
                 'targets' => $targetRepository->findby(['mission' => $id]),
             ]);
-        } catch(RuntimeError $e) {
-            return new Response('<h2>Mission '.$id.' doesn\'t exist</h2>');
+        } catch (RuntimeError $e) {
+            return new Response('<h2>Mission ' . $id . ' doesn\'t exist</h2>');
         }
 
     }

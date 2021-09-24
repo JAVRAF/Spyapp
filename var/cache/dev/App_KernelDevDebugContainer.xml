@@ -109,6 +109,8 @@
     <parameter key="form.type_extension.csrf.enabled">true</parameter>
     <parameter key="form.type_extension.csrf.field_name">_token</parameter>
     <parameter key="validator.translation_domain">validators</parameter>
+    <parameter key="asset.request_context.base_path">null</parameter>
+    <parameter key="asset.request_context.secure">null</parameter>
     <parameter key="translator.logging">false</parameter>
     <parameter key="translator.default_path">C:\xampp\apps\Spyapp/translations</parameter>
     <parameter key="profiler_listener.only_exceptions">false</parameter>
@@ -194,6 +196,7 @@
     <parameter key="doctrine.migrations.preferred_connection">null</parameter>
     <parameter key="twig.form.resources" type="collection">
       <parameter>form_div_layout.html.twig</parameter>
+      <parameter>bootstrap_3_horizontal_layout.html.twig</parameter>
     </parameter>
     <parameter key="twig.default_path">C:\xampp\apps\Spyapp/templates</parameter>
     <parameter key="security.role_hierarchy.roles" type="collection">
@@ -1454,6 +1457,55 @@
       <argument type="service" id="translator.data_collector" on-invalid="null"/>
       <argument>validators</argument>
       <argument type="service" id="form.server_params"/>
+    </service>
+    <service id="assets.packages" class="Symfony\Component\Asset\Packages">
+      <argument type="service" id="assets._default_package"/>
+      <argument type="tagged_iterator" tag="assets.package" index-by="package" default-index-method="getDefaultPackageName" default-priority-method="getDefaultPackagePriority"/>
+    </service>
+    <service id="assets.empty_package" class="Symfony\Component\Asset\Package">
+      <argument type="service" id="assets.empty_version_strategy"/>
+    </service>
+    <service id="assets.context" class="Symfony\Component\Asset\Context\RequestStackContext">
+      <argument type="service" id="request_stack"/>
+      <argument type="service">
+        <service class="string">
+          <factory service="router.request_context" method="getBaseUrl"/>
+        </service>
+      </argument>
+      <argument type="service">
+        <service class="bool">
+          <factory service="router.request_context" method="isSecure"/>
+        </service>
+      </argument>
+    </service>
+    <service id="assets.path_package" class="Symfony\Component\Asset\PathPackage" abstract="true">
+      <argument type="abstract">base path</argument>
+      <argument type="abstract">version strategy</argument>
+      <argument type="service" id="assets.context"/>
+    </service>
+    <service id="assets.url_package" class="Symfony\Component\Asset\UrlPackage" abstract="true">
+      <argument type="abstract">base URLs</argument>
+      <argument type="abstract">version strategy</argument>
+      <argument type="service" id="assets.context"/>
+    </service>
+    <service id="assets.static_version_strategy" class="Symfony\Component\Asset\VersionStrategy\StaticVersionStrategy" abstract="true">
+      <argument type="abstract">version</argument>
+      <argument type="abstract">format</argument>
+    </service>
+    <service id="assets.empty_version_strategy" class="Symfony\Component\Asset\VersionStrategy\EmptyVersionStrategy"/>
+    <service id="assets.json_manifest_version_strategy" class="Symfony\Component\Asset\VersionStrategy\JsonManifestVersionStrategy" abstract="true">
+      <argument type="abstract">manifest path</argument>
+      <argument type="service" id="http_client" on-invalid="null"/>
+    </service>
+    <service id="assets.remote_json_manifest_version_strategy" class="Symfony\Component\Asset\VersionStrategy\RemoteJsonManifestVersionStrategy" abstract="true">
+      <argument type="abstract">manifest url</argument>
+      <argument type="service" id="http_client"/>
+      <deprecated package="symfony/framework-bundle" version="5.3">The "%service_id%" service is deprecated, use "assets.json_manifest_version_strategy" instead.</deprecated>
+    </service>
+    <service id="assets._default_package" class="Symfony\Component\Asset\PathPackage">
+      <argument></argument>
+      <argument type="service" id="assets.empty_version_strategy"/>
+      <argument type="service" id="assets.context"/>
     </service>
     <service id="translator.default" class="Symfony\Bundle\FrameworkBundle\Translation\Translator">
       <tag name="kernel.locale_aware"/>
@@ -3731,6 +3783,9 @@
         <argument type="service" id="twig.extension.trans"/>
       </call>
       <call method="addExtension">
+        <argument type="service" id="twig.extension.assets"/>
+      </call>
+      <call method="addExtension">
         <argument type="service" id="twig.extension.code"/>
       </call>
       <call method="addExtension">
@@ -3889,6 +3944,10 @@
     <service id="twig.extension.trans" class="Symfony\Bridge\Twig\Extension\TranslationExtension">
       <tag name="twig.extension"/>
       <argument type="service" id="translator.data_collector" on-invalid="null"/>
+    </service>
+    <service id="twig.extension.assets" class="Symfony\Bridge\Twig\Extension\AssetExtension">
+      <tag name="twig.extension"/>
+      <argument type="service" id="assets.packages"/>
     </service>
     <service id="twig.extension.code" class="Symfony\Bridge\Twig\Extension\CodeExtension">
       <tag name="twig.extension"/>
@@ -5334,6 +5393,19 @@
         <argument key="paginator" type="service_closure" id="knp_paginator"/>
       </argument>
     </service>
+    <service id=".service_locator.RVr_iz6" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="targetRepository" type="service_closure" id="App\Repository\TargetRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.LYQAEuf" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="agentRepository" type="service_closure" id="App\Repository\AgentRepository"/>
+        <argument key="targetRepository" type="service_closure" id="App\Repository\TargetRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.h4TZExZ" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5345,6 +5417,19 @@
       <argument type="collection">
         <argument key="assetRepository" type="service_closure" id="App\Repository\AssetRepository"/>
         <argument key="paginator" type="service_closure" id="knp_paginator"/>
+      </argument>
+    </service>
+    <service id=".service_locator.QuDc2nK" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="missionrepository" type="service_closure" id="App\Repository\MissionRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.Llo3MjG" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="assetRepository" type="service_closure" id="App\Repository\AssetRepository"/>
+        <argument key="missionrepository" type="service_closure" id="App\Repository\MissionRepository"/>
       </argument>
     </service>
     <service id=".service_locator.Lo5OwJg" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -5390,6 +5475,13 @@
         <argument key="paginator" type="service_closure" id="knp_paginator"/>
       </argument>
     </service>
+    <service id=".service_locator.k5gIXDv" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="hideoutRepository" type="service_closure" id="App\Repository\HideoutRepository"/>
+        <argument key="missionrepository" type="service_closure" id="App\Repository\MissionRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.aSuEoP9" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5428,29 +5520,27 @@
         <argument key="targetRepository" type="service_closure" id="App\Repository\TargetRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.RVr_iz6" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.6G67jaQ" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="targetRepository" type="service_closure" id="App\Repository\TargetRepository"/>
-      </argument>
-    </service>
-    <service id=".service_locator.48VjloX" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
+        <argument key="App\Controller\AgentController::add" type="service_closure" id=".service_locator.RVr_iz6"/>
         <argument key="App\Controller\AgentController::delete" type="service_closure" id=".service_locator.h4TZExZ"/>
-        <argument key="App\Controller\AgentController::edit" type="service_closure" id=".service_locator.h4TZExZ"/>
+        <argument key="App\Controller\AgentController::edit" type="service_closure" id=".service_locator.LYQAEuf"/>
         <argument key="App\Controller\AgentController::list" type="service_closure" id=".service_locator.ioncQ9L"/>
+        <argument key="App\Controller\AssetController::add" type="service_closure" id=".service_locator.QuDc2nK"/>
         <argument key="App\Controller\AssetController::delete" type="service_closure" id=".service_locator.Lo5OwJg"/>
-        <argument key="App\Controller\AssetController::edit" type="service_closure" id=".service_locator.Lo5OwJg"/>
+        <argument key="App\Controller\AssetController::edit" type="service_closure" id=".service_locator.Llo3MjG"/>
         <argument key="App\Controller\AssetController::list" type="service_closure" id=".service_locator.D5aMVlF"/>
         <argument key="App\Controller\CountryController::delete" type="service_closure" id=".service_locator.1rC5dQh"/>
         <argument key="App\Controller\CountryController::edit" type="service_closure" id=".service_locator.1rC5dQh"/>
         <argument key="App\Controller\CountryController::list" type="service_closure" id=".service_locator.tpmLUEw"/>
         <argument key="App\Controller\DefaultController::index" type="service_closure" id=".service_locator.DsoaNx3"/>
         <argument key="App\Controller\DetailsController::display" type="service_closure" id=".service_locator.6YukcaO"/>
+        <argument key="App\Controller\HideoutController::add" type="service_closure" id=".service_locator.QuDc2nK"/>
         <argument key="App\Controller\HideoutController::delete" type="service_closure" id=".service_locator.aSuEoP9"/>
-        <argument key="App\Controller\HideoutController::edit" type="service_closure" id=".service_locator.aSuEoP9"/>
+        <argument key="App\Controller\HideoutController::edit" type="service_closure" id=".service_locator.k5gIXDv"/>
         <argument key="App\Controller\HideoutController::list" type="service_closure" id=".service_locator.jITUWTL"/>
+        <argument key="App\Controller\MissionController::add" type="service_closure" id=".service_locator.aSuEoP9"/>
         <argument key="App\Controller\MissionController::delete" type="service_closure" id=".service_locator.1WMJv05"/>
         <argument key="App\Controller\MissionController::edit" type="service_closure" id=".service_locator.1WMJv05"/>
         <argument key="App\Controller\MissionController::list" type="service_closure" id=".service_locator.DsoaNx3"/>
@@ -5467,20 +5557,24 @@
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel::terminate" type="service_closure" id=".service_locator.KfwZsne"/>
+        <argument key="App\Controller\AgentController:add" type="service_closure" id=".service_locator.RVr_iz6"/>
         <argument key="App\Controller\AgentController:delete" type="service_closure" id=".service_locator.h4TZExZ"/>
-        <argument key="App\Controller\AgentController:edit" type="service_closure" id=".service_locator.h4TZExZ"/>
+        <argument key="App\Controller\AgentController:edit" type="service_closure" id=".service_locator.LYQAEuf"/>
         <argument key="App\Controller\AgentController:list" type="service_closure" id=".service_locator.ioncQ9L"/>
+        <argument key="App\Controller\AssetController:add" type="service_closure" id=".service_locator.QuDc2nK"/>
         <argument key="App\Controller\AssetController:delete" type="service_closure" id=".service_locator.Lo5OwJg"/>
-        <argument key="App\Controller\AssetController:edit" type="service_closure" id=".service_locator.Lo5OwJg"/>
+        <argument key="App\Controller\AssetController:edit" type="service_closure" id=".service_locator.Llo3MjG"/>
         <argument key="App\Controller\AssetController:list" type="service_closure" id=".service_locator.D5aMVlF"/>
         <argument key="App\Controller\CountryController:delete" type="service_closure" id=".service_locator.1rC5dQh"/>
         <argument key="App\Controller\CountryController:edit" type="service_closure" id=".service_locator.1rC5dQh"/>
         <argument key="App\Controller\CountryController:list" type="service_closure" id=".service_locator.tpmLUEw"/>
         <argument key="App\Controller\DefaultController:index" type="service_closure" id=".service_locator.DsoaNx3"/>
         <argument key="App\Controller\DetailsController:display" type="service_closure" id=".service_locator.6YukcaO"/>
+        <argument key="App\Controller\HideoutController:add" type="service_closure" id=".service_locator.QuDc2nK"/>
         <argument key="App\Controller\HideoutController:delete" type="service_closure" id=".service_locator.aSuEoP9"/>
-        <argument key="App\Controller\HideoutController:edit" type="service_closure" id=".service_locator.aSuEoP9"/>
+        <argument key="App\Controller\HideoutController:edit" type="service_closure" id=".service_locator.k5gIXDv"/>
         <argument key="App\Controller\HideoutController:list" type="service_closure" id=".service_locator.jITUWTL"/>
+        <argument key="App\Controller\MissionController:add" type="service_closure" id=".service_locator.aSuEoP9"/>
         <argument key="App\Controller\MissionController:delete" type="service_closure" id=".service_locator.1WMJv05"/>
         <argument key="App\Controller\MissionController:edit" type="service_closure" id=".service_locator.1WMJv05"/>
         <argument key="App\Controller\MissionController:list" type="service_closure" id=".service_locator.DsoaNx3"/>
@@ -5814,12 +5908,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.48VjloX"/>
+      <argument type="service" id=".service_locator.6G67jaQ"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.48VjloX"/>
+      <argument type="service" id=".service_locator.6G67jaQ"/>
     </service>
     <service id=".doctrine.orm.default_metadata_driver.inner" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain">
       <call method="addDriver">
@@ -6563,6 +6657,7 @@
     <service id="Symfony\Component\Form\FormFactoryInterface" alias="form.factory"/>
     <service id="form.property_accessor" alias="property_accessor"/>
     <service id="form.choice_list_factory" alias="form.choice_list_factory.cached"/>
+    <service id="Symfony\Component\Asset\Packages" alias="assets.packages"/>
     <service id="Symfony\Component\Translation\Reader\TranslationReaderInterface" alias="translation.reader"/>
     <service id="Symfony\Component\Translation\Extractor\ExtractorInterface" alias="translation.extractor"/>
     <service id="Symfony\Component\Translation\Writer\TranslationWriterInterface" alias="translation.writer"/>
@@ -6642,7 +6737,7 @@
     <service id="Knp\Component\Pager\PaginatorInterface" alias="knp_paginator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.0GV1BZZ" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.48VjloX"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.6G67jaQ"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -6668,21 +6763,25 @@
     <service id=".service_locator._5g_Wvc" alias=".service_locator.KfwZsne"/>
     <service id=".service_locator.JBAFp66" alias=".service_locator.KfbR3DY"/>
     <service id=".service_locator.z8q4iBH" alias=".service_locator.ioncQ9L"/>
+    <service id=".service_locator.cotJpp8" alias=".service_locator.RVr_iz6"/>
+    <service id=".service_locator.5V6eaGJ" alias=".service_locator.LYQAEuf"/>
     <service id=".service_locator.r176jwL" alias=".service_locator.h4TZExZ"/>
     <service id=".service_locator.C1HqWH3" alias=".service_locator.D5aMVlF"/>
+    <service id=".service_locator.SvH9m_z" alias=".service_locator.QuDc2nK"/>
+    <service id=".service_locator.GCsYvi7" alias=".service_locator.Llo3MjG"/>
     <service id=".service_locator.Ua.6kfQ" alias=".service_locator.Lo5OwJg"/>
     <service id=".service_locator.81QIjgA" alias=".service_locator.tpmLUEw"/>
     <service id=".service_locator.u8ZRHcj" alias=".service_locator.1rC5dQh"/>
     <service id=".service_locator.Cnpf7fn" alias=".service_locator.DsoaNx3"/>
     <service id=".service_locator.UriUs_J" alias=".service_locator.6YukcaO"/>
     <service id=".service_locator.Re0bT8N" alias=".service_locator.jITUWTL"/>
+    <service id=".service_locator.FHN1DDR" alias=".service_locator.k5gIXDv"/>
     <service id=".service_locator.BQFEi.P" alias=".service_locator.aSuEoP9"/>
     <service id=".service_locator.2Xi1YC9" alias=".service_locator.1WMJv05"/>
     <service id=".service_locator.kXCVHeG" alias=".service_locator.UDgw6Ol"/>
     <service id=".service_locator.CDaC6NE" alias=".service_locator.wAudteR"/>
     <service id=".service_locator.1BFX0PL" alias=".service_locator.j21eJRj"/>
     <service id=".service_locator.hGbAeDd" alias=".service_locator.aKr4sE1"/>
-    <service id=".service_locator.cotJpp8" alias=".service_locator.RVr_iz6"/>
     <service id=".service_locator.S3Bk2.h" alias=".service_locator.W9y3dzm"/>
   </services>
 </container>

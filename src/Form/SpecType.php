@@ -14,14 +14,7 @@ class SpecType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('type')
-            ->add('agents', EntityType::class, [
-                'class' => Agent::class,
-                'choice_label' => 'name',
-                'multiple' => true,
-                'expanded' => true
-            ])
-        ;
+            ->add('type');
     }
 
     public function configureOptions(OptionsResolver $resolver)

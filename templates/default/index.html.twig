@@ -1,42 +1,36 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-    .Success {background-color: palegreen}
-    .In_progress {background-color: darkorange}
-    .Failure {background-color: red}
-    table, tr, th, td {
-        border: 1px solid black;
-    }
-</style>
-<div class="example-wrapper">
-    <h1>Missions :</h1>
-    {% if missionsCount > 0  %}
-        <table>
-            <tr>
-                <th>Title</th>
-                <th>Codename</th>
-                <th>Type</th>
-                <th>Status</th>
-                <th></th>
-            </tr>
-            {% for mission in pagination %}
-                <tr {#{% if loop.index is odd %}class="color"{% endif %}#}>
-                    <td>{{ mission.title }}</td>
-                    <td>{{ mission.codename }}</td>
-                    <td>{{ mission.type }}</td>
-                    <td class="{{ mission.status }}">{% if mission.status is same as ('In_progress') %} In progress {% else %} {{ mission.status }} {% endif %}</td>
-                    <td><button onclick="window.location.href = '{{path('app_details_display', {'id': mission.id})}}'">Details</button></td>
+    <div class="example-wrapper missiondetails">
+        <h1>Missions :</h1>
+        {% if missionsCount > 0 %}
+            <table>
+                <tr>
+                    <th class="textcase">Title</th>
+                    <th class="textcase">Codename</th>
+                    <th class="textcase">Type</th>
+                    <th class="textcase">Status</th>
+                    <th></th>
                 </tr>
-            {% endfor %}
-        </table>
-        <div>
-            {{ knp_pagination_render(pagination) }}
-        </div>
-    {% else %}
-    <h2>There is no missions</h2>
-    {% endif %}
-</div>
+                {% for mission in pagination %}
+                    <tr>
+                        <td class="textcase">{{ mission.title }}</td>
+                        <td class="textcase">{{ mission.codename }}</td>
+                        <td class="textcase">{{ mission.type }}</td>
+                        <td class="{{ mission.status }} textcase">{% if mission.status is same as ('In_progress') %} In progress {% else %} {{ mission.status }} {% endif %}</td>
+                        <td>
+                            <button class="tablebutton" onclick="window.location.href = '{{ path('app_details_display', {'id': mission.id}) }}'">
+                                Details
+                            </button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <div>
+                {{ knp_pagination_render(pagination) }}
+            </div>
+        {% else %}
+            <h2>There is no missions</h2>
+        {% endif %}
+    </div>
 {% endblock %}

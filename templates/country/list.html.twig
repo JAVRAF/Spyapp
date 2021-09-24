@@ -1,21 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <style>
-        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-        table, tr, th, td {
-            border: 1px solid black;
-        }
-
-        button {
-        }
-
-    </style>
-
     <div class="example-wrapper">
         <h1>Countries :</h1>
-        {% if countriesCount > 0  %}
+        {% if countriesCount > 0 %}
             <table>
                 <tr>
                     <th>name</th>
@@ -25,8 +13,16 @@
                 {% for country in pagination %}
                     <tr>
                         <td>{{ country.name }}</td>
-                        <td><button onclick="window.location.href = '{{path('app_country_edit', {'id': country.id})}}'">Edit</button></td>
-                        <td><button onclick="window.location.href = '{{path('app_country_delete', {'id': country.id})}}'">Delete</button></td>
+                        <td>
+                            <button class="tablebutton" onclick="window.location.href = '{{ path('app_country_edit', {'id': country.id}) }}'">
+                                Edit
+                            </button>
+                        </td>
+                        <td>
+                            <button class="tablebutton" onclick="window.location.href = '{{ path('app_country_delete', {'id': country.id}) }}'">
+                                Delete
+                            </button>
+                        </td>
                     </tr>
                 {% endfor %}
             </table>

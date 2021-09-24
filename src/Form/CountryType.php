@@ -13,8 +13,7 @@ class CountryType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('nationality')
-        ;
+            ->add('nationality');
     }
 
     public function configureOptions(OptionsResolver $resolver)

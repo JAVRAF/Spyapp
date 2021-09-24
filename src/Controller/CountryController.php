@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class CountryController extends AbstractController
 {
     /**
-     *@Route("/country")
+     * @Route("/country")
      */
     public function list(CountryRepository $countryRepository, Request $request, PaginatorInterface $paginator): Response
     {
@@ -34,7 +34,7 @@ class CountryController extends AbstractController
     }
 
     /**
-     *@Route("/country/add")
+     * @Route("/country/add")
      */
     public function add(Request $request): Response
     {
@@ -42,8 +42,7 @@ class CountryController extends AbstractController
         $country = new Country();
         $form = $this->createForm(CountryType::class, $country);
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid())
-        {
+        if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
 
             $entityManager->persist($country);
@@ -51,27 +50,26 @@ class CountryController extends AbstractController
             $isAdded = true;
         }
         return $this->render('country/add.html.twig', [
-            'country' =>  $country,
+            'country' => $country,
             'form' => $form->createView(),
             'isAdded' => $isAdded
         ]);
     }
 
     /**
-     *@Route("/country/edit/{id}", requirements={"id"="\d+"})
+     * @Route("/country/edit/{id}", requirements={"id"="\d+"})
      */
-    public function edit(int $id,Request $request, CountryRepository $countryRepository): Response
+    public function edit(int $id, Request $request, CountryRepository $countryRepository): Response
     {
         $isedited = false;
         $country = $countryRepository->find($id);
-        try{
+        try {
             if (!$country) {
                 throw new Exception('<h2>This country does not exist</h2>');
             }
             $form = $this->createForm(CountryType::class, $country);
             $form->handleRequest($request);
-            if ($form->isSubmitted() && $form->isValid())
-            {
+            if ($form->isSubmitted() && $form->isValid()) {
                 $entityManager = $this->getDoctrine()->getManager();
 
                 $entityManager->persist($country);
@@ -89,7 +87,7 @@ class CountryController extends AbstractController
     }
 
     /**
-     *@Route("/country/delete/{id}", requirements={"id"="\d+"})
+     * @Route("/country/delete/{id}", requirements={"id"="\d+"})
      */
     public function delete(int $id, CountryRepository $countryRepository): Response
     {
@@ -97,11 +95,13 @@ class CountryController extends AbstractController
         try {
             if (!$country) {
                 throw new Exception('<h2>This country does not exist</h2>');
-                }
+            }
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($country);
             $entityManager->flush();
-            return new Response('Country deleted');
+            return $this->render('country/delete.html.twig', [
+                'country' => $country
+            ]);
         } catch (Exception $e) {
             return new Response($e->getMessage());
         }

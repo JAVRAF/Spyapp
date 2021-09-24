@@ -25,8 +25,7 @@ class HideoutType extends AbstractType
             ->add('mission', EntityType::class, [
                 'class' => Mission::class,
                 'choice_label' => 'Title',
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

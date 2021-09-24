@@ -82,7 +82,7 @@ class Mission
     private $begin_date;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="date", nullable=true)
      */
     private $end_date;
 
@@ -320,7 +320,7 @@ class Mission
         return $this->end_date;
     }
 
-    public function setEndDate(\DateTimeInterface $end_date): self
+    public function setEndDate(?\DateTimeInterface $end_date): self
     {
         $this->end_date = $end_date;
 

@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 class TargetController extends AbstractController
 {
     /**
-     *@Route("/target")
+     * @Route("/target")
      **/
     public function list(TargetRepository $targetRepository, Request $request, PaginatorInterface $paginator): Response
     {
@@ -34,7 +34,7 @@ class TargetController extends AbstractController
     }
 
     /**
-     *@Route("/target/add")
+     * @Route("/target/add")
      **/
     public function add(Request $request): Response
     {
@@ -42,8 +42,7 @@ class TargetController extends AbstractController
         $target = new Target();
         $form = $this->createForm(TargetType::class, $target);
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid())
-        {
+        if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
 
             $entityManager->persist($target);
@@ -55,9 +54,9 @@ class TargetController extends AbstractController
     }
 
     /**
-     *@Route("/target/edit/{id}", requirements={"id"="\d+"})
+     * @Route("/target/edit/{id}", requirements={"id"="\d+"})
      */
-    public function edit(int $id,Request $request, TargetRepository $targetRepository): Response
+    public function edit(int $id, Request $request, TargetRepository $targetRepository): Response
     {
         $isedited = false;
         $target = $targetRepository->find($id);
@@ -67,8 +66,7 @@ class TargetController extends AbstractController
             }
             $form = $this->createForm(TargetType::class, $target);
             $form->handleRequest($request);
-            if ($form->isSubmitted() && $form->isValid())
-            {
+            if ($form->isSubmitted() && $form->isValid()) {
 
                 $entityManager = $this->getDoctrine()->getManager();
 
@@ -87,7 +85,7 @@ class TargetController extends AbstractController
     }
 
     /**
-     *@Route("/target/delete/{id}")
+     * @Route("/target/delete/{id}")
      */
     public function delete(int $id, TargetRepository $targetRepository): Response
     {
@@ -96,11 +94,13 @@ class TargetController extends AbstractController
             if (!$target) {
                 throw new Exception('<h2>This target does not exist</h2>');
             }
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->remove($target);
-        $entityManager->flush();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($target);
+            $entityManager->flush();
 
-        return new Response('Target deleted');
+            return $this->render('target/delete.html.twig', [
+                'target' => $target
+            ]);
         } catch (Exception $e) {
             return new Response($e->getMessage());
         }

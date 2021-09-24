@@ -1,21 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    {% if isedited == false %}
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <input type="submit" value="edit specialty"/>
-    {{ form_end(form) }}
-    <button onclick="window.location.href = '{{ path('app_specialty_list') }}'">Back to Specialty list</button>
-    {% elseif isedited == true %}
-    <h1>The specialty {{ specialty.type }} has been edited! ✅</h1>
-    <button onclick="window.location.href = '{{ path('app_specialty_list') }}'">Back to specialty list</button>
-    {% endif %}
-</div>
+    <div class="example-wrapper">
+        {% if isedited == false %}
+            <h1>Edit specialty {{ specialty.type }}</h1>
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <input class="button" type="submit" value="edit specialty"/>
+            {{ form_end(form) }}
+            <button onclick="window.location.href = '{{ path('app_specialty_list') }}'">Back to Specialty list</button>
+        {% elseif isedited == true %}
+            <h1>The specialty {{ specialty.type }} has been edited! ✅</h1>
+            <button onclick="window.location.href = '{{ path('app_specialty_list') }}'">Back to specialty list</button>
+        {% endif %}
+    </div>
 {% endblock %}

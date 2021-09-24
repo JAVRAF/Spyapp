@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="example-wrapper">
+        <h1>The hideout {{ hideout.code }} has been deleted! ✅</h1>
+        <button onclick="window.location.href = '{{ path('app_hideout_list') }}'">Back to hideout list</button>
+    </div>
+{% endblock %}

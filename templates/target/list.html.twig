@@ -1,22 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <style>
-        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-
-        table, tr, th, td {
-            border: 1px solid black;
-        }
-
-        button {
-        }
-
-    </style>
-
     <div class="example-wrapper">
         <h1>Targets :</h1>
-        {% if TargetsCount > 0  %}
+        {% if TargetsCount > 0 %}
             <table>
                 <tr>
                     <th>name</th>
@@ -26,8 +13,16 @@
                 {% for target in pagination %}
                     <tr>
                         <td>{{ target.name }}, {{ target.surname }} </td>
-                        <td><button onclick="window.location.href = '{{path('app_target_edit', {'id': target.id})}}'">Edit</button></td>
-                        <td><button onclick="window.location.href = '{{path('app_target_delete', {'id': target.id})}}'">Delete</button></td>
+                        <td>
+                            <button class="tablebutton" onclick="window.location.href = '{{ path('app_target_edit', {'id': target.id}) }}'">
+                                Edit
+                            </button>
+                        </td>
+                        <td>
+                            <button class="tablebutton" onclick="window.location.href = '{{ path('app_target_delete', {'id': target.id}) }}'">
+                                Delete
+                            </button>
+                        </td>
                     </tr>
                 {% endfor %}
             </table>

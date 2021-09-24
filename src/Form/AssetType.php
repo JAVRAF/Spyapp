@@ -29,8 +29,7 @@ class AssetType extends AbstractType
             ->add('current_mission', EntityType::class, [
                 'class' => Mission::class,
                 'choice_label' => 'Title',
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

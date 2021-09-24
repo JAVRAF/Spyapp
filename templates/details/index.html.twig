@@ -3,50 +3,49 @@
 {% block title %}{{ mission.codename }}'s details{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-    .Success {color: springgreen}
-    .In_progress {color: darkorange}
-    .Failure {color : red}
-</style>
 
-<div class="example-wrapper">
-    <h1>{{ mission.title }}'s details :</h1>
-    <ul>
-        <li>Title: {{ mission.title }}</li>
-        <li>Codename: {{ mission.codename }}</li>
-        <li>Type: {{ mission.type }}</li>
-        <li>Description: {{ mission.description }}</li>
-        <li>Country: {{ mission.country.name }}</li>
-        <li>Hideout(s): <ul>
-                {% for hideout in hideouts %}
-                    <li>{{ hideout.code }}, {{ hideout.address }}</li>
-                {% endfor %}
-            </ul>
-        </li>
-        <li>Required Specialty: {{ mission.requiredSpecialty.type }}</li>
-        <li>Agent(s): <ul>
-                {% for agent in agents %}
-                    <li>{% if agent.name is same as ('47') %} Agent 47 {% else %} {{ agent.name }}, {{ agent.surname }} {% endif %}</li>
-                {% endfor %}
-            </ul>
-        </li>
-        <li>Asset(s): <ul>
-                {% for asset in assets %}
-                    <li>{{ asset.name }}, {{ asset.surname }}</li>
-                {% endfor %}
-            </ul>
-        </li>
-        <li>Target(s): <ul>
-                {% for target in targets %}
-                    <li>{{ target.name }}, {{ target.surname }}</li>
-                {% endfor %}
-            </ul>
-        </li>
-        <li>Started: {{ mission.begindate|date("d/m/Y") }}</li>
-        {% if mission.status is same as ('In_progress') %} {% else %} <li>Ended: {{ mission.enddate|date("d/m/Y") }}</li>{% endif %}
-        <li class="{{ mission.status }}">Status: {% if mission.status is same as ('In_progress') %} In progress {% else %} {{ mission.status }} {% endif %}</li>
-    </ul>
-</div>
+    <div class="example-wrapper">
+        <h1>{{ mission.title }}'s details :</h1>
+        <ul>
+            <li>Title: <b>{{ mission.title }}</b></li>
+            <li>Codename: <b>{{ mission.codename }}</b></li>
+            <li>Type: <b>{{ mission.type }}</b></li>
+            <li>Description: <b>{{ mission.description }}</b></li>
+            <li>Country: <b>{{ mission.country.name }}</b></li>
+            <li>Hideout(s):
+                <ul>
+                    {% for hideout in hideouts %}
+                        <li><b>{{ hideout.code }}, {{ hideout.address }}</b></li>
+                    {% endfor %}
+                </ul>
+            </li>
+            <li>Required Specialty: <b>{{ mission.requiredSpecialty.type }}</b></li>
+            <li>Agent(s):
+                <ul>
+                    {% for agent in agents %}
+                        <li><b>{% if agent.name is same as ('47') %} Agent 47 {% else %} {{ agent.name }}, {{ agent.surname }} {% endif %}</b></li>
+                    {% endfor %}
+                </ul>
+            </li>
+            <li>Asset(s):
+                <ul>
+                    {% for asset in assets %}
+                        <li><b>{{ asset.name }}, {{ asset.surname }}</b></li>
+                    {% endfor %}
+                </ul>
+            </li>
+            <li>Target(s):
+                <ul>
+                    {% for target in targets %}
+                        <li><b>{{ target.name }}, {{ target.surname }}</b></li>
+                    {% endfor %}
+                </ul>
+            </li>
+            <li>Started: <b>{{ mission.begindate|date("d/m/Y") }}</b></li>
+            {% if mission.status is same as ('In_progress') or mission.status is same as ('Planification') %} {% else %}
+                <li>Ended: <b>{{ mission.enddate|date("d/m/Y") }}</b></li>{% endif %}
+            <li>
+                Status: {% if mission.status is same as ('In_progress') %} <b class="{{ mission.status }}details">In progress</b> {% else %} <b class="{{ mission.status }}details">{{ mission.status }}</b> {% endif %}</li>
+        </ul>
+    </div>
 {% endblock %}

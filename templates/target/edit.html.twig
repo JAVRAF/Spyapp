@@ -1,21 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    {% if isedited == false %}
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <input type="submit" value="edit target"/>
-    <button onclick="window.location.href = '{{ path('app_target_list') }}'">Back to target list</button>
-    {{ form_end(form) }}
-    {% else %}
-    <h1>The agent {{ target.name }}, {{ target.surname }} has been edited! ✅</h1>
-    <button onclick="window.location.href = '{{ path('app_target_list') }}'">Back to target list</button>
-    {% endif %}
-</div>
+    <div class="example-wrapper">
+        {% if isedited == false %}
+            <h1>Edit target {{ target.name }}</h1>
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <input class="button" type="submit" value="edit target"/>
+            {{ form_end(form) }}
+            <button onclick="window.location.href = '{{ path('app_target_list') }}'">Back to target list</button>
+        {% else %}
+            <h1>The target {{ target.name }}, {{ target.surname }} has been edited! ✅</h1>
+            <button onclick="window.location.href = '{{ path('app_target_list') }}'">Back to target list</button>
+        {% endif %}
+    </div>
 {% endblock %}

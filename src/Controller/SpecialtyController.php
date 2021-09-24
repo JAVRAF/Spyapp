@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class SpecialtyController extends AbstractController
 {
     /**
-     *@Route("/spec")
+     * @Route("/spec")
      **/
     public function list(SpecialtyRepository $specialtyRepository, Request $request, PaginatorInterface $paginator): Response
     {
@@ -34,30 +34,32 @@ class SpecialtyController extends AbstractController
     }
 
     /**
-     *@Route("/spec/add")
+     * @Route("/spec/add")
      **/
     public function add(Request $request): Response
     {
-
+        $isadded = false;
         $spec = new Specialty();
         $form = $this->createForm(SpecType::class, $spec);
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid())
-        {
+        if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
 
             $entityManager->persist($spec);
             $entityManager->flush();
+            $isadded = true;
         }
         return $this->render('specialty/add.html.twig', [
-            'form' => $form->createView()
+            'specialty' => $spec,
+            'form' => $form->createView(),
+            'isadded' => $isadded
         ]);
     }
 
     /**
-     *@Route("/spec/edit/{id}", requirements={"id"="\d+"})
+     * @Route("/spec/edit/{id}", requirements={"id"="\d+"})
      */
-    public function edit(int $id,Request $request, SpecialtyRepository $specialtyRepository): Response
+    public function edit(int $id, Request $request, SpecialtyRepository $specialtyRepository): Response
     {
         $isedited = false;
         $spec = $specialtyRepository->find($id);
@@ -67,8 +69,7 @@ class SpecialtyController extends AbstractController
             }
             $form = $this->createForm(SpecType::class, $spec);
             $form->handleRequest($request);
-            if ($form->isSubmitted() && $form->isValid())
-            {
+            if ($form->isSubmitted() && $form->isValid()) {
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($spec);
                 $entityManager->flush();
@@ -85,7 +86,7 @@ class SpecialtyController extends AbstractController
     }
 
     /**
-     *@Route("/spec/delete/{id}", requirements={"id"="\d+"})
+     * @Route("/spec/delete/{id}", requirements={"id"="\d+"})
      */
     public function delete(int $id, SpecialtyRepository $specialtyRepository): Response
     {
@@ -98,7 +99,9 @@ class SpecialtyController extends AbstractController
             $entityManager->remove($spec);
             $entityManager->flush();
 
-            return new Response('Specialty deleted');
+            return $this->render('specialty/delete.html.twig', [
+                'specialty' => $spec
+            ]);
         } catch (Exception $e) {
             return new Response($e->getMessage());
         }
